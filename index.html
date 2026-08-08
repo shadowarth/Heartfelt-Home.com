@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heartfelt Home - Mobile Salon Services</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS Variables */
+        :root {
+            --primary-color: #c99856; 
+            --secondary-color: #faedcd; 
+            --bg-color: #fcfbf8; 
+            --text-dark: #2c2c2c;
+            --text-light: #ffffff;
+            --border-light: #e6dfcc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Navigation Bar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.98);
+            padding: 15px 50px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.06);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        /* Fancy Logo */
+        .logo {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.4rem;
+            color: var(--primary-color);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 35px;
+        }
+
+        .nav-links li {
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 1.05rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        .nav-links li:hover {
+            color: var(--primary-color);
+        }
+
+        /* Tab Content Containers */
+        .tab-content {
+            display: none;
+            padding: 120px 20px 60px;
+            flex-grow: 1;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            background-image: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)), url('videoblocks-646f8a4ccdf8cd05c44560c6_rrptd0cbh_thumbnail-1080_14.jpg'); 
+            background-size: cover;
+            background-position: center;
+            border-radius: 20px;
+            padding: 90px 40px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+            margin-bottom: 60px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            color: var(--text-dark);
+        }
+        
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 50px;
+            color: var(--primary-color);
+            font-weight: 700;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-color);
+            margin: 15px auto 0;
+            border-radius: 5px;
+        }
+
+        /* Home Featured Services Grid */
+        .price-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .price-card {
+            background: #fff;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            text-align: center;
+            transition: transform 0.4s, box-shadow 0.4s;
+        }
+
+        .price-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .price-card img {
+            width: 100%;
+            height: 250px;
+            border-radius: 12px;
+            object-fit: cover;
+            margin-bottom: 25px;
+            border: 4px solid var(--secondary-color);
+        }
+
+        .price-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 12px;
+        }
+
+        .home-price {
+            font-size: 1.6rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin: 20px 0 0 0;
+        }
+
+        /* Elevated Pricing List Design */
+        .pricing-container {
+            max-width: 950px;
+            margin: 0 auto;
+        }
+
+        .pricing-category {
+            background: #fff;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            margin-bottom: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Subtle background decoration for pricing cards */
+        .pricing-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+        }
+
+        .pricing-category h3 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+        }
+
+        .pricing-item {
+            margin-bottom: 25px;
+            padding: 10px 15px;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+        
+        .pricing-item:hover {
+            background-color: #faf8f5;
+        }
+        
+        .pricing-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .pricing-title-row {
+            display: flex;
+            align-items: baseline;
+            width: 100%;
+        }
+
+        .pricing-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-right: 15px;
+        }
+
+        .leader {
+            flex-grow: 1;
+            border-bottom: 2px dotted #d1c8b4;
+            margin: 0 15px;
+            position: relative;
+            top: -5px;
+        }
+
+        .pricing-cost {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            white-space: nowrap;
+        }
+
+        .pricing-desc {
+            font-size: 0.95rem;
+            color: #666;
+            margin-top: 8px;
+            display: block;
+            max-width: 90%;
+            font-style: italic;
+        }
+
+        /* Contact Section */
+        .contact-box {
+            background: #fff;
+            padding: 60px 40px;
+            border-radius: 20px;
+            max-width: 650px;
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .contact-box p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .contact-number {
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 40px;
+            display: block;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 65px;
+            height: 65px;
+            background-color: var(--secondary-color);
+            border-radius: 50%;
+            color: var(--primary-color);
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            transform: scale(1.15) rotate(5deg);
+            box-shadow: 0 5px 15px rgba(201, 152, 86, 0.4);
+        }
+
+        .social-links svg {
+            width: 32px;
+            height: 32px;
+            fill: currentColor;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #fff;
+            text-align: center;
+            padding: 25px 20px;
+            font-size: 0.9rem;
+            color: #888;
+            border-top: 1px solid var(--border-light);
+            margin-top: auto;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                padding: 15px 20px;
+            }
+            .logo {
+                font-size: 2.2rem;
+                margin-bottom: 15px;
+            }
+            .nav-links {
+                gap: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .tab-content {
+                padding: 150px 15px 40px;
+            }
+            .hero {
+                padding: 50px 20px;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .section-title {
+                font-size: 2.2rem;
+            }
+            .pricing-category {
+                padding: 30px 20px;
+            }
+            .pricing-title-row {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .leader {
+                display: none; /* Hide dots on mobile for cleaner look */
+            }
+            .pricing-cost {
+                margin-top: 5px;
+            }
+            .pricing-desc {
+                max-width: 100%;
+            }
+            .contact-number {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body onload="openTab('homeTab')">
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Heartfelt Home</div>
+        <ul class="nav-links">
+            <li onclick="openTab('homeTab')">Home</li>
+            <li onclick="openTab('pricingTab')">Prices</li>
+            <li onclick="openTab('contactTab')">Contact</li>
+        </ul>
+    </nav>
+
+    <!-- ==================== HOME TAB ==================== -->
+    <div id="homeTab" class="tab-content">
+        <div class="hero">
+            <h1>Luxury In-Home Services</h1>
+            <p>Heartfelt Home provides professional mobile hair and nail services across Singapore, bringing haircuts, styling, colouring, treatments, manicures, and pedicures directly to your home for clean, convenient, and reliable salon care for all ages.</p>
+        </div>
+
+        <h2 class="section-title">Featured Art & Services</h2>
+        <div class="price-grid">
+            
+            <!-- Featured 1 -->
+            <div class="price-card">
+                <img src="pngtree-procedure-of-pedicure-in-beauty-salon-nail-polishing-with-nail-polish-image_4083399.jpg" alt="Classic Pedicure">
+                <h3>Classic Spa Pedicure</h3>
+                <p>Relaxing foot soak, cuticle care, and flawless polish application.</p>
+                <div class="home-price">From $86</div>
+            </div>
+
+            <!-- Featured 2 -->
+            <div class="price-card">
+                <img src="1fafd75b9bc2e2ff73b10701ec72f3d9.jpg" alt="Premium Art">
+                <h3>Premium Gel Design</h3>
+                <p>Elegant dual-tone gel polish with beautiful metallic accents.</p>
+                <div class="home-price">From $128</div>
+            </div>
+
+            <!-- Featured 3 -->
+            <div class="price-card">
+                <img src="a757d72cda983e84c3f4e05a089cd954.jpg" alt="Pastel Floral Art">
+                <h3>Floral Pastel Pedicure</h3>
+                <p>Soft pastel gel shades featuring delicate hand-drawn art.</p>
+                <div class="home-price">From $84</div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ==================== PRICING TAB ==================== -->
+    <div id="pricingTab" class="tab-content">
+        <h2 class="section-title">Complete Pricelist</h2>
+        
+        <div class="pricing-container">
+            
+            <!-- Nail Salon Category -->
+            <div class="pricing-category">
+                <h3>Nail Salon Home Service</h3>
+                
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Male Manicure Pedicure</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$94</span>
+                    </div>
+                    <span class="pricing-desc">Includes: shape, cuticle care, massage, cuticle oil, polish quick dry or puff and shine (foot soak & scrub, pedi only)</span>
+                </div>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Female Manicure Pedicure</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$90</span>
+                    </div>
+                    <span class="pricing-desc">Includes: shape, cuticle care, massage, cuticle oil, polish quick dry or puff and shine (foot soak & scrub, pedi only)</span>
+                </div>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Elderly Manicure Pedicure</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$120</span>
+                    </div>
+                    <span class="pricing-desc">Includes: shape, cuticle care, massage, cuticle oil, polish quick dry or puff and shine (foot soak & scrub, pedi only), calluses remove</span>
+                </div>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Gelish Manicure Pedicure</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$128</span>
+                    </div>
+                    <span class="pricing-desc">Includes: shape, cuticle care, massage, gelish (foot soak & scrub pedi only)</span>
+                </div>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Male/Female Spa Pedicure</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$145</span>
+                    </div>
+                    <span class="pricing-desc">Includes: shape, cuticle care, massage, foot soak & scrub, remove calluses, remove crack heels , cuticle oil, treatment foot spa (buff & shine/polish opi/gelish)</span>
+                </div>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Pedicure</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$85</span>
+                    </div>
+                    <span class="pricing-desc">Includes: shape, cuticle care, massage, cuticle oil, polish quick dry or puff and shine (foot soak & scrub, pedi only)</span>
+                </div>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Gelish Manicure</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$85</span>
+                    </div>
+                    <span class="pricing-desc">Includes: Shape, Cuticle Care, Massage, Gel polish, Cuticle oil.</span>
+                </div>
+                
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Gelish Manicure (Express)</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$74</span>
+                    </div>
+                </div>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Gelish Pedicure</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$84</span>
+                    </div>
+                    <span class="pricing-desc">Includes: Shape, Cuticle Care, Massage, Gel polish, foot scrub.</span>
+                </div>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Male / Female Spa Manicure</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$110</span>
+                    </div>
+                    <span class="pricing-desc">Includes: shape, cuticle care, massage, cuticle oil, hand treatment, ( polish quick dry/gelish/puff and shine)</span>
+                </div>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Classic Manicure</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$74</span>
+                    </div>
+                    <span class="pricing-desc">Includes: shape, cuticle care, massage, puff and shine or nail polish (opi colour/halal nail polish)</span>
+                </div>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Remove Nail Extensions + Manicure</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$139</span>
+                    </div>
+                </div>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Remove Nail Extensions</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$95</span>
+                    </div>
+                </div>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Male/Female Classic Pedicure</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$86</span>
+                    </div>
+                    <span class="pricing-desc">Includes nail shaping, cuticle care, scab relaxing foot massage and polish application for ladies and buff and shine for men, calluses remove</span>
+                </div>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Gelish Nail Extensions</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$175</span>
+                    </div>
+                    <span class="pricing-desc">Our trained professionals nail extensions with high-quality gel polish that provides a long lasting immaculate finish.</span>
+                </div>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Gelish Manicure & Gelish Pedicure (Premium)</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$128</span>
+                    </div>
+                    <span class="pricing-desc">Our trained professionals meticulously shape, buff, and perfect your nails, both hand and toes, with high-quality gel polish that provides a long lasting immaculate finishing. Indulge in this premium treatment to achieve flawless nails and a refreshed, sophisticated appearance, calluses remove</span>
+                </div>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Spa Manicure & Spa Pedicure</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$180</span>
+                    </div>
+                    <span class="pricing-desc">Includes nail shaping, cuticle care a relaxing hand and foot massage with scrub stem cells of professional care for yourself with removes creaked hard and calloused skin puff and shine, nail polish.</span>
+                </div>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Male/Female Hand & Foot Treatment</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$180</span>
+                    </div>
+                    <span class="pricing-desc">Includes nail shaping, cuticle care a relaxing hand and foot massage with scrub stem cells of professional care for yourself with removes creaked hard and callus skin puff and shine, nail polish.</span>
+                </div>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Pedicure Cracked Heels Treatment</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$149</span>
+                    </div>
+                    <span class="pricing-desc">Male or Female: includes shape, cuticle care, cracked heels care, massage, treatment cracked heel (puff and shine or polish), calluses remove</span>
+                </div>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Remove Ingrown Nail Treatments</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$120</span>
+                    </div>
+                    <span class="pricing-desc">Includes: shape, cuticle care, massage, cuticle oil, polish quick dry or puff and shine (foot soak & scrub, pedi only), calluses remove</span>
+                </div>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Hospital Manicure Pedicure</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$139</span>
+                    </div>
+                </div>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Hotel Pedicure Service</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$130</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hair Salon Category -->
+            <div class="pricing-category">
+                <h3>Hair Salon Home Service</h3>
+                
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Man Elderly Haircut</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$55</span>
+                    </div>
+                </div>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Man Elderly Haircut, Wash and Blow</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$55</span>
+                    </div>
+                </div>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Elderly Head Massage & Wash with Blow</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$55</span>
+                    </div>
+                </div>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Elderly Haircut with Head Massage, Wash Blow dry</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$75</span>
+                    </div>
+                </div>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Man Hair Treatment</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$45</span>
+                    </div>
+                </div>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Man Elderly Colour White Hair</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$80</span>
+                    </div>
+                </div>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Hair Touch Up</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$49</span>
+                    </div>
+                    <span class="pricing-desc">Haircut or colour (valid only if your previous haircut with us was within 2 weeks)</span>
+                </div>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Kids and Student Haircut</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$45</span>
+                    </div>
+                    <span class="pricing-desc">Haircut or colour (valid only if your previous haircut with us was within 2 weeks)</span>
+                </div>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Makeup and Hair</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$260</span>
+                    </div>
+                </div>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Makeup</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$200</span>
+                    </div>
+                </div>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Hairstyling</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$160</span>
+                    </div>
+                </div>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Wash and Blow</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$73</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Massage Category -->
+            <div class="pricing-category">
+                <h3>Massage Services</h3>
+                
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Massage Body (1 hr)</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$150</span>
+                    </div>
+                </div>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Leg Massage (1 hr)</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$150</span>
+                    </div>
+                </div>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Body Massage (30 min) + Leg Massage (30 min)</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$150</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ==================== CONTACT TAB ==================== -->
+    <div id="contactTab" class="tab-content">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-box">
+            <p>Ready for a pampering session at home? Call or WhatsApp us today to book an appointment.</p>
+            <a href="tel:+6594262100" class="contact-number" style="text-decoration: none;">+65 9426 2100</a>
+            
+            <div class="social-links">
+                <!-- WhatsApp Icon -->
+                <a href="https://wa.me/6594262100" target="_blank" aria-label="WhatsApp">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                    </svg>
+                </a>
+                <!-- Instagram Icon -->
+                <a href="#" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Heartfelt Home. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function openTab(tabName) {
+            // Hide all tabs
+            let tabs = document.getElementsByClassName("tab-content");
+            for (let i = 0; i < tabs.length; i++) {
+                tabs[i].style.display = "none";
+            }
+            
+            // Show the selected tab
+            document.getElementById(tabName).style.display = "block";
+            
+            // Scroll back to top whenever a new tab opens
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>

@@ -157,7 +157,7 @@
             border-radius: 5px;
         }
 
-        /* --- NEW SLIDER STYLES --- */
+        /* --- UPDATED SLIDER STYLES --- */
         .slider-section {
             max-width: 1000px;
             margin: 0 auto 60px;
@@ -181,7 +181,7 @@
             width: 100%;
             height: 100%;
             opacity: 0;
-            transition: opacity 1s ease-in-out;
+            transition: opacity 0.8s ease-in-out;
             display: flex;
             visibility: hidden;
         }
@@ -195,12 +195,16 @@
             display: flex;
             width: 100%;
             height: 100%;
+            background-color: #fcfcfc; /* Keeps empty space tidy */
         }
 
         .image-half {
             flex: 1;
             position: relative;
-            border-right: 2px solid #fff; /* separator */
+            border-right: 2px solid #ddd; /* separator */
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .image-half:last-child {
@@ -210,7 +214,8 @@
         .image-half img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            /* CHANGED TO CONTAIN TO SHOW FULL PICTURE */
+            object-fit: contain; 
         }
 
         .image-label {
@@ -227,6 +232,41 @@
             letter-spacing: 1px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
             text-transform: uppercase;
+        }
+
+        /* Manual Slider Buttons */
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--primary-color);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 10;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slider-btn:hover {
+            background: var(--gradient-main);
+            color: var(--text-light);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .slider-btn.prev {
+            left: 15px;
+        }
+
+        .slider-btn.next {
+            right: 15px;
         }
 
         /* Home Featured Services Grid */
@@ -324,7 +364,6 @@
             transform: scale(1.1);
         }
 
-        /* Placeholder for extra pictures */
         .gallery-placeholder {
             background-color: #fff;
             border: 3px dashed #d1c4e9;
@@ -557,6 +596,11 @@
                 font-size: 0.85rem;
                 padding: 4px 12px;
             }
+            .slider-btn {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+            }
             .pricing-category {
                 padding: 30px 20px;
             }
@@ -598,11 +642,15 @@
             <p>Heartfelt Home provides professional mobile hair and nail services across Singapore, bringing haircuts, styling, colouring, treatments, manicures, and pedicures directly to your home for clean, convenient, and reliable salon care for all ages.</p>
         </div>
 
-        <!-- NEW: Before & After Haircut / Nails Slider -->
+        <!-- Before & After Haircut / Nails Slider -->
         <div class="slider-section">
             <h2 class="section-title">Client Transformations</h2>
             <div class="slider-container" id="beforeAfterSlider">
                 
+                <!-- Manual Buttons -->
+                <button class="slider-btn prev" onclick="manualSlide(-1)">&#10094;</button>
+                <button class="slider-btn next" onclick="manualSlide(1)">&#10095;</button>
+
                 <!-- Slide 1: Haircut -->
                 <div class="slide active">
                     <div class="before-after-wrapper">
@@ -1026,7 +1074,7 @@
                 </div>
             </div>
         </div>
-    </div> <!-- Ensure closing div for pricing container / pricing tab -->
+    </div>
 
     <!-- ==================== CONTACT TAB ==================== -->
     <div id="contactTab" class="tab-content">
@@ -1085,24 +1133,44 @@
             openTab('homeTab', defaultTabLink);
         };
 
-        // --- NEW SLIDER SCRIPT ---
+        // --- UPDATED SLIDER SCRIPT WITH MANUAL CONTROLS ---
         const slides = document.querySelectorAll('#beforeAfterSlider .slide');
         let currentSlide = 0;
+        let slideInterval; // Variable to store the timer
 
-        function nextSlide() {
-            if (slides.length === 0) return; // safeguard if empty
+        // Function to display a specific slide
+        function showSlide(index) {
+            if (slides.length === 0) return;
+            
             // Remove active class from current slide
             slides[currentSlide].classList.remove('active');
             
-            // Move to the next slide (loop back to 0 at the end)
-            currentSlide = (currentSlide + 1) % slides.length;
+            // Calculate the new index (handles negative numbers for 'prev' button)
+            currentSlide = (index + slides.length) % slides.length;
             
-            // Add active class to the new slide
+            // Add active class to new slide
             slides[currentSlide].classList.add('active');
         }
 
-        // Auto-slide every 5 seconds (5000ms)
-        setInterval(nextSlide, 5000);
+        // Function for manual arrows
+        function manualSlide(direction) {
+            showSlide(currentSlide + direction);
+            resetInterval(); // Restart the 5-second timer when clicked
+        }
+
+        // Function for auto-sliding
+        function autoSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        // Function to reset the timer
+        function resetInterval() {
+            clearInterval(slideInterval);
+            slideInterval = setInterval(autoSlide, 5000);
+        }
+
+        // Start auto-slide when page loads
+        slideInterval = setInterval(autoSlide, 5000);
     </script>
 </body>
 </html>

@@ -5,17 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Heartfelt Home - Mobile Salon Services</title>
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* CSS Variables */
+        /* Modern Colourful CSS Variables */
         :root {
-            --primary-color: #c99856; 
-            --secondary-color: #faedcd; 
-            --bg-color: #fcfbf8; 
-            --text-dark: #2c2c2c;
+            --primary-color: #6a1b9a; /* Vibrant Purple */
+            --secondary-color: #ff4081; /* Bright Pink */
+            --accent-color: #00e676; /* Mint Green */
+            --bg-color: #f4f6f9; /* Soft light blue/grey background */
+            --card-bg: #ffffff;
+            --text-dark: #1a1a1a;
             --text-light: #ffffff;
-            --border-light: #e6dfcc;
+            --border-light: #e0e0e0;
+            --gradient-main: linear-gradient(135deg, #6a1b9a 0%, #ff4081 100%);
+            --gradient-card: linear-gradient(135deg, #ffffff 0%, #fff9fb 100%);
         }
 
         * {
@@ -43,22 +47,25 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background-color: rgba(255, 255, 255, 0.98);
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
             padding: 15px 50px;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.06);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
         }
 
-        /* Fancy Logo */
         .logo {
             font-family: 'Dancing Script', cursive;
-            font-size: 2.4rem;
-            color: var(--primary-color);
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+            font-size: 2.6rem;
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
             letter-spacing: 1px;
+            font-weight: bold;
         }
 
         .nav-links {
@@ -69,15 +76,20 @@
 
         .nav-links li {
             cursor: pointer;
-            font-weight: 500;
+            font-weight: 600;
             font-size: 1.05rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-            transition: color 0.3s;
+            color: #555;
+            padding: 8px 15px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
         }
 
-        .nav-links li:hover {
-            color: var(--primary-color);
+        .nav-links li:hover, .nav-links li.active {
+            color: var(--text-light);
+            background: var(--gradient-main);
+            box-shadow: 0 4px 15px rgba(255, 64, 129, 0.3);
         }
 
         /* Tab Content Containers */
@@ -88,38 +100,42 @@
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            animation: fadeIn 0.5s ease-in-out;
+            animation: fadeIn 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(15px); }
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         /* Hero Section */
         .hero {
             text-align: center;
-            background-image: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)), url('videoblocks-646f8a4ccdf8cd05c44560c6_rrptd0cbh_thumbnail-1080_14.jpg'); 
+            background-image: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.95)), url('vecteezy_woman-hands-receiving-a-manicure_12649597.jpg'); 
             background-size: cover;
             background-position: center;
-            border-radius: 20px;
-            padding: 90px 40px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+            border-radius: 25px;
+            padding: 100px 40px;
+            box-shadow: 0 20px 50px rgba(106, 27, 154, 0.1);
             margin-bottom: 60px;
+            border: 1px solid rgba(255,255,255,0.5);
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 3.8rem;
             margin-bottom: 25px;
-            color: var(--text-dark);
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         
         .hero p {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             max-width: 800px;
             margin: 0 auto;
-            color: #555;
+            color: #444;
             line-height: 1.8;
+            font-weight: 500;
         }
 
         .section-title {
@@ -134,9 +150,9 @@
         .section-title::after {
             content: '';
             display: block;
-            width: 60px;
-            height: 3px;
-            background-color: var(--primary-color);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient-main);
             margin: 15px auto 0;
             border-radius: 5px;
         }
@@ -146,41 +162,116 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 40px;
+            margin-bottom: 60px;
         }
 
         .price-card {
-            background: #fff;
-            padding: 35px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            background: var(--gradient-card);
+            padding: 30px;
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.06);
             text-align: center;
-            transition: transform 0.4s, box-shadow 0.4s;
+            transition: all 0.4s ease;
+            border: 1px solid var(--border-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .price-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-main);
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
         .price-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            transform: translateY(-12px);
+            box-shadow: 0 20px 45px rgba(255, 64, 129, 0.15);
+        }
+
+        .price-card:hover::before {
+            opacity: 1;
         }
 
         .price-card img {
             width: 100%;
-            height: 250px;
-            border-radius: 12px;
+            height: 260px;
+            border-radius: 15px;
             object-fit: cover;
             margin-bottom: 25px;
-            border: 4px solid var(--secondary-color);
+            border: 3px solid #fff;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
         }
 
         .price-card h3 {
-            font-size: 1.6rem;
+            font-size: 1.7rem;
             margin-bottom: 12px;
+            color: var(--primary-color);
         }
 
         .home-price {
             font-size: 1.6rem;
-            color: var(--primary-color);
-            font-weight: 600;
+            color: var(--secondary-color);
+            font-weight: 700;
             margin: 20px 0 0 0;
+            display: inline-block;
+            padding: 5px 20px;
+            background: rgba(255, 64, 129, 0.1);
+            border-radius: 30px;
+        }
+
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            aspect-ratio: 1 / 1;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Placeholder for extra pictures */
+        .gallery-placeholder {
+            background-color: #fff;
+            border: 3px dashed #d1c4e9;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            aspect-ratio: 1 / 1;
+            color: #9575cd;
+            font-weight: 600;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .gallery-placeholder:hover {
+            background-color: #f3e5f5;
+            border-color: var(--primary-color);
+            color: var(--primary-color);
         }
 
         /* Elevated Pricing List Design */
@@ -192,26 +283,26 @@
         .pricing-category {
             background: #fff;
             padding: 50px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-radius: 25px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.06);
             margin-bottom: 50px;
             position: relative;
             overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.02);
         }
         
-        /* Subtle background decoration for pricing cards */
         .pricing-category::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 6px;
-            background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+            height: 8px;
+            background: var(--gradient-main);
         }
 
         .pricing-category h3 {
-            font-size: 2.2rem;
+            font-size: 2.4rem;
             color: var(--primary-color);
             text-align: center;
             margin-bottom: 40px;
@@ -219,14 +310,17 @@
         }
 
         .pricing-item {
-            margin-bottom: 25px;
-            padding: 10px 15px;
-            border-radius: 8px;
-            transition: background-color 0.3s;
+            margin-bottom: 20px;
+            padding: 15px 20px;
+            border-radius: 12px;
+            transition: all 0.3s;
+            border-left: 4px solid transparent;
         }
         
         .pricing-item:hover {
-            background-color: #faf8f5;
+            background-color: #f8f9fa;
+            border-left: 4px solid var(--secondary-color);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
         }
         
         .pricing-item:last-child {
@@ -248,16 +342,17 @@
 
         .leader {
             flex-grow: 1;
-            border-bottom: 2px dotted #d1c8b4;
+            border-bottom: 2px dotted #bdbdbd;
             margin: 0 15px;
             position: relative;
             top: -5px;
+            opacity: 0.5;
         }
 
         .pricing-cost {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: var(--primary-color);
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--secondary-color);
             white-space: nowrap;
         }
 
@@ -274,26 +369,36 @@
         .contact-box {
             background: #fff;
             padding: 60px 40px;
-            border-radius: 20px;
+            border-radius: 25px;
             max-width: 650px;
             margin: 0 auto;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            box-shadow: 0 20px 50px rgba(106, 27, 154, 0.1);
             text-align: center;
+            border: 1px solid var(--border-light);
+            position: relative;
         }
 
         .contact-box p {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             margin-bottom: 20px;
             color: #555;
+            font-weight: 500;
         }
 
         .contact-number {
-            font-size: 2.2rem;
-            font-weight: 600;
-            color: var(--primary-color);
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             margin-bottom: 40px;
             display: block;
             font-family: 'Playfair Display', serif;
+            transition: transform 0.3s;
+        }
+
+        .contact-number:hover {
+            transform: scale(1.05);
         }
 
         .social-links {
@@ -306,19 +411,22 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 65px;
-            height: 65px;
-            background-color: var(--secondary-color);
+            width: 70px;
+            height: 70px;
+            background: #fff;
+            border: 2px solid var(--border-light);
             border-radius: 50%;
             color: var(--primary-color);
-            transition: all 0.3s;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
 
         .social-links a:hover {
-            background-color: var(--primary-color);
+            background: var(--gradient-main);
             color: var(--text-light);
-            transform: scale(1.15) rotate(5deg);
-            box-shadow: 0 5px 15px rgba(201, 152, 86, 0.4);
+            border-color: transparent;
+            transform: scale(1.15) rotate(8deg);
+            box-shadow: 0 10px 25px rgba(255, 64, 129, 0.4);
         }
 
         .social-links svg {
@@ -329,11 +437,11 @@
 
         /* Footer */
         footer {
-            background-color: #fff;
+            background: #fff;
             text-align: center;
-            padding: 25px 20px;
-            font-size: 0.9rem;
-            color: #888;
+            padding: 30px 20px;
+            font-size: 0.95rem;
+            color: #777;
             border-top: 1px solid var(--border-light);
             margin-top: auto;
         }
@@ -349,12 +457,16 @@
                 margin-bottom: 15px;
             }
             .nav-links {
-                gap: 20px;
+                gap: 15px;
                 flex-wrap: wrap;
                 justify-content: center;
             }
+            .nav-links li {
+                padding: 5px 10px;
+                font-size: 0.9rem;
+            }
             .tab-content {
-                padding: 150px 15px 40px;
+                padding: 160px 15px 40px;
             }
             .hero {
                 padding: 50px 20px;
@@ -373,7 +485,7 @@
                 align-items: flex-start;
             }
             .leader {
-                display: none; /* Hide dots on mobile for cleaner look */
+                display: none; 
             }
             .pricing-cost {
                 margin-top: 5px;
@@ -387,15 +499,15 @@
         }
     </style>
 </head>
-<body onload="openTab('homeTab')">
+<body onload="openTab('homeTab', this)">
 
     <!-- Navigation -->
     <nav>
         <div class="logo">Heartfelt Home</div>
         <ul class="nav-links">
-            <li onclick="openTab('homeTab')">Home</li>
-            <li onclick="openTab('pricingTab')">Prices</li>
-            <li onclick="openTab('contactTab')">Contact</li>
+            <li onclick="openTab('homeTab', this)" class="active">Home</li>
+            <li onclick="openTab('pricingTab', this)">Prices</li>
+            <li onclick="openTab('contactTab', this)">Contact</li>
         </ul>
     </nav>
 
@@ -411,7 +523,7 @@
             
             <!-- Service 1 -->
             <div class="price-card">
-                <img src="pngtree-procedure-of-pedicure-in-beauty-salon-nail-polishing-with-nail-polish-image_4083399.jpg" alt="Classic Pedicure">
+                <img src="ralph_germany-beauty-8388862_1920.jpg" alt="Classic Pedicure">
                 <h3>Classic Spa Pedicure</h3>
                 <p>Relaxing foot soak, cuticle care, and flawless polish application.</p>
                 <div class="home-price">From $86</div>
@@ -419,7 +531,7 @@
 
             <!-- Service 2 -->
             <div class="price-card">
-                <img src="1fafd75b9bc2e2ff73b10701ec72f3d9.jpg" alt="Premium Art">
+                <img src="summer-nails-bright-manicure-vacation-nails-colorful-design-beach-nails-trendy-nails-fun-manicure-seasonal-nails-beauty-style-nail-art-pink-nail-polish-petal-spring-manicure-artificial-nails-nail-care-blossom-floral.jpg" alt="Premium Art">
                 <h3>Premium Gel Design</h3>
                 <p>Elegant dual-tone gel polish with beautiful metallic accents.</p>
                 <div class="home-price">From $128</div>
@@ -427,12 +539,52 @@
 
             <!-- Service 3 -->
             <div class="price-card">
-                <img src="a757d72cda983e84c3f4e05a089cd954.jpg" alt="Pastel Floral Art">
+                <img src="spacehead45-nails-9134036_1920.jpg" alt="Pastel Floral Art">
                 <h3>Floral Pastel Pedicure</h3>
                 <p>Soft pastel gel shades featuring delicate hand-drawn art.</p>
                 <div class="home-price">From $84</div>
             </div>
 
+        </div>
+
+        <h2 class="section-title">Our Portfolio</h2>
+        <div class="gallery-grid">
+            <!-- Provided Images -->
+            <div class="gallery-item">
+                <img src="halloween-nails-spooky-nails-themed-manicure-dark-nails-creative-design-festive-nails-seasonal-beauty-nail-art-ideas-party-nails-trendy-manicure-nail-care-nail-polish-manicure-finger-nail-cosmetics-pink-artificial-n.jpg" alt="Halloween Spooky Nails">
+            </div>
+            <div class="gallery-item">
+                <img src="istockphoto-1406565295-612x612.jpg" alt="Soft Pink Manicure">
+            </div>
+            <div class="gallery-item">
+                <img src="istockphoto-1406565295-612x612-Picsart-AiImageEnhancer.jpg" alt="Enhanced Pink Manicure">
+            </div>
+            <div class="gallery-item">
+                <img src="alehandra13-nails-5401834_1920.jpg" alt="Tropical Leaf Art">
+            </div>
+            <div class="gallery-item">
+                <img src="codelighter-manicure-3224637_1920.jpg" alt="Blue Glitter Manicure">
+            </div>
+
+            <!-- 6 Extra Spaces for Future Pictures -->
+            <div class="gallery-placeholder">
+                <span>+ Add Picture</span>
+            </div>
+            <div class="gallery-placeholder">
+                <span>+ Add Picture</span>
+            </div>
+            <div class="gallery-placeholder">
+                <span>+ Add Picture</span>
+            </div>
+            <div class="gallery-placeholder">
+                <span>+ Add Picture</span>
+            </div>
+            <div class="gallery-placeholder">
+                <span>+ Add Picture</span>
+            </div>
+            <div class="gallery-placeholder">
+                <span>+ Add Picture</span>
+            </div>
         </div>
     </div>
 
@@ -805,18 +957,25 @@
     </footer>
 
     <script>
-        function openTab(tabName) {
+        function openTab(tabName, elmnt) {
             // Hide all tabs
             let tabs = document.getElementsByClassName("tab-content");
             for (let i = 0; i < tabs.length; i++) {
                 tabs[i].style.display = "none";
             }
             
+            // Remove 'active' class from all nav links
+            if (elmnt) {
+                let navLinks = document.querySelectorAll(".nav-links li");
+                navLinks.forEach(link => link.classList.remove("active"));
+                elmnt.classList.add("active");
+            }
+            
             // Show the selected tab
             document.getElementById(tabName).style.display = "block";
             
             // Scroll back to top whenever a new tab opens
-            window.scrollTo(0, 0);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
 </body>

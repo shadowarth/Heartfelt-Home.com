@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Heartfelt Home - Mobile Salon Services</title>
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
     <style>
         /* Modern Colourful CSS Variables */
         :root {
-            --primary-color: #6a1b9a; /* Vibrant Purple */
-            --secondary-color: #ff4081; /* Bright Pink */
-            --accent-color: #00e676; /* Mint Green */
-            --bg-color: #f4f6f9; /* Soft light blue/grey background */
+            --primary-color: #6a1b9a;
+            --secondary-color: #ff4081;
+            --accent-color: #00e676;
+            --bg-color: #f4f6f9;
             --card-bg: #ffffff;
             --text-dark: #1a1a1a;
             --text-light: #ffffff;
@@ -30,7 +30,16 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: var(--bg-color);
+            /* ===== COLORFUL GRADIENT BACKGROUND ===== */
+            background: linear-gradient(135deg,
+                    #fce4ec 0%,
+                    #f3e5f5 20%,
+                    #e8eaf6 40%,
+                    #e0f7fa 60%,
+                    #f1f8e9 80%,
+                    #fff8e1 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
             color: var(--text-dark);
             line-height: 1.6;
             display: flex;
@@ -38,7 +47,10 @@
             min-height: 100vh;
         }
 
-        h1, h2, h3, h4 {
+        h1,
+        h2,
+        h3,
+        h4 {
             font-family: 'Playfair Display', serif;
         }
 
@@ -47,10 +59,10 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
             padding: 15px 50px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -63,7 +75,7 @@
             background: var(--gradient-main);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
             letter-spacing: 1px;
             font-weight: bold;
         }
@@ -86,7 +98,8 @@
             transition: all 0.3s ease;
         }
 
-        .nav-links li:hover, .nav-links li.active {
+        .nav-links li:hover,
+        .nav-links li.active {
             color: var(--text-light);
             background: var(--gradient-main);
             box-shadow: 0 4px 15px rgba(255, 64, 129, 0.3);
@@ -104,21 +117,27 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Hero Section */
         .hero {
             text-align: center;
-            background-image: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.95)), url('vecteezy_woman-hands-receiving-a-manicure_12649597.jpg'); 
+            background-image: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.95)), url('vecteezy_woman-hands-receiving-a-manicure_12649597.jpg');
             background-size: cover;
             background-position: center;
             border-radius: 25px;
             padding: 100px 40px;
             box-shadow: 0 20px 50px rgba(106, 27, 154, 0.1);
             margin-bottom: 60px;
-            border: 1px solid rgba(255,255,255,0.5);
+            border: 1px solid rgba(255, 255, 255, 0.5);
         }
 
         .hero h1 {
@@ -128,7 +147,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        
+
         .hero p {
             font-size: 1.15rem;
             max-width: 800px;
@@ -146,7 +165,7 @@
             font-weight: 700;
             position: relative;
         }
-        
+
         .section-title::after {
             content: '';
             display: block;
@@ -169,7 +188,7 @@
             height: 450px;
             overflow: hidden;
             border-radius: 25px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
             background: #fff;
             border: 1px solid var(--border-light);
         }
@@ -213,7 +232,7 @@
             align-items: center;
             justify-content: center;
         }
-        
+
         .image-half:last-child {
             border-right: none;
         }
@@ -221,7 +240,7 @@
         .image-half img {
             width: 100%;
             height: 100%;
-            object-fit: contain; 
+            object-fit: contain;
         }
 
         .image-label {
@@ -236,7 +255,7 @@
             font-size: 1.1rem;
             font-weight: 600;
             letter-spacing: 1px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
             text-transform: uppercase;
         }
 
@@ -254,7 +273,7 @@
             font-size: 1.5rem;
             cursor: pointer;
             z-index: 10;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
@@ -287,7 +306,7 @@
             background: var(--gradient-card);
             padding: 30px;
             border-radius: 25px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.06);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
             text-align: center;
             transition: all 0.4s ease;
             border: 1px solid var(--border-light);
@@ -323,7 +342,7 @@
             object-fit: cover;
             margin-bottom: 25px;
             border: 3px solid #fff;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         }
 
         .price-card h3 {
@@ -355,7 +374,7 @@
             position: relative;
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
             aspect-ratio: 1 / 1;
         }
 
@@ -420,7 +439,7 @@
             background-color: #fff;
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
             transition: transform 0.4s ease;
             border: 1px solid var(--border-light);
         }
@@ -463,13 +482,13 @@
             background: #fff;
             padding: 50px;
             border-radius: 25px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
             margin-bottom: 50px;
             position: relative;
             overflow: hidden;
-            border: 1px solid rgba(0,0,0,0.02);
+            border: 1px solid rgba(0, 0, 0, 0.02);
         }
-        
+
         .pricing-category::before {
             content: '';
             position: absolute;
@@ -495,13 +514,13 @@
             transition: all 0.3s;
             border-left: 4px solid transparent;
         }
-        
+
         .pricing-item:hover {
             background-color: #f8f9fa;
             border-left: 4px solid var(--secondary-color);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
         }
-        
+
         .pricing-item:last-child {
             margin-bottom: 0;
         }
@@ -597,7 +616,7 @@
             border-radius: 50%;
             color: var(--primary-color);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
 
         .social-links a:hover {
@@ -616,7 +635,8 @@
 
         /* Footer */
         footer {
-            background: #fff;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(8px);
             text-align: center;
             padding: 30px 20px;
             font-size: 0.95rem;
@@ -677,7 +697,7 @@
                 align-items: flex-start;
             }
             .leader {
-                display: none; 
+                display: none;
             }
             .pricing-cost {
                 margin-top: 5px;
@@ -691,6 +711,7 @@
         }
     </style>
 </head>
+
 <body>
 
     <!-- Navigation -->
@@ -714,24 +735,24 @@
         <div class="slider-section">
             <h2 class="section-title">Client Transformations</h2>
             <div class="slider-container" id="beforeAfterSlider">
-                
+
                 <!-- Manual Buttons -->
                 <button class="slider-btn prev" onclick="manualSlide(-1)">&#10094;</button>
                 <button class="slider-btn next" onclick="manualSlide(1)">&#10095;</button>
 
                 <!-- Slide 1: Haircut -->
                 <div class="slide active">
-                    <img src="istockphoto-1352080817-612x612.jpg" alt="Haircut Before and After">
+                    <img src="istockphoto-1352080817-612x612.jpg" alt="Haircut Before and After" />
                 </div>
 
                 <!-- Slide 2: Nails -->
                 <div class="slide">
-                    <img src="istockphoto-2175425026-612x612.jpg" alt="Nails Before and After">
+                    <img src="istockphoto-2175425026-612x612.jpg" alt="Nails Before and After" />
                 </div>
 
                 <!-- Slide 3: Hair Styling -->
                 <div class="slide">
-                    <img src="istockphoto-1438421875-612x612.jpg" alt="Styling Before and After">
+                    <img src="istockphoto-1438421875-612x612.jpg" alt="Styling Before and After" />
                 </div>
 
             </div>
@@ -740,10 +761,10 @@
 
         <h2 class="section-title">Featured Art & Services</h2>
         <div class="price-grid">
-            
+
             <!-- Service 1 -->
             <div class="price-card">
-                <img src="ralph_germany-beauty-8388862_1920.jpg" alt="Classic Pedicure">
+                <img src="ralph_germany-beauty-8388862_1920.jpg" alt="Classic Pedicure" />
                 <h3>Classic Spa Pedicure</h3>
                 <p>Relaxing foot soak, cuticle care, and flawless polish application.</p>
                 <div class="home-price">From $86</div>
@@ -751,7 +772,7 @@
 
             <!-- Service 2 -->
             <div class="price-card">
-                <img src="summer-nails-bright-manicure-vacation-nails-colorful-design-beach-nails-trendy-nails-fun-manicure-seasonal-nails-beauty-style-nail-art-pink-nail-polish-petal-spring-manicure-artificial-nails-nail-care-blossom-floral.jpg" alt="Premium Art">
+                <img src="summer-nails-bright-manicure-vacation-nails-colorful-design-beach-nails-trendy-nails-fun-manicure-seasonal-nails-beauty-style-nail-art-pink-nail-polish-petal-spring-manicure-artificial-nails-nail-care-blossom-floral.jpg" alt="Premium Art" />
                 <h3>Premium Gel Design</h3>
                 <p>Elegant dual-tone gel polish with beautiful metallic accents.</p>
                 <div class="home-price">From $128</div>
@@ -759,7 +780,7 @@
 
             <!-- Service 3 -->
             <div class="price-card">
-                <img src="spacehead45-nails-9134036_1920.png" alt="Pastel Floral Art">
+                <img src="spacehead45-nails-9134036_1920.png" alt="Floral Pastel Art" />
                 <h3>Floral Pastel Pedicure</h3>
                 <p>Soft pastel gel shades featuring delicate hand-drawn art.</p>
                 <div class="home-price">From $84</div>
@@ -771,28 +792,28 @@
         <div class="gallery-grid">
             <!-- pictures -->
             <div class="gallery-item">
-                <img src="halloween-nails-spooky-nails-themed-manicure-dark-nails-creative-design-festive-nails-seasonal-beauty-nail-art-ideas-party-nails-trendy-manicure-nail-care-nail-polish-manicure-finger-nail-cosmetics-pink-artificial-n.jpg" alt="Halloween Spooky Nails">
+                <img src="halloween-nails-spooky-nails-themed-manicure-dark-nails-creative-design-festive-nails-seasonal-beauty-nail-art-ideas-party-nails-trendy-manicure-nail-care-nail-polish-manicure-finger-nail-cosmetics-pink-artificial-n.jpg" alt="Halloween Spooky Nails" />
             </div>
             <div class="gallery-item">
-                <img src="afsharonatias-nails-3975643_1920.jpg" alt="Soft Pink Manicure">
+                <img src="afsharonatias-nails-3975643_1920.jpg" alt="Soft Pink Manicure" />
             </div>
             <div class="gallery-item">
-                <img src="istockphoto-1406565295-612x612-Picsart-AiImageEnhancer.jpg" alt="Enhanced Pink Manicure">
+                <img src="istockphoto-1406565295-612x612-Picsart-AiImageEnhancer.jpg" alt="Enhanced Pink Manicure" />
             </div>
             <div class="gallery-item">
-                <img src="alehandra13-nails-5401834_1920.jpg" alt="Tropical Leaf Art">
+                <img src="alehandra13-nails-5401834_1920.jpg" alt="Tropical Leaf Art" />
             </div>
             <div class="gallery-item">
-                <img src="codelighter-manicure-3224637_1920.jpg" alt="Blue Glitter Manicure">
+                <img src="codelighter-manicure-3224637_1920.jpg" alt="Blue Glitter Manicure" />
             </div>
             <div class="gallery-item">
-                <img src="ipicture-valentines-day-10035538_1920.jpg" alt="Blue Glitter Manicure">
+                <img src="ipicture-valentines-day-10035538_1920.jpg" alt="Blue Glitter Manicure" />
             </div>
             <div class="gallery-item">
-                <img src="ralph_germany-nails-8388827_1920.jpg" alt="Blue Glitter Manicure">
+                <img src="ralph_germany-nails-8388827_1920.jpg" alt="Blue Glitter Manicure" />
             </div>
             <div class="gallery-item">
-                <img src="neelam279-nail-design-6005598_1920.jpg" alt="Blue Glitter Manicure">
+                <img src="neelam279-nail-design-6005598_1920.jpg" alt="Blue Glitter Manicure" />
             </div>
             <div class="gallery-placeholder">
                 <span>+ Add Picture</span>
@@ -810,12 +831,12 @@
             <div class="container">
                 <h2 class="section-title">Our Haircut Services</h2>
                 <p class="section-subtitle">Professional styling for the whole family, tailored just for you.</p>
-                
+
                 <div class="services-grid">
-                    
+
                     <!-- Service Card 1: Women's Styling -->
                     <div class="service-card">
-                        <img src="istockphoto-524386042-612x612.jpg" alt="Women's Haircut and Styling">
+                        <img src="istockphoto-524386042-612x612.jpg" alt="Women's Haircut and Styling" />
                         <div class="service-info">
                             <h3>Women's Styling</h3>
                             <p>Precision cuts, trims, and beautiful styling to refresh your look.</p>
@@ -824,7 +845,7 @@
 
                     <!-- Service Card 2: Men's Grooming -->
                     <div class="service-card">
-                        <img src="istockphoto-1339781943-612x612.jpg" alt="Men's Haircut and Grooming">
+                        <img src="istockphoto-1339781943-612x612.jpg" alt="Men's Haircut and Grooming" />
                         <div class="service-info">
                             <h3>Men's Grooming</h3>
                             <p>Classic cuts, modern fades, and professional grooming services.</p>
@@ -833,7 +854,7 @@
 
                     <!-- Service Card 3: Kids Haircuts -->
                     <div class="service-card">
-                        <img src="istockphoto-844300600-612x612.jpg" alt="Kids Haircut">
+                        <img src="istockphoto-844300600-612x612.jpg" alt="Kids Haircut" />
                         <div class="service-info">
                             <h3>Kids Haircuts</h3>
                             <p>Gentle and patient stylists to make your little one's haircut a breeze.</p>
@@ -842,7 +863,7 @@
 
                     <!-- Service Card 4: Specialized Treatments -->
                     <div class="service-card">
-                        <img src="istockphoto-920396280-612x612.jpg" alt="Specialized Hair Treatments">
+                        <img src="istockphoto-920396280-612x612.jpg" alt="Specialized Hair Treatments" />
                         <div class="service-info">
                             <h3>Specialized Care</h3>
                             <p>Advanced cutting techniques and treatments for all hair types.</p>
@@ -859,13 +880,13 @@
     <!-- ==================== PRICING TAB ==================== -->
     <div id="pricingTab" class="tab-content">
         <h2 class="section-title">Complete Pricelist</h2>
-        
+
         <div class="pricing-container">
-            
+
             <!-- Nail Salon Category -->
             <div class="pricing-category">
                 <h3>Nail Salon Home Service</h3>
-                
+
                 <div class="pricing-item">
                     <div class="pricing-title-row">
                         <span class="pricing-title">Male Manicure Pedicure</span>
@@ -928,7 +949,7 @@
                     </div>
                     <span class="pricing-desc">Includes: Shape, Cuticle Care, Massage, Gel polish, Cuticle oil.</span>
                 </div>
-                
+
                 <div class="pricing-item">
                     <div class="pricing-title-row">
                         <span class="pricing-title">Gelish Manicure (Express)</span>
@@ -1063,7 +1084,7 @@
             <!-- Hair Salon Category -->
             <div class="pricing-category">
                 <h3>Hair Salon Home Service</h3>
-                
+
                 <div class="pricing-item">
                     <div class="pricing-title-row">
                         <span class="pricing-title">Man Elderly Haircut</span>
@@ -1171,18 +1192,18 @@
         <div class="contact-box">
             <p>Ready for a pampering session at home? Call or WhatsApp us today to book an appointment.</p>
             <a href="tel:+6598377306" class="contact-number" style="text-decoration: none;">+65 9837 7306</a>
-            
+
             <div class="social-links">
                 <!-- WhatsApp Icon -->
                 <a href="https://wa.me/6598377306" target="_blank" aria-label="WhatsApp">
                     <svg viewBox="0 0 24 24">
-                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
                     </svg>
                 </a>
                 <!-- Instagram Icon -->
                 <a href="https://www.instagram.com/mobilenailspahair" aria-label="Instagram">
                     <svg viewBox="0 0 24 24">
-                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
                     </svg>
                 </a>
             </div>
@@ -1201,17 +1222,17 @@
             for (let i = 0; i < tabs.length; i++) {
                 tabs[i].style.display = "none";
             }
-            
+
             // Remove 'active' class from all nav links, only if an element was clicked
             if (elmnt && elmnt.classList) {
                 let navLinks = document.querySelectorAll(".nav-links li");
                 navLinks.forEach(link => link.classList.remove("active"));
                 elmnt.classList.add("active");
             }
-            
+
             // Show the selected tab
             document.getElementById(tabName).style.display = "block";
-            
+
             // Scroll back to top whenever a new tab opens
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
@@ -1245,10 +1266,13 @@
 
         function resetInterval() {
             clearInterval(slideInterval);
-            slideInterval = setInterval(autoSlide, 5000);
+            // ===== CHANGED: auto-slide every 2 seconds (was 5000) =====
+            slideInterval = setInterval(autoSlide, 2000);
         }
 
-        slideInterval = setInterval(autoSlide, 5000);
+        // ===== CHANGED: initial interval to 2 seconds (was 5000) =====
+        slideInterval = setInterval(autoSlide, 2000);
     </script>
+
 </body>
 </html>

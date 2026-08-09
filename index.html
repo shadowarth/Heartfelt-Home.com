@@ -157,7 +157,7 @@
             border-radius: 5px;
         }
 
-        /* --- UPDATED SLIDER STYLES --- */
+        /* Slider Styles */
         .slider-section {
             max-width: 1000px;
             margin: 0 auto 60px;
@@ -195,13 +195,13 @@
             display: flex;
             width: 100%;
             height: 100%;
-            background-color: #fcfcfc; /* Keeps empty space tidy */
+            background-color: #fcfcfc;
         }
 
         .image-half {
             flex: 1;
             position: relative;
-            border-right: 2px solid #ddd; /* separator */
+            border-right: 2px solid #ddd;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -214,7 +214,6 @@
         .image-half img {
             width: 100%;
             height: 100%;
-            /* CHANGED TO CONTAIN TO SHOW FULL PICTURE */
             object-fit: contain; 
         }
 
@@ -383,6 +382,68 @@
             background-color: #f3e5f5;
             border-color: var(--primary-color);
             color: var(--primary-color);
+        }
+
+        /* Haircut Section Styles */
+        .haircut-section {
+            padding: 40px 0;
+            margin-bottom: 60px;
+        }
+
+        .haircut-section .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .haircut-section .section-subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            text-align: center;
+            margin-top: -30px;
+            margin-bottom: 40px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+            transition: transform 0.4s ease;
+            border: 1px solid var(--border-light);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .service-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .service-info h3 {
+            margin: 0 0 10px;
+            font-size: 1.4rem;
+            color: var(--primary-color);
+        }
+
+        .service-info p {
+            margin: 0;
+            color: #555;
+            line-height: 1.5;
+            font-size: 0.95rem;
         }
 
         /* Elevated Pricing List Design */
@@ -620,71 +681,6 @@
             .contact-number {
                 font-size: 1.8rem;
             }
-            /* Haircut Section Styles */
-.haircut-section {
-  padding: 60px 20px;
-  background-color: #f9f9f9; /* Light background to separate from the rest of the page */
-  font-family: Arial, sans-serif;
-}
-
-.haircut-section .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.haircut-section .section-title {
-  font-size: 2.5rem;
-  color: #333;
-  margin-bottom: 10px;
-}
-
-.haircut-section .section-subtitle {
-  font-size: 1.1rem;
-  color: #666;
-  margin-bottom: 40px;
-}
-
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
-}
-
-.service-card {
-  background-color: #fff;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
-}
-
-.service-card:hover {
-  transform: translateY(-5px);
-}
-
-.service-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-.service-info {
-  padding: 20px;
-}
-
-.service-info h3 {
-  margin: 0 0 10px;
-  font-size: 1.3rem;
-  color: #222;
-}
-
-.service-info p {
-  margin: 0;
-  color: #555;
-  line-height: 1.5;
-  font-size: 0.95rem;
-}
         }
     </style>
 </head>
@@ -828,55 +824,57 @@
                 <span>+ Add Picture</span>
             </div>
         </div>
+
+        <!-- Haircut Services Section (Placed at the bottom of the Home Tab) -->
+        <section class="haircut-section">
+            <div class="container">
+                <h2 class="section-title">Our Haircut Services</h2>
+                <p class="section-subtitle">Professional styling for the whole family, tailored just for you.</p>
+                
+                <div class="services-grid">
+                    
+                    <!-- Service Card 1: Women's Styling -->
+                    <div class="service-card">
+                        <img src="istockphoto-524386042-612x612.jpg" alt="Women's Haircut and Styling">
+                        <div class="service-info">
+                            <h3>Women's Styling</h3>
+                            <p>Precision cuts, trims, and beautiful styling to refresh your look.</p>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 2: Men's Grooming -->
+                    <div class="service-card">
+                        <img src="istockphoto-1339781943-612x612.jpg" alt="Men's Haircut and Grooming">
+                        <div class="service-info">
+                            <h3>Men's Grooming</h3>
+                            <p>Classic cuts, modern fades, and professional grooming services.</p>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 3: Kids Haircuts -->
+                    <div class="service-card">
+                        <img src="istockphoto-844300600-612x612.jpg" alt="Kids Haircut">
+                        <div class="service-info">
+                            <h3>Kids Haircuts</h3>
+                            <p>Gentle and patient stylists to make your little one's haircut a breeze.</p>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 4: Specialized Treatments -->
+                    <div class="service-card">
+                        <img src="istockphoto-920396280-612x612.jpg" alt="Specialized Hair Treatments">
+                        <div class="service-info">
+                            <h3>Specialized Care</h3>
+                            <p>Advanced cutting techniques and treatments for all hair types.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- END Haircut Services Section -->
+
     </div>
-
-    <!-- Haircut Services Section -->
-<section class="haircut-section">
-  <div class="container">
-    <h2 class="section-title">Our Haircut Services</h2>
-    <p class="section-subtitle">Professional styling for the whole family, tailored just for you.</p>
-    
-    <div class="services-grid">
-      
-      <!-- Service Card 1: Women's Styling -->
-      <div class="service-card">
-        <img src="istockphoto-524386042-612x612.jpg" alt="Women's Haircut and Styling">
-        <div class="service-info">
-          <h3>Women's Styling</h3>
-          <p>Precision cuts, trims, and beautiful styling to refresh your look.</p>
-        </div>
-      </div>
-
-      <!-- Service Card 2: Men's Grooming -->
-      <div class="service-card">
-        <img src="istockphoto-1339781943-612x612.jpg" alt="Men's Haircut and Grooming">
-        <div class="service-info">
-          <h3>Men's Grooming</h3>
-          <p>Classic cuts, modern fades, and professional grooming services.</p>
-        </div>
-      </div>
-
-      <!-- Service Card 3: Kids Haircuts -->
-      <div class="service-card">
-        <img src="istockphoto-844300600-612x612.jpg" alt="Kids Haircut">
-        <div class="service-info">
-          <h3>Kids Haircuts</h3>
-          <p>Gentle and patient stylists to make your little one's haircut a breeze.</p>
-        </div>
-      </div>
-
-      <!-- Service Card 4: Specialized Treatments -->
-      <div class="service-card">
-        <img src="istockphoto-920396280-612x612.jpg" alt="Specialized Hair Treatments">
-        <div class="service-info">
-          <h3>Specialized Care</h3>
-          <p>Advanced cutting techniques and treatments for all hair types.</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
 
     <!-- ==================== PRICING TAB ==================== -->
     <div id="pricingTab" class="tab-content">
@@ -1244,43 +1242,32 @@
             openTab('homeTab', defaultTabLink);
         };
 
-        // --- UPDATED SLIDER SCRIPT WITH MANUAL CONTROLS ---
+        // Slider Script with Manual Controls
         const slides = document.querySelectorAll('#beforeAfterSlider .slide');
         let currentSlide = 0;
-        let slideInterval; // Variable to store the timer
+        let slideInterval;
 
-        // Function to display a specific slide
         function showSlide(index) {
             if (slides.length === 0) return;
-            
-            // Remove active class from current slide
             slides[currentSlide].classList.remove('active');
-            
-            // Calculate the new index (handles negative numbers for 'prev' button)
             currentSlide = (index + slides.length) % slides.length;
-            
-            // Add active class to new slide
             slides[currentSlide].classList.add('active');
         }
 
-        // Function for manual arrows
         function manualSlide(direction) {
             showSlide(currentSlide + direction);
-            resetInterval(); // Restart the 5-second timer when clicked
+            resetInterval();
         }
 
-        // Function for auto-sliding
         function autoSlide() {
             showSlide(currentSlide + 1);
         }
 
-        // Function to reset the timer
         function resetInterval() {
             clearInterval(slideInterval);
             slideInterval = setInterval(autoSlide, 5000);
         }
 
-        // Start auto-slide when page loads
         slideInterval = setInterval(autoSlide, 5000);
     </script>
 </body>

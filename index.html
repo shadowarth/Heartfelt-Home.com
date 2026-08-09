@@ -157,6 +157,78 @@
             border-radius: 5px;
         }
 
+        /* --- NEW SLIDER STYLES --- */
+        .slider-section {
+            max-width: 1000px;
+            margin: 0 auto 60px;
+        }
+
+        .slider-container {
+            position: relative;
+            width: 100%;
+            height: 450px;
+            overflow: hidden;
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            background: #fff;
+            border: 1px solid var(--border-light);
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            display: flex;
+            visibility: hidden;
+        }
+
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .before-after-wrapper {
+            display: flex;
+            width: 100%;
+            height: 100%;
+        }
+
+        .image-half {
+            flex: 1;
+            position: relative;
+            border-right: 2px solid #fff; /* separator */
+        }
+        
+        .image-half:last-child {
+            border-right: none;
+        }
+
+        .image-half img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .image-label {
+            position: absolute;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gradient-main);
+            color: var(--text-light);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            text-transform: uppercase;
+        }
+
         /* Home Featured Services Grid */
         .price-grid {
             display: grid;
@@ -477,6 +549,14 @@
             .section-title {
                 font-size: 2.2rem;
             }
+            .slider-container {
+                height: 250px;
+            }
+            .image-label {
+                bottom: 10px;
+                font-size: 0.85rem;
+                padding: 4px 12px;
+            }
             .pricing-category {
                 padding: 30px 20px;
             }
@@ -517,6 +597,57 @@
             <h1>Luxury In-Home Services</h1>
             <p>Heartfelt Home provides professional mobile hair and nail services across Singapore, bringing haircuts, styling, colouring, treatments, manicures, and pedicures directly to your home for clean, convenient, and reliable salon care for all ages.</p>
         </div>
+
+        <!-- NEW: Before & After Haircut / Nails Slider -->
+        <div class="slider-section">
+            <h2 class="section-title">Client Transformations</h2>
+            <div class="slider-container" id="beforeAfterSlider">
+                
+                <!-- Slide 1: Haircut -->
+                <div class="slide active">
+                    <div class="before-after-wrapper">
+                        <div class="image-half">
+                            <img src="istockphoto-1667444838-612x612.jpg" alt="Before Haircut">
+                            <div class="image-label">Before</div>
+                        </div>
+                        <div class="image-half">
+                            <img src="istockphoto-1352080817-612x612.jpg" alt="After Haircut">
+                            <div class="image-label">After</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 2: Nails -->
+                <div class="slide">
+                    <div class="before-after-wrapper">
+                        <div class="image-half">
+                            <img src="istockphoto-1436684564-612x612.jpg" alt="Before Nails">
+                            <div class="image-label">Before</div>
+                        </div>
+                        <div class="image-half">
+                            <img src="istockphoto-2175425026-612x612.jpg" alt="After Nails">
+                            <div class="image-label">After</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 3: Hair Styling -->
+                <div class="slide">
+                    <div class="before-after-wrapper">
+                        <div class="image-half">
+                            <img src="istockphoto-2203040267-612x612.jpg" alt="Before Styling">
+                            <div class="image-label">Before</div>
+                        </div>
+                        <div class="image-half">
+                            <img src="istockphoto-1438421875-612x612.jpg" alt="After Styling">
+                            <div class="image-label">After</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- END Slider Section -->
 
         <h2 class="section-title">Featured Art & Services</h2>
         <div class="price-grid">
@@ -894,6 +1025,8 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div> <!-- Ensure closing div for pricing container / pricing tab -->
 
     <!-- ==================== CONTACT TAB ==================== -->
     <div id="contactTab" class="tab-content">
@@ -924,7 +1057,7 @@
         <p>&copy; 2026 Heartfelt Home. All Rights Reserved.</p>
     </footer>
 
-<script>
+    <script>
         function openTab(tabName, elmnt) {
             // Hide all tabs
             let tabs = document.getElementsByClassName("tab-content");
@@ -951,6 +1084,25 @@
             let defaultTabLink = document.querySelector(".nav-links li.active") || document.querySelector(".nav-links li");
             openTab('homeTab', defaultTabLink);
         };
+
+        // --- NEW SLIDER SCRIPT ---
+        const slides = document.querySelectorAll('#beforeAfterSlider .slide');
+        let currentSlide = 0;
+
+        function nextSlide() {
+            if (slides.length === 0) return; // safeguard if empty
+            // Remove active class from current slide
+            slides[currentSlide].classList.remove('active');
+            
+            // Move to the next slide (loop back to 0 at the end)
+            currentSlide = (currentSlide + 1) % slides.length;
+            
+            // Add active class to the new slide
+            slides[currentSlide].classList.add('active');
+        }
+
+        // Auto-slide every 5 seconds (5000ms)
+        setInterval(nextSlide, 5000);
     </script>
 </body>
 </html>

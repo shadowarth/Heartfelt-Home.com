@@ -499,7 +499,7 @@
         }
     </style>
 </head>
-<body onload="openTab('homeTab', this)">
+<body>
 
     <!-- Navigation -->
     <nav>
@@ -956,7 +956,7 @@
         <p>&copy; 2026 Heartfelt Home. All Rights Reserved.</p>
     </footer>
 
-    <script>
+<script>
         function openTab(tabName, elmnt) {
             // Hide all tabs
             let tabs = document.getElementsByClassName("tab-content");
@@ -964,8 +964,8 @@
                 tabs[i].style.display = "none";
             }
             
-            // Remove 'active' class from all nav links
-            if (elmnt) {
+            // Remove 'active' class from all nav links, only if an element was clicked
+            if (elmnt && elmnt.classList) {
                 let navLinks = document.querySelectorAll(".nav-links li");
                 navLinks.forEach(link => link.classList.remove("active"));
                 elmnt.classList.add("active");
@@ -977,6 +977,12 @@
             // Scroll back to top whenever a new tab opens
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
+
+        // Open the Home tab automatically when the page loads
+        window.onload = function() {
+            let defaultTabLink = document.querySelector(".nav-links li.active") || document.querySelector(".nav-links li");
+            openTab('homeTab', defaultTabLink);
+        };
     </script>
 </body>
 </html>

@@ -620,6 +620,71 @@
             .contact-number {
                 font-size: 1.8rem;
             }
+            /* Haircut Section Styles */
+.haircut-section {
+  padding: 60px 20px;
+  background-color: #f9f9f9; /* Light background to separate from the rest of the page */
+  font-family: Arial, sans-serif;
+}
+
+.haircut-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.haircut-section .section-title {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.haircut-section .section-subtitle {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 40px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.service-card {
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+}
+
+.service-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.service-info {
+  padding: 20px;
+}
+
+.service-info h3 {
+  margin: 0 0 10px;
+  font-size: 1.3rem;
+  color: #222;
+}
+
+.service-info p {
+  margin: 0;
+  color: #555;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
         }
     </style>
 </head>
@@ -728,7 +793,7 @@
 
         <h2 class="section-title">Our Portfolio</h2>
         <div class="gallery-grid">
-            <!-- Provided Images -->
+            <!-- pictures -->
             <div class="gallery-item">
                 <img src="halloween-nails-spooky-nails-themed-manicure-dark-nails-creative-design-festive-nails-seasonal-beauty-nail-art-ideas-party-nails-trendy-manicure-nail-care-nail-polish-manicure-finger-nail-cosmetics-pink-artificial-n.jpg" alt="Halloween Spooky Nails">
             </div>
@@ -744,8 +809,6 @@
             <div class="gallery-item">
                 <img src="codelighter-manicure-3224637_1920.jpg" alt="Blue Glitter Manicure">
             </div>
-
-            <!-- 6 Extra Spaces for Future Pictures -->
             <div class="gallery-item">
                 <img src="ipicture-valentines-day-10035538_1920.jpg" alt="Blue Glitter Manicure">
             </div>
@@ -766,6 +829,54 @@
             </div>
         </div>
     </div>
+
+    <!-- Haircut Services Section -->
+<section class="haircut-section">
+  <div class="container">
+    <h2 class="section-title">Our Haircut Services</h2>
+    <p class="section-subtitle">Professional styling for the whole family, tailored just for you.</p>
+    
+    <div class="services-grid">
+      
+      <!-- Service Card 1: Women's Styling -->
+      <div class="service-card">
+        <img src="istockphoto-524386042-612x612.jpg" alt="Women's Haircut and Styling">
+        <div class="service-info">
+          <h3>Women's Styling</h3>
+          <p>Precision cuts, trims, and beautiful styling to refresh your look.</p>
+        </div>
+      </div>
+
+      <!-- Service Card 2: Men's Grooming -->
+      <div class="service-card">
+        <img src="istockphoto-1339781943-612x612.jpg" alt="Men's Haircut and Grooming">
+        <div class="service-info">
+          <h3>Men's Grooming</h3>
+          <p>Classic cuts, modern fades, and professional grooming services.</p>
+        </div>
+      </div>
+
+      <!-- Service Card 3: Kids Haircuts -->
+      <div class="service-card">
+        <img src="istockphoto-844300600-612x612.jpg" alt="Kids Haircut">
+        <div class="service-info">
+          <h3>Kids Haircuts</h3>
+          <p>Gentle and patient stylists to make your little one's haircut a breeze.</p>
+        </div>
+      </div>
+
+      <!-- Service Card 4: Specialized Treatments -->
+      <div class="service-card">
+        <img src="istockphoto-920396280-612x612.jpg" alt="Specialized Hair Treatments">
+        <div class="service-info">
+          <h3>Specialized Care</h3>
+          <p>Advanced cutting techniques and treatments for all hair types.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 
     <!-- ==================== PRICING TAB ==================== -->
     <div id="pricingTab" class="tab-content">

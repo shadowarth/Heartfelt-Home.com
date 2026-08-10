@@ -467,6 +467,28 @@
             color: var(--primary-color);
         }
 
+        /* ===== Collage Cards (Portfolio Highlights & Meet the Team) ===== */
+        .card-image-wrap.collage {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+            background: #1a1a1a;
+        }
+
+        .card-image-wrap.collage img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .section-subtitle-center {
+            text-align: center;
+            max-width: 700px;
+            margin: -35px auto 45px;
+            color: #666;
+            font-size: 1.05rem;
+        }
+
         /* Haircut Section Styles */
         .haircut-section {
             padding: 40px 0;
@@ -904,41 +926,271 @@
 
         </div>
 
+        <!-- Personal Pedicure Care -->
+        <h2 class="section-title">Personal Pedicure Care</h2>
+        <p class="section-subtitle-center">Four dedicated pedicure experiences, tailored to your feet and brought straight to your door.</p>
+        <div class="price-grid">
+
+            <!-- Pedicure Card 1 -->
+            <div class="price-card-modern">
+                <div class="card-image-wrap">
+                    <img src="tropical-blossom-pedicure-soak.jpg" alt="Tropical Blossom Pedicure Soak" />
+                    <div class="badge-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="count">142</span>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="card-header-row">
+                        <h3 class="card-title">Tropical Blossom Pedicure</h3>
+                        <span class="price-current">$95</span>
+                    </div>
+                    <p class="card-description">
+                        A fragrant flower-infused foot soak followed by exfoliation, massage, and polish, a personal escape without leaving home.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Pedicure Card 2 -->
+            <div class="price-card-modern">
+                <div class="card-image-wrap">
+                    <img src="pedicure-treatment-application.jpg" alt="Deluxe Personal Pedicure Treatment" />
+                    <div class="badge-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="count">98</span>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="card-header-row">
+                        <h3 class="card-title">Deluxe Personal Pedicure</h3>
+                        <span class="price-current">$110</span>
+                    </div>
+                    <p class="card-description">
+                        One-on-one foot treatment with callus care, hydrating mask, and a slow, relaxing massage designed just for you.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Pedicure Card 3 -->
+            <div class="price-card-modern">
+                <div class="card-image-wrap">
+                    <img src="rose-petal-soak-ritual.jpg" alt="Rose Petal Spa Soak Ritual" />
+                    <div class="badge-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="count">76</span>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="card-header-row">
+                        <h3 class="card-title">Rose Petal Soak Ritual</h3>
+                        <span class="price-current">$88</span>
+                    </div>
+                    <p class="card-description">
+                        A calming rose-petal soak paired with cuticle care and a smoothing scrub for soft, refreshed feet.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Pedicure Card 4 -->
+            <div class="price-card-modern">
+                <div class="card-image-wrap">
+                    <img src="senior-diabetic-care.jpg" alt="Senior and Diabetic Foot Care" />
+                    <div class="badge-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="count">63</span>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="card-header-row">
+                        <h3 class="card-title">Senior & Diabetic Foot Care</h3>
+                        <span class="price-current">$120</span>
+                    </div>
+                    <p class="card-description">
+                        Gentle, medically-mindful pedicure care suited for elderly and diabetic clients, performed with extra caution and hygiene.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
         <h2 class="section-title">Our Portfolio</h2>
-        <div class="gallery-grid">
-            <div class="gallery-item">
-                <img src="halloween-nails-spooky-nails-themed-manicure-dark-nails-creative-design-festive-nails-seasonal-beauty-nail-art-ideas-party-nails-trendy-manicure-nail-care-nail-polish-manicure-finger-nail-cosmetics-pink-artificial-n.jpg" alt="Halloween Spooky Nails" />
+        <p class="section-subtitle-center">A glimpse of the nail art and styling we love creating for our clients.</p>
+        <div class="price-grid">
+
+            <!-- Portfolio Card 1 -->
+            <div class="price-card-modern">
+                <div class="card-image-wrap collage">
+                    <img src="halloween-nails-spooky-nails-themed-manicure-dark-nails-creative-design-festive-nails-seasonal-beauty-nail-art-ideas-party-nails-trendy-manicure-nail-care-nail-polish-manicure-finger-nail-cosmetics-pink-artificial-n.jpg" alt="Halloween Spooky Nails" />
+                    <img src="afsharonatias-nails-3975643_1920.jpg" alt="Soft Pink Manicure" />
+                    <img src="istockphoto-1406565295-612x612-Picsart-AiImageEnhancer.jpg" alt="Enhanced Pink Manicure" />
+                    <div class="badge-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="count">54</span>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="card-header-row">
+                        <h3 class="card-title">Art for Hands</h3>
+                        <span class="price-current">$91</span>
+                    </div>
+                    <p class="card-description">
+                        Includes a manicure and nail art ranging from simple accents to fully personalized designs.
+                    </p>
+                </div>
             </div>
-            <div class="gallery-item">
-                <img src="afsharonatias-nails-3975643_1920.jpg" alt="Soft Pink Manicure" />
+
+            <!-- Portfolio Card 2 -->
+            <div class="price-card-modern">
+                <div class="card-image-wrap collage">
+                    <img src="alehandra13-nails-5401834_1920.jpg" alt="Tropical Leaf Art" />
+                    <img src="codelighter-manicure-3224637_1920.jpg" alt="Blue Glitter Manicure" />
+                    <img src="ipicture-valentines-day-10035538_1920.jpg" alt="Valentines Nail Art" />
+                    <div class="badge-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="count">39</span>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="card-header-row">
+                        <h3 class="card-title">Seasonal & Themed Art</h3>
+                        <span class="price-current">$85</span>
+                    </div>
+                    <p class="card-description">
+                        Playful themed sets for holidays and seasons, from tropical leaves to festive glitter finishes.
+                    </p>
+                </div>
             </div>
-            <div class="gallery-item">
-                <img src="istockphoto-1406565295-612x612-Picsart-AiImageEnhancer.jpg" alt="Enhanced Pink Manicure" />
+
+            <!-- Portfolio Card 3 -->
+            <div class="price-card-modern">
+                <div class="card-image-wrap collage">
+                    <img src="ralph_germany-nails-8388827_1920.jpg" alt="Elegant Nail Set" />
+                    <img src="neelam279-nail-design-6005598_1920.jpg" alt="Nail Design" />
+                    <img src="pexels-cristina-perez-2163041378-38784151.jpg" alt="Manicure Finish" />
+                    <div class="badge-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="count">47</span>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="card-header-row">
+                        <h3 class="card-title">Classic & Elegant Sets</h3>
+                        <span class="price-current">$78</span>
+                    </div>
+                    <p class="card-description">
+                        Timeless, polished nail sets perfect for everyday wear or a special occasion at home.
+                    </p>
+                </div>
             </div>
-            <div class="gallery-item">
-                <img src="alehandra13-nails-5401834_1920.jpg" alt="Tropical Leaf Art" />
+
+            <!-- Portfolio Card 4 -->
+            <div class="price-card-modern">
+                <div class="card-image-wrap collage">
+                    <img src="pexels-estoymhrb-20758448.jpg" alt="Fresh Manicure" />
+                    <img src="afsharonatias-nails-3975643_1920.jpg" alt="Soft Pink Manicure" />
+                    <img src="istockphoto-1406565295-612x612-Picsart-AiImageEnhancer.jpg" alt="Enhanced Pink Manicure" />
+                    <div class="badge-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="count">61</span>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="card-header-row">
+                        <h3 class="card-title">Soft Everyday Manicure</h3>
+                        <span class="price-current">$74</span>
+                    </div>
+                    <p class="card-description">
+                        Clean, natural-looking nail care with soft polish tones, ideal for a fresh, low-key finish.
+                    </p>
+                </div>
             </div>
-            <div class="gallery-item">
-                <img src="codelighter-manicure-3224637_1920.jpg" alt="Blue Glitter Manicure" />
-            </div>
-            <div class="gallery-item">
-                <img src="ipicture-valentines-day-10035538_1920.jpg" alt="Blue Glitter Manicure" />
-            </div>
-            <div class="gallery-item">
-                <img src="ralph_germany-nails-8388827_1920.jpg" alt="Blue Glitter Manicure" />
-            </div>
-            <div class="gallery-item">
-                <img src="neelam279-nail-design-6005598_1920.jpg" alt="Blue Glitter Manicure" />
-            </div>
-            <div class="gallery-item">
-                <img src="pexels-cristina-perez-2163041378-38784151.jpg" />
-            </div>
-            <div class="gallery-item">
-                <img src="pexels-estoymhrb-20758448.jpg" alt="Blue Glitter Manicure" />
-            </div>
+
             <div class="gallery-placeholder">
                 <span>+ Add Picture</span>
             </div>
+        </div>
+
+        <!-- Meet the Team -->
+        <h2 class="section-title">Meet Our Specialists</h2>
+        <p class="section-subtitle-center">The licensed technicians behind every Heartfelt Home appointment.</p>
+        <div class="price-grid">
+
+            <!-- Team Member 1 -->
+            <div class="price-card-modern">
+                <div class="card-image-wrap collage">
+                    <img src="senior-diabetic-care.jpg" alt="Mei Ling at work" />
+                    <img src="nail-polish-application.jpg" alt="Mei Ling nail application" />
+                    <img src="rose-petal-soak-ritual.jpg" alt="Mei Ling spa soak" />
+                    <div class="badge-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="count">31</span>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Mei Ling</h3>
+                    <p class="card-description">
+                        Licensed nail tech instructor with over two decades of experience, now focused on gentle, diabetic-safe care for senior clients.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Team Member 2 -->
+            <div class="price-card-modern">
+                <div class="card-image-wrap collage">
+                    <img src="senior-diabetic-care.jpg" alt="Aisha medical care" />
+                    <img src="rose-petal-soak-ritual.jpg" alt="Aisha soak treatment" />
+                    <img src="pedicure-treatment-application.jpg" alt="Aisha pedicure treatment" />
+                    <div class="badge-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="count">24</span>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Aisha</h3>
+                    <p class="card-description">
+                        Licensed medical nail technician specializing in careful, hygienic pedicures for sensitive skin and medical needs.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Team Member 3 -->
+            <div class="price-card-modern">
+                <div class="card-image-wrap collage">
+                    <img src="rose-petal-soak-ritual.jpg" alt="Farah spa soak" />
+                    <img src="tropical-blossom-pedicure-soak.jpg" alt="Farah floral pedicure" />
+                    <img src="nail-polish-application.jpg" alt="Farah nail application" />
+                    <div class="badge-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="count">18</span>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Farah</h3>
+                    <p class="card-description">
+                        Wellness-focused technician delivering clean, professional manicures and pedicures with a calming spa touch.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Team Member 4 -->
+            <div class="price-card-modern">
+                <div class="card-image-wrap collage">
+                    <img src="nail-polish-application.jpg" alt="Priya nail application" />
+                    <img src="tropical-blossom-pedicure-soak.jpg" alt="Priya floral pedicure" />
+                    <img src="pedicure-treatment-application.jpg" alt="Priya pedicure treatment" />
+                    <div class="badge-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="count">15</span>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Priya</h3>
+                    <p class="card-description">
+                        Mobile styling specialist bringing trend-forward nail art and glam wherever you're most comfortable.
+                    </p>
+                </div>
+            </div>
+
         </div>
 
         <!-- Haircut Services Section (Placed at the bottom of the Home Tab) -->
@@ -1193,6 +1445,42 @@
                         <div class="leader"></div>
                         <span class="pricing-cost">$130</span>
                     </div>
+                </div>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Tropical Blossom Pedicure</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$95</span>
+                    </div>
+                    <span class="pricing-desc">Flower-infused foot soak with exfoliation, massage, and polish.</span>
+                </div>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Deluxe Personal Pedicure</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$110</span>
+                    </div>
+                    <span class="pricing-desc">One-on-one treatment with callus care, hydrating mask, and extended massage.</span>
+                </div>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Rose Petal Soak Ritual</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$88</span>
+                    </div>
+                    <span class="pricing-desc">Rose-petal soak with cuticle care and smoothing scrub.</span>
+                </div>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Senior & Diabetic Foot Care</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$120</span>
+                    </div>
+                    <span class="pricing-desc">Gentle, medically-mindful pedicure care for elderly and diabetic clients, extra caution and hygiene.</span>
                 </div>
             </div>
 

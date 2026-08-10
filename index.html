@@ -1,158 +1,523 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Our Salon | Pedicure Specialists</title>
-  
-  <style>
-    /* Global Styles */
-    body {
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #fcfcfc;
-      color: #333;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Nail & Pedicure Spa</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #d4a373;
+            --primary-hover: #bc8a5f;
+            --accent-pink: #f4ece1;
+            --text-dark: #2b2d42;
+            --text-muted: #6c757d;
+            --bg-light: #faf7f2;
+            --white: #ffffff;
+            --card-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            --transition: all 0.3s ease;
+        }
 
-    /* Header/Hero Section */
-    header {
-      background-color: #2c3e50;
-      color: white;
-      text-align: center;
-      padding: 60px 20px;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    header h1 {
-      margin: 0;
-      font-size: 2.5em;
-    }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
 
-    header p {
-      font-size: 1.2em;
-      color: #bdc3c7;
-    }
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
 
-    /* Portfolio Section */
-    .portfolio-section {
-      padding: 60px 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
+        container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-    .portfolio-title {
-      text-align: center;
-      margin-bottom: 50px;
-      font-size: 2.2em;
-      color: #2c3e50;
-    }
+        /* --- Header & Nav --- */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
 
-    .specialists-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-    }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
 
-    .specialist-card {
-      background: #ffffff;
-      border: 1px solid #eaeaea;
-      border-radius: 10px;
-      padding: 30px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-dark);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
 
-    .specialist-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 15px rgba(0,0,0,0.08);
-    }
+        .logo span {
+            color: var(--primary-color);
+        }
 
-    .specialist-name {
-      margin-top: 0;
-      margin-bottom: 5px;
-      color: #2c3e50;
-      font-size: 1.5em;
-    }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
 
-    .specialist-role {
-      font-weight: bold;
-      color: #d6899f; /* Spa-like soft pink */
-      margin-top: 0;
-      margin-bottom: 15px;
-      font-size: 1em;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 15px;
+            transition: var(--transition);
+        }
 
-    .specialist-description {
-      color: #666;
-      line-height: 1.6;
-      font-size: 0.95em;
-      margin: 0;
-    }
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
 
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 20px;
-      background-color: #eaeaea;
-      color: #666;
-      font-size: 0.9em;
-      margin-top: 40px;
-    }
-  </style>
+        /* --- Section Titles --- */
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-subtitle {
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 2px;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .section-title {
+            font-size: 36px;
+            color: var(--text-dark);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary-color);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* --- Portfolio Section --- */
+        .portfolio-section {
+            padding: 80px 0;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .portfolio-card {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.03);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .portfolio-img-wrapper {
+            position: relative;
+            height: 230px;
+            overflow: hidden;
+            background-color: #f0e6df;
+        }
+
+        .portfolio-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio-card:hover .portfolio-img {
+            transform: scale(1.06);
+        }
+
+        .price-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--white);
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 14px;
+            padding: 6px 14px;
+            border-radius: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        }
+
+        .portfolio-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .portfolio-title {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        .portfolio-desc {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            flex-grow: 1;
+            line-height: 1.6;
+        }
+
+        .portfolio-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .category-tag {
+            font-size: 12px;
+            background: var(--accent-pink);
+            color: var(--primary-color);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        .book-btn {
+            color: var(--text-dark);
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: var(--transition);
+        }
+
+        .book-btn:hover {
+            color: var(--primary-color);
+        }
+
+        /* --- Pedicure Personnel / Team Section --- */
+        .team-section {
+            padding: 80px 0 100px;
+            background-color: var(--white);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        .team-card {
+            background: var(--bg-light);
+            border-radius: 16px;
+            padding: 35px 25px;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.03);
+            box-shadow: var(--card-shadow);
+        }
+
+        .team-card:hover {
+            transform: translateY(-8px);
+            background: var(--white);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+        }
+
+        /* Avatar Placeholder Styles */
+        .avatar-box {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #e8b4b8 0%, #d4a373 100%);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0 auto 20px;
+            box-shadow: 0 8px 20px rgba(212, 163, 115, 0.3);
+        }
+
+        .team-name {
+            font-size: 20px;
+            color: var(--text-dark);
+            margin-bottom: 6px;
+        }
+
+        .team-role {
+            font-size: 13px;
+            color: var(--primary-color);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .team-desc {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .specialty-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .badge {
+            font-size: 11px;
+            background: var(--white);
+            color: var(--text-dark);
+            padding: 3px 10px;
+            border-radius: 12px;
+            border: 1px solid #e0e0e0;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .section-title {
+                font-size: 28px;
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <!-- Header -->
-  <header>
-    <h1>Welcome to Our Salon</h1>
-    <p>Luxury foot care tailored specifically to you.</p>
-  </header>
+    <!-- Header / Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">ORGANIC<span>NAILS</span></a>
+                <ul class="nav-links">
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#team">Pedicure Specialists</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-  <!-- Main Content: Portfolio -->
-  <main>
+    <!-- OUR PORTFOLIO SECTION -->
     <section class="portfolio-section" id="portfolio">
-      <h2 class="portfolio-title">Our Portfolio: Meet Our Pedicure Specialists</h2>
-      
-      <div class="specialists-grid">
-        
-        <!-- Elena -->
-        <div class="specialist-card">
-          <h3 class="specialist-name">Elena Rodriguez</h3>
-          <p class="specialist-role">Lead Restorative Pedicurist</p>
-          <p class="specialist-description">With over a decade of experience in advanced foot care, Elena specializes in restorative and clinical treatments. She expertly addresses concerns like ingrown nails, stubborn calluses, and cracked heels with a gentle, meticulous touch. Her approach ensures your feet are not only beautiful but fundamentally healthy.</p>
-        </div>
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Our Featured Work</span>
+                <h2 class="section-title">Our Portfolio</h2>
+            </div>
 
-        <!-- Marcus -->
-        <div class="specialist-card">
-          <h3 class="specialist-name">Marcus Chen</h3>
-          <p class="specialist-role">Spa Relaxation & Reflexology</p>
-          <p class="specialist-description">Marcus believes a pedicure should be a full-body reset. He pairs flawless nail shaping and cuticle care with deep, therapeutic reflexology massages and soothing aromatherapy foot baths. Book with Marcus when you need to melt away stress and leave the salon walking on clouds.</p>
-        </div>
+            <div class="portfolio-grid">
+                <!-- Card 1 -->
+                <div class="portfolio-card">
+                    <div class="portfolio-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=600&q=80" alt="Classic Manicure" class="portfolio-img">
+                        <span class="price-badge">$25</span>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">Classic Manicure</h3>
+                        <p class="portfolio-desc">Custom nail shaping, cuticle care, relaxing hand massage, and professional regular polish application.</p>
+                        <div class="portfolio-footer">
+                            <span class="category-tag">Manicure</span>
+                            <a href="#contact" class="book-btn">Book Now <i class="fa-solid =>-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
 
-        <!-- Sophie -->
-        <div class="specialist-card">
-          <h3 class="specialist-name">Sophie Laurent</h3>
-          <p class="specialist-role">Nail Art & Gel Design</p>
-          <p class="specialist-description">Sophie is our resident visionary for all things color and design. Whether you are looking for a classic French tip, intricate seasonal nail art, or durable gel enhancements for your toes, Sophie brings exceptional precision and creative flair to every single appointment.</p>
-        </div>
+                <!-- Card 2 -->
+                <div class="portfolio-card">
+                    <div class="portfolio-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?auto=format&fit=crop&w=600&q=80" alt="Gel Polish Service" class="portfolio-img">
+                        <span class="price-badge">$40</span>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">Gel Polish Service</h3>
+                        <p class="portfolio-desc">Long-lasting LED-cured gel polish with zero dry time, mirror-like shine, and chip-free wear for 2+ weeks.</p>
+                        <div class="portfolio-footer">
+                            <span class="category-tag">Gel Nails</span>
+                            <a href="#contact" class="book-btn">Book Now <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
 
-        <!-- Jasmine -->
-        <div class="specialist-card">
-          <h3 class="specialist-name">Jasmine Carter</h3>
-          <p class="specialist-role">Holistic & Organic Therapist</p>
-          <p class="specialist-description">Passionate about clean beauty, Jasmine exclusively uses all-natural, vegan, and cruelty-free products. Her signature botanical sugar scrubs and deeply hydrating clay masks work to naturally restore glowing skin and strong nails. Her treatments are incredibly nourishing and perfect for sensitive skin.</p>
-        </div>
+                <!-- Card 3 -->
+                <div class="portfolio-card">
+                    <div class="portfolio-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1607779097040-26e80aa78e66?auto=format&fit=crop&w=600&q=80" alt="Nail Art & Design" class="portfolio-img">
+                        <span class="price-badge">$15+</span>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">Nail Art & Design</h3>
+                        <p class="portfolio-desc">Hand-painted custom patterns, chrome effects, rhinestones, and bespoke creative accent designs.</p>
+                        <div class="portfolio-footer">
+                            <span class="category-tag">Custom Art</span>
+                            <a href="#contact" class="book-btn">Book Now <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
 
-      </div>
+                <!-- Card 4 -->
+                <div class="portfolio-card">
+                    <div class="portfolio-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1519014816548-bf5fe059798b?auto=format&fit=crop&w=600&q=80" alt="Spa Pedicure" class="portfolio-img">
+                        <span class="price-badge">$50</span>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">Spa Pedicure</h3>
+                        <p class="portfolio-desc">Warm botanical foot soak, organic scrub exfoliation, intense heel care, cuticle repair, and calf massage.</p>
+                        <div class="portfolio-footer">
+                            <span class="category-tag">Pedicure</span>
+                            <a href="#contact" class="book-btn">Book Now <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="portfolio-card">
+                    <div class="portfolio-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1599940824399-b87987ceb72a?auto=format&fit=crop&w=600&q=80" alt="Acrylic Full Set" class="portfolio-img">
+                        <span class="price-badge">$60+</span>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">Acrylic Full Set</h3>
+                        <p class="portfolio-desc">Full acrylic extensions tailored with your choice of shape, length, and premium color finish.</p>
+                        <div class="portfolio-footer">
+                            <span class="category-tag">Extensions</span>
+                            <a href="#contact" class="book-btn">Book Now <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="portfolio-card">
+                    <div class="portfolio-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=600&q=80" alt="Nail Repair & Care" class="portfolio-img">
+                        <span class="price-badge">$10+</span>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">Nail Repair & Care</h3>
+                        <p class="portfolio-desc">Nail strengthening treatments, IBX restorative care, and single nail repairs for optimal health.</p>
+                        <div class="portfolio-footer">
+                            <span class="category-tag">Treatment</span>
+                            <a href="#contact" class="book-btn">Book Now <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
-  </main>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2026 Our Salon. All rights reserved.</p>
-  </footer>
+    <!-- PEDICURE SPECIALISTS / TEAM SECTION -->
+    <section class="team-section" id="team">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Meet Our Experts</span>
+                <h2 class="section-title">Pedicure Specialists</h2>
+            </div>
+
+            <div class="team-grid">
+                <!-- Specialist 1 -->
+                <div class="team-card">
+                    <div class="avatar-box">ER</div>
+                    <h3 class="team-name">Elena Rostova</h3>
+                    <p class="team-role">Lead Reflexologist & Master Specialist</p>
+                    <p class="team-desc">8+ years of expertise in luxury foot care, therapeutic botanical soaks, and deep-tissue acupressure massage.</p>
+                    <div class="specialty-list">
+                        <span class="badge">Reflexology</span>
+                        <span class="badge">Spa Pedicure</span>
+                        <span class="badge">Callus Care</span>
+                    </div>
+                </div>
+
+                <!-- Specialist 2 -->
+                <div class="team-card">
+                    <div class="avatar-box">SC</div>
+                    <h3 class="team-name">Sophia Chen</h3>
+                    <p class="team-role">Gel & Toenail Art Artist</p>
+                    <p class="team-desc">Specializes in precision gel pedicure application, intricate toe nail artwork, and long-lasting chrome finishes.</p>
+                    <div class="specialty-list">
+                        <span class="badge">Nail Art</span>
+                        <span class="badge">Gel Pedicure</span>
+                        <span class="badge">French Tip</span>
+                    </div>
+                </div>
+
+                <!-- Specialist 3 -->
+                <div class="team-card">
+                    <div class="avatar-box">AM</div>
+                    <h3 class="team-name">Aria Montgomery</h3>
+                    <p class="team-role">Organic Spa Therapist</p>
+                    <p class="team-desc">Focuses on 100% non-toxic, eco-friendly pedicure treatments, detoxifying clay wraps, and moisturizing herbal scrubs.</p>
+                    <div class="specialty-list">
+                        <span class="badge">Organic Care</span>
+                        <span class="badge">Detox Soak</span>
+                        <span class="badge">Hydration</span>
+                    </div>
+                </div>
+
+                <!-- Specialist 4 -->
+                <div class="team-card">
+                    <div class="avatar-box">MV</div>
+                    <h3 class="team-name">Marcus Vance</h3>
+                    <p class="team-role">Restorative Foot Care Specialist</p>
+                    <p class="team-desc">Expert in restorative athletic foot therapy, heel repair treatments, and specialized nail shaping techniques.</p>
+                    <div class="specialty-list">
+                        <span class="badge">Restorative</span>
+                        <span class="badge">Heel Repair</span>
+                        <span class="badge">Nail Shaping</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 </body>
 </html>

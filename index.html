@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luxury Nail & Pedicure Spa</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Heartfelt Home - Mobile Salon Services</title>
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
     <style>
+        /* Modern Colourful CSS Variables */
         :root {
-            --primary-color: #d4a373;
-            --primary-hover: #bc8a5f;
-            --accent-pink: #f4ece1;
-            --text-dark: #2b2d42;
-            --text-muted: #6c757d;
-            --bg-light: #faf7f2;
-            --white: #ffffff;
-            --card-shadow: 0 10px 30px rgba(0,0,0,0.06);
-            --transition: all 0.3s ease;
+            --primary-color: #6a1b9a;
+            --secondary-color: #ff4081;
+            --accent-color: #00e676;
+            --bg-color: #f4f6f9;
+            --card-bg: #ffffff;
+            --text-dark: #1a1a1a;
+            --text-light: #ffffff;
+            --border-light: #e0e0e0;
+            --gradient-main: linear-gradient(135deg, #6a1b9a 0%, #ff4081 100%);
+            --gradient-card: linear-gradient(135deg, #ffffff 0%, #fff9fb 100%);
         }
 
         * {
@@ -30,494 +30,1346 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: var(--bg-light);
+            /* ===== COLORFUL GRADIENT BACKGROUND ===== */
+            background: linear-gradient(135deg,
+                    #fce4ec 0%,
+                    #f3e5f5 20%,
+                    #e8eaf6 40%,
+                    #e0f7fa 60%,
+                    #f1f8e9 80%,
+                    #fff8e1 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
             color: var(--text-dark);
             line-height: 1.6;
-        }
-
-        h1, h2, h3, h4 {
-            font-family: 'Playfair Display', serif;
-        }
-
-        container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* --- Header & Nav --- */
-        header {
-            background-color: var(--white);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--text-dark);
-            text-decoration: none;
-            letter-spacing: 1px;
-        }
-
-        .logo span {
-            color: var(--primary-color);
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 500;
-            font-size: 15px;
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover {
-            color: var(--primary-color);
-        }
-
-        /* --- Section Titles --- */
-        .section-header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .section-subtitle {
-            text-transform: uppercase;
-            font-size: 13px;
-            letter-spacing: 2px;
-            color: var(--primary-color);
-            font-weight: 600;
-            margin-bottom: 8px;
-            display: block;
-        }
-
-        .section-title {
-            font-size: 36px;
-            color: var(--text-dark);
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            width: 50px;
-            height: 2px;
-            background-color: var(--primary-color);
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        /* --- Portfolio Section --- */
-        .portfolio-section {
-            padding: 80px 0;
-        }
-
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-        }
-
-        .portfolio-card {
-            background: var(--white);
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: var(--card-shadow);
-            transition: var(--transition);
-            border: 1px solid rgba(0,0,0,0.03);
             display: flex;
             flex-direction: column;
         }
 
-        .portfolio-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Playfair Display', serif;
         }
 
-        .portfolio-img-wrapper {
+        /* Navigation Bar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            padding: 15px 50px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.6rem;
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 35px;
+        }
+
+        .nav-links li {
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.05rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #555;
+            padding: 8px 15px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links li:hover,
+        .nav-links li.active {
+            color: var(--text-light);
+            background: var(--gradient-main);
+            box-shadow: 0 4px 15px rgba(255, 64, 129, 0.3);
+        }
+
+        /* Tab Content Containers */
+        .tab-content {
+            display: none;
+            padding: 120px 20px 60px;
+            flex-grow: 1;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            animation: fadeIn 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.95)), url('vecteezy_woman-hands-receiving-a-manicure_12649597.jpg');
+            background-size: cover;
+            background-position: center;
+            border-radius: 25px;
+            padding: 100px 40px;
+            box-shadow: 0 20px 50px rgba(106, 27, 154, 0.1);
+            margin-bottom: 60px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .hero h1 {
+            font-size: 3.8rem;
+            margin-bottom: 25px;
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #444;
+            line-height: 1.8;
+            font-weight: 500;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 50px;
+            color: var(--primary-color);
+            font-weight: 700;
             position: relative;
-            height: 230px;
-            overflow: hidden;
-            background-color: #f0e6df;
         }
 
-        .portfolio-img {
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--gradient-main);
+            margin: 15px auto 0;
+            border-radius: 5px;
+        }
+
+        /* Slider Styles */
+        .slider-section {
+            max-width: 1000px;
+            margin: 0 auto 60px;
+        }
+
+        .slider-container {
+            position: relative;
+            width: 100%;
+            height: 450px;
+            overflow: hidden;
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            background: #fff;
+            border: 1px solid var(--border-light);
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+            display: flex;
+            visibility: hidden;
+        }
+
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            margin: auto;
+        }
+
+        /* Manual Slider Buttons */
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--primary-color);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 10;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slider-btn:hover {
+            background: var(--gradient-main);
+            color: var(--text-light);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .slider-btn.prev {
+            left: 15px;
+        }
+
+        .slider-btn.next {
+            right: 15px;
+        }
+
+        /* Modern App-Style Featured Services Grid */
+        .price-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .price-card-modern {
+            background: #ffffff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            border: 1px solid #eef0f4;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .price-card-modern:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Image Wrap & Badges */
+        .card-image-wrap {
+            position: relative;
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            background-color: #f8f9fa;
+        }
+
+        .card-image-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* "Popular" Badge (Top-Left) */
+        .badge-popular {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: #ff6b00;
+            color: #ffffff;
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 6px 18px;
+            border-bottom-right-radius: 16px;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 8px rgba(255, 107, 0, 0.3);
+            z-index: 2;
+        }
+
+        /* Rating Badge (Top-Right) */
+        .badge-rating {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(4px);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #2d3748;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            z-index: 2;
+        }
+
+        .badge-rating .stars {
+            color: #ff9800;
+            letter-spacing: -1px;
+        }
+
+        .badge-rating .count {
+            color: #64748b;
+            font-size: 0.8rem;
+            margin-left: 2px;
+        }
+
+        /* Carousel Dots */
+        .card-image-dots {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            z-index: 2;
+        }
+
+        .card-image-dots .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.6);
+        }
+
+        .card-image-dots .dot.active {
+            background: #ffffff;
+            width: 8px;
+            height: 8px;
+        }
+
+        /* Content Body */
+        .card-content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            text-align: left;
+        }
+
+        .card-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1a202c;
+            margin: 0;
+            line-height: 1.3;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Pricing Styling */
+        .card-price-container {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            white-space: nowrap;
+        }
+
+        .price-original {
+            font-size: 0.95rem;
+            color: #94a3b8;
+            text-decoration: line-through;
+        }
+
+        .price-discount-tag {
+            color: #10b981;
+            font-size: 0.85rem;
+        }
+
+        .price-current {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #0f172a;
+        }
+
+        /* Description Text */
+        .card-description {
+            font-size: 0.95rem;
+            color: #64748b;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            aspect-ratio: 1 / 1;
+        }
+
+        .gallery-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s ease;
         }
 
-        .portfolio-card:hover .portfolio-img {
-            transform: scale(1.06);
+        .gallery-item:hover img {
+            transform: scale(1.1);
         }
 
-        .price-badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: var(--white);
-            color: var(--text-dark);
-            font-weight: 600;
-            font-size: 14px;
-            padding: 6px 14px;
-            border-radius: 30px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-        }
-
-        .portfolio-content {
-            padding: 25px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .portfolio-title {
-            font-size: 20px;
-            margin-bottom: 10px;
-            color: var(--text-dark);
-        }
-
-        .portfolio-desc {
-            font-size: 14px;
-            color: var(--text-muted);
-            margin-bottom: 20px;
-            flex-grow: 1;
-            line-height: 1.6;
-        }
-
-        .portfolio-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-top: 15px;
-            border-top: 1px solid #f0f0f0;
-        }
-
-        .category-tag {
-            font-size: 12px;
-            background: var(--accent-pink);
-            color: var(--primary-color);
-            padding: 4px 12px;
+        .gallery-placeholder {
+            background-color: #fff;
+            border: 3px dashed #d1c4e9;
             border-radius: 20px;
-            font-weight: 500;
-        }
-
-        .book-btn {
-            color: var(--text-dark);
-            font-size: 13px;
-            font-weight: 600;
-            text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 6px;
-            transition: var(--transition);
+            justify-content: center;
+            aspect-ratio: 1 / 1;
+            color: #9575cd;
+            font-weight: 600;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s;
         }
 
-        .book-btn:hover {
+        .gallery-placeholder:hover {
+            background-color: #f3e5f5;
+            border-color: var(--primary-color);
             color: var(--primary-color);
         }
 
-        /* --- Pedicure Personnel / Team Section --- */
-        .team-section {
-            padding: 80px 0 100px;
-            background-color: var(--white);
+        /* Haircut Section Styles */
+        .haircut-section {
+            padding: 40px 0;
+            margin-bottom: 60px;
         }
 
-        .team-grid {
+        .haircut-section .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .haircut-section .section-subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            text-align: center;
+            margin-top: -30px;
+            margin-bottom: 40px;
+        }
+
+        .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 30px;
         }
 
-        .team-card {
-            background: var(--bg-light);
-            border-radius: 16px;
-            padding: 35px 25px;
-            text-align: center;
-            transition: var(--transition);
-            border: 1px solid rgba(0,0,0,0.03);
-            box-shadow: var(--card-shadow);
+        .service-card {
+            background-color: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+            transition: transform 0.4s ease;
+            border: 1px solid var(--border-light);
         }
 
-        .team-card:hover {
+        .service-card:hover {
             transform: translateY(-8px);
-            background: var(--white);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
         }
 
-        /* Avatar Placeholder Styles */
-        .avatar-box {
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #e8b4b8 0%, #d4a373 100%);
-            color: var(--white);
+        .service-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .service-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .service-info h3 {
+            margin: 0 0 10px;
+            font-size: 1.4rem;
+            color: var(--primary-color);
+        }
+
+        .service-info p {
+            margin: 0;
+            color: #555;
+            line-height: 1.5;
+            font-size: 0.95rem;
+        }
+
+        /* Elevated Pricing List Design */
+        .pricing-container {
+            max-width: 950px;
+            margin: 0 auto;
+        }
+
+        .pricing-category {
+            background: #fff;
+            padding: 50px;
+            border-radius: 25px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
+            margin-bottom: 50px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.02);
+        }
+
+        .pricing-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: var(--gradient-main);
+        }
+
+        .pricing-category h3 {
+            font-size: 2.4rem;
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+        }
+
+        .pricing-item {
+            margin-bottom: 20px;
+            padding: 15px 20px;
+            border-radius: 12px;
+            transition: all 0.3s;
+            border-left: 4px solid transparent;
+        }
+
+        .pricing-item:hover {
+            background-color: #f8f9fa;
+            border-left: 4px solid var(--secondary-color);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+        }
+
+        .pricing-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .pricing-title-row {
             display: flex;
+            align-items: baseline;
+            width: 100%;
+        }
+
+        .pricing-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-right: 15px;
+        }
+
+        .leader {
+            flex-grow: 1;
+            border-bottom: 2px dotted #bdbdbd;
+            margin: 0 15px;
+            position: relative;
+            top: -5px;
+            opacity: 0.5;
+        }
+
+        .pricing-cost {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            white-space: nowrap;
+        }
+
+        .pricing-desc {
+            font-size: 0.95rem;
+            color: #666;
+            margin-top: 8px;
+            display: block;
+            max-width: 90%;
+            font-style: italic;
+        }
+
+        /* Contact Section */
+        .contact-box {
+            background: #fff;
+            padding: 60px 40px;
+            border-radius: 25px;
+            max-width: 650px;
+            margin: 0 auto;
+            box-shadow: 0 20px 50px rgba(106, 27, 154, 0.1);
+            text-align: center;
+            border: 1px solid var(--border-light);
+            position: relative;
+        }
+
+        .contact-box p {
+            font-size: 1.25rem;
+            margin-bottom: 20px;
+            color: #555;
+            font-weight: 500;
+        }
+
+        .contact-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 40px;
+            display: block;
+            font-family: 'Playfair Display', serif;
+            transition: transform 0.3s;
+        }
+
+        .contact-number:hover {
+            transform: scale(1.05);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .social-links a {
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            font-size: 32px;
-            font-weight: 600;
-            margin: 0 auto 20px;
-            box-shadow: 0 8px 20px rgba(212, 163, 115, 0.3);
-        }
-
-        .team-name {
-            font-size: 20px;
-            color: var(--text-dark);
-            margin-bottom: 6px;
-        }
-
-        .team-role {
-            font-size: 13px;
+            width: 70px;
+            height: 70px;
+            background: #fff;
+            border: 2px solid var(--border-light);
+            border-radius: 50%;
             color: var(--primary-color);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
 
-        .team-desc {
-            font-size: 14px;
-            color: var(--text-muted);
-            line-height: 1.6;
-            margin-bottom: 20px;
+        .social-links a:hover {
+            background: var(--gradient-main);
+            color: var(--text-light);
+            border-color: transparent;
+            transform: scale(1.15) rotate(8deg);
+            box-shadow: 0 10px 25px rgba(255, 64, 129, 0.4);
         }
 
-        .specialty-list {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 6px;
+        .social-links svg {
+            width: 32px;
+            height: 32px;
+            fill: currentColor;
         }
 
-        .badge {
-            font-size: 11px;
-            background: var(--white);
-            color: var(--text-dark);
-            padding: 3px 10px;
-            border-radius: 12px;
-            border: 1px solid #e0e0e0;
+        /* Footer */
+        footer {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(8px);
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.95rem;
+            color: #777;
+            border-top: 1px solid var(--border-light);
+            margin-top: auto;
         }
 
-        /* --- Responsive Design --- */
+        /* Mobile Responsiveness */
         @media (max-width: 768px) {
-            .navbar {
+            nav {
                 flex-direction: column;
+                padding: 15px 20px;
+            }
+            .logo {
+                font-size: 2.2rem;
+                margin-bottom: 15px;
+            }
+            .nav-links {
                 gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .nav-links li {
+                padding: 5px 10px;
+                font-size: 0.9rem;
+            }
+            .tab-content {
+                padding: 160px 15px 40px;
+            }
+            .hero {
+                padding: 50px 20px;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
             }
             .section-title {
-                font-size: 28px;
+                font-size: 2.2rem;
+            }
+            .slider-container {
+                height: 250px;
+            }
+            .slider-btn {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+            }
+            .pricing-category {
+                padding: 30px 20px;
+            }
+            .pricing-title-row {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .leader {
+                display: none;
+            }
+            .pricing-cost {
+                margin-top: 5px;
+            }
+            .pricing-desc {
+                max-width: 100%;
+            }
+            .contact-number {
+                font-size: 1.8rem;
             }
         }
     </style>
 </head>
+
 <body>
 
-    <!-- Header / Navigation -->
-    <header>
-        <div class="container">
-            <nav class="navbar">
-                <a href="#" class="logo">ORGANIC<span>NAILS</span></a>
-                <ul class="nav-links">
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#team">Pedicure Specialists</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Heartfelt Home</div>
+        <ul class="nav-links">
+            <li onclick="openTab('homeTab', this)" class="active">Home</li>
+            <li onclick="openTab('pricingTab', this)">Prices</li>
+            <li onclick="openTab('contactTab', this)">Contact</li>
+        </ul>
+    </nav>
+
+    <!-- ==================== HOME TAB ==================== -->
+    <div id="homeTab" class="tab-content">
+        <div class="hero">
+            <h1>Luxury In-Home Services</h1>
+            <p>Heartfelt Home provides professional mobile hair and nail services across Singapore, bringing haircuts, styling, colouring, treatments, manicures, and pedicures directly to your home for clean, convenient, and reliable salon care for all ages.</p>
         </div>
-    </header>
 
-    <!-- OUR PORTFOLIO SECTION -->
-    <section class="portfolio-section" id="portfolio">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-subtitle">Our Featured Work</span>
-                <h2 class="section-title">Our Portfolio</h2>
-            </div>
+        <!-- Before & After Haircut / Nails Slider -->
+        <div class="slider-section">
+            <h2 class="section-title">Client Transformations</h2>
+            <div class="slider-container" id="beforeAfterSlider">
 
-            <div class="portfolio-grid">
-                <!-- Card 1 -->
-                <div class="portfolio-card">
-                    <div class="portfolio-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=600&q=80" alt="Classic Manicure" class="portfolio-img">
-                        <span class="price-badge">$25</span>
-                    </div>
-                    <div class="portfolio-content">
-                        <h3 class="portfolio-title">Classic Manicure</h3>
-                        <p class="portfolio-desc">Custom nail shaping, cuticle care, relaxing hand massage, and professional regular polish application.</p>
-                        <div class="portfolio-footer">
-                            <span class="category-tag">Manicure</span>
-                            <a href="#contact" class="book-btn">Book Now <i class="fa-solid =>-arrow-right"></i></a>
-                        </div>
-                    </div>
+                <!-- Manual Buttons -->
+                <button class="slider-btn prev" onclick="manualSlide(-1)">&#10094;</button>
+                <button class="slider-btn next" onclick="manualSlide(1)">&#10095;</button>
+
+                <!-- Slide 1: Haircut -->
+                <div class="slide active">
+                    <img src="istockphoto-1352080817-612x612.jpg" alt="Haircut Before and After" />
                 </div>
 
-                <!-- Card 2 -->
-                <div class="portfolio-card">
-                    <div class="portfolio-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?auto=format&fit=crop&w=600&q=80" alt="Gel Polish Service" class="portfolio-img">
-                        <span class="price-badge">$40</span>
-                    </div>
-                    <div class="portfolio-content">
-                        <h3 class="portfolio-title">Gel Polish Service</h3>
-                        <p class="portfolio-desc">Long-lasting LED-cured gel polish with zero dry time, mirror-like shine, and chip-free wear for 2+ weeks.</p>
-                        <div class="portfolio-footer">
-                            <span class="category-tag">Gel Nails</span>
-                            <a href="#contact" class="book-btn">Book Now <i class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </div>
+                <!-- Slide 2: Nails -->
+                <div class="slide">
+                    <img src="istockphoto-2175425026-612x612.jpg" alt="Nails Before and After" />
                 </div>
 
-                <!-- Card 3 -->
-                <div class="portfolio-card">
-                    <div class="portfolio-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1607779097040-26e80aa78e66?auto=format&fit=crop&w=600&q=80" alt="Nail Art & Design" class="portfolio-img">
-                        <span class="price-badge">$15+</span>
-                    </div>
-                    <div class="portfolio-content">
-                        <h3 class="portfolio-title">Nail Art & Design</h3>
-                        <p class="portfolio-desc">Hand-painted custom patterns, chrome effects, rhinestones, and bespoke creative accent designs.</p>
-                        <div class="portfolio-footer">
-                            <span class="category-tag">Custom Art</span>
-                            <a href="#contact" class="book-btn">Book Now <i class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </div>
+                <!-- Slide 3: Hair Styling -->
+                <div class="slide">
+                    <img src="istockphoto-1438421875-612x612.jpg" alt="Styling Before and After" />
                 </div>
 
-                <!-- Card 4 -->
-                <div class="portfolio-card">
-                    <div class="portfolio-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1519014816548-bf5fe059798b?auto=format&fit=crop&w=600&q=80" alt="Spa Pedicure" class="portfolio-img">
-                        <span class="price-badge">$50</span>
-                    </div>
-                    <div class="portfolio-content">
-                        <h3 class="portfolio-title">Spa Pedicure</h3>
-                        <p class="portfolio-desc">Warm botanical foot soak, organic scrub exfoliation, intense heel care, cuticle repair, and calf massage.</p>
-                        <div class="portfolio-footer">
-                            <span class="category-tag">Pedicure</span>
-                            <a href="#contact" class="book-btn">Book Now <i class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 5 -->
-                <div class="portfolio-card">
-                    <div class="portfolio-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1599940824399-b87987ceb72a?auto=format&fit=crop&w=600&q=80" alt="Acrylic Full Set" class="portfolio-img">
-                        <span class="price-badge">$60+</span>
-                    </div>
-                    <div class="portfolio-content">
-                        <h3 class="portfolio-title">Acrylic Full Set</h3>
-                        <p class="portfolio-desc">Full acrylic extensions tailored with your choice of shape, length, and premium color finish.</p>
-                        <div class="portfolio-footer">
-                            <span class="category-tag">Extensions</span>
-                            <a href="#contact" class="book-btn">Book Now <i class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 6 -->
-                <div class="portfolio-card">
-                    <div class="portfolio-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=600&q=80" alt="Nail Repair & Care" class="portfolio-img">
-                        <span class="price-badge">$10+</span>
-                    </div>
-                    <div class="portfolio-content">
-                        <h3 class="portfolio-title">Nail Repair & Care</h3>
-                        <p class="portfolio-desc">Nail strengthening treatments, IBX restorative care, and single nail repairs for optimal health.</p>
-                        <div class="portfolio-footer">
-                            <span class="category-tag">Treatment</span>
-                            <a href="#contact" class="book-btn">Book Now <i class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
-    </section>
+        <!-- END Slider Section -->
 
-    <!-- PEDICURE SPECIALISTS / TEAM SECTION -->
-    <section class="team-section" id="team">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-subtitle">Meet Our Experts</span>
-                <h2 class="section-title">Pedicure Specialists</h2>
+        <!-- Featured Art & Services -->
+        <h2 class="section-title">Featured Art & Services</h2>
+        <div class="price-grid">
+
+            <!-- Card 1 -->
+            <div class="price-card-modern">
+                <div class="card-image-wrap">
+                    <img src="ralph_germany-beauty-8388862_1920.jpg" alt="Classic Spa Pedicure" />
+                    <span class="badge-popular">Popular</span>
+                    <div class="badge-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="count">13,793</span>
+                    </div>
+                    <div class="card-image-dots">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="card-header-row">
+                        <h3 class="card-title">Classic Spa Pedicure</h3>
+                        <div class="card-price-container">
+                            <span class="price-original">$98.00</span>
+                            <span class="price-discount-tag">🏷️</span>
+                            <span class="price-current">$86</span>
+                        </div>
+                    </div>
+                    <p class="card-description">
+                        Relaxing foot soak, cuticle care, and flawless polish application provided by experienced mobile nail technicians.
+                    </p>
+                </div>
             </div>
 
-            <div class="team-grid">
-                <!-- Specialist 1 -->
-                <div class="team-card">
-                    <div class="avatar-box">ER</div>
-                    <h3 class="team-name">Elena Rostova</h3>
-                    <p class="team-role">Lead Reflexologist & Master Specialist</p>
-                    <p class="team-desc">8+ years of expertise in luxury foot care, therapeutic botanical soaks, and deep-tissue acupressure massage.</p>
-                    <div class="specialty-list">
-                        <span class="badge">Reflexology</span>
-                        <span class="badge">Spa Pedicure</span>
-                        <span class="badge">Callus Care</span>
+            <!-- Card 2 -->
+            <div class="price-card-modern">
+                <div class="card-image-wrap">
+                    <img src="summer-nails-bright-manicure-vacation-nails-colorful-design-beach-nails-trendy-nails-fun-manicure-seasonal-nails-beauty-style-nail-art-pink-nail-polish-petal-spring-manicure-artificial-nails-nail-care-blossom-floral.jpg" alt="Premium Gel Design" />
+                    <span class="badge-popular">Popular</span>
+                    <div class="badge-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="count">8,420</span>
+                    </div>
+                    <div class="card-image-dots">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="card-header-row">
+                        <h3 class="card-title">Premium Gel Design</h3>
+                        <div class="card-price-container">
+                            <span class="price-original">$145.00</span>
+                            <span class="price-discount-tag">🏷️</span>
+                            <span class="price-current">$128</span>
+                        </div>
+                    </div>
+                    <p class="card-description">
+                        Elegant dual-tone gel polish with beautiful metallic accents, customized directly for your home pampering.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="price-card-modern">
+                <div class="card-image-wrap">
+                    <img src="spacehead45-nails-9134036_1920.png" alt="Gelish Manicure Extension" />
+                    <span class="badge-popular">Popular</span>
+                    <div class="badge-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="count">5,112</span>
+                    </div>
+                    <div class="card-image-dots">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="card-header-row">
+                        <h3 class="card-title">Gelish Extension Nail Care</h3>
+                        <div class="card-price-container">
+                            <span class="price-original">$98.00</span>
+                            <span class="price-discount-tag">🏷️</span>
+                            <span class="price-current">$84</span>
+                        </div>
+                    </div>
+                    <p class="card-description">
+                        Adds length and strength to natural nails by combining long-lasting gelish polish with structural gel extensions.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <h2 class="section-title">Our Portfolio</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="halloween-nails-spooky-nails-themed-manicure-dark-nails-creative-design-festive-nails-seasonal-beauty-nail-art-ideas-party-nails-trendy-manicure-nail-care-nail-polish-manicure-finger-nail-cosmetics-pink-artificial-n.jpg" alt="Halloween Spooky Nails" />
+            </div>
+            <div class="gallery-item">
+                <img src="afsharonatias-nails-3975643_1920.jpg" alt="Soft Pink Manicure" />
+            </div>
+            <div class="gallery-item">
+                <img src="istockphoto-1406565295-612x612-Picsart-AiImageEnhancer.jpg" alt="Enhanced Pink Manicure" />
+            </div>
+            <div class="gallery-item">
+                <img src="alehandra13-nails-5401834_1920.jpg" alt="Tropical Leaf Art" />
+            </div>
+            <div class="gallery-item">
+                <img src="codelighter-manicure-3224637_1920.jpg" alt="Blue Glitter Manicure" />
+            </div>
+            <div class="gallery-item">
+                <img src="ipicture-valentines-day-10035538_1920.jpg" alt="Blue Glitter Manicure" />
+            </div>
+            <div class="gallery-item">
+                <img src="ralph_germany-nails-8388827_1920.jpg" alt="Blue Glitter Manicure" />
+            </div>
+            <div class="gallery-item">
+                <img src="neelam279-nail-design-6005598_1920.jpg" alt="Blue Glitter Manicure" />
+            </div>
+            <div class="gallery-item">
+                <img src="pexels-cristina-perez-2163041378-38784151.jpg" />
+            </div>
+            <div class="gallery-item">
+                <img src="pexels-estoymhrb-20758448.jpg" alt="Blue Glitter Manicure" />
+            </div>
+            <div class="gallery-placeholder">
+                <span>+ Add Picture</span>
+            </div>
+        </div>
+
+        <!-- Haircut Services Section (Placed at the bottom of the Home Tab) -->
+        <section class="haircut-section">
+            <div class="container">
+                <h2 class="section-title">Our Haircut Services</h2>
+                <p class="section-subtitle">Professional styling for the whole family, tailored just for you.</p>
+
+                <div class="services-grid">
+
+                    <!-- Service Card 1: Women's Styling -->
+                    <div class="service-card">
+                        <img src="istockphoto-524386042-612x612.jpg" alt="Women's Haircut and Styling" />
+                        <div class="service-info">
+                            <h3>Women's Styling</h3>
+                            <p>Precision cuts, trims, and beautiful styling to refresh your look.</p>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 2: Men's Grooming -->
+                    <div class="service-card">
+                        <img src="istockphoto-1339781943-612x612.jpg" alt="Men's Haircut and Grooming" />
+                        <div class="service-info">
+                            <h3>Men's Grooming</h3>
+                            <p>Classic cuts, modern fades, and professional grooming services.</p>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 3: Kids Haircuts -->
+                    <div class="service-card">
+                        <img src="istockphoto-844300600-612x612.jpg" alt="Kids Haircut" />
+                        <div class="service-info">
+                            <h3>Kids Haircuts</h3>
+                            <p>Gentle and patient stylists to make your little one's haircut a breeze.</p>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 4: Specialized Treatments -->
+                    <div class="service-card">
+                        <img src="istockphoto-920396280-612x612.jpg" alt="Specialized Hair Treatments" />
+                        <div class="service-info">
+                            <h3>Specialized Care</h3>
+                            <p>Advanced cutting techniques and treatments for all hair types.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- END Haircut Services Section -->
+
+    </div>
+
+    <!-- ==================== PRICING TAB ==================== -->
+    <div id="pricingTab" class="tab-content">
+        <h2 class="section-title">Complete Pricelist</h2>
+
+        <div class="pricing-container">
+
+            <!-- Nail Salon Category -->
+            <div class="pricing-category">
+                <h3>Nail Salon Home Service</h3>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Male Manicure Pedicure</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$94</span>
+                    </div>
+                    <span class="pricing-desc">Includes: shape, cuticle care, massage, cuticle oil, polish quick dry or puff and shine (foot soak & scrub, pedi only)</span>
+                </div>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Female Manicure Pedicure</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$90</span>
+                    </div>
+                    <span class="pricing-desc">Includes: shape, cuticle care, massage, cuticle oil, polish quick dry or puff and shine (foot soak & scrub, pedi only)</span>
+                </div>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Elderly Manicure Pedicure</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$120</span>
+                    </div>
+                    <span class="pricing-desc">Includes: shape, cuticle care, massage, cuticle oil, polish quick dry or puff and shine (foot soak & scrub, pedi only), calluses remove</span>
+                </div>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Gelish Manicure Pedicure</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$128</span>
+                    </div>
+                    <span class="pricing-desc">Includes: shape, cuticle care, massage, gelish (foot soak & scrub pedi only)</span>
+                </div>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Male/Female Spa Pedicure</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$145</span>
+                    </div>
+                    <span class="pricing-desc">Includes: shape, cuticle care, massage, foot soak & scrub, remove calluses, remove crack heels , cuticle oil, treatment foot spa (buff & shine/polish opi/gelish)</span>
+                </div>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Pedicure</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$85</span>
+                    </div>
+                    <span class="pricing-desc">Includes: shape, cuticle care, massage, cuticle oil, polish quick dry or puff and shine (foot soak & scrub, pedi only)</span>
+                </div>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Gelish Manicure</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$85</span>
+                    </div>
+                    <span class="pricing-desc">Includes: Shape, Cuticle Care, Massage, Gel polish, Cuticle oil.</span>
+                </div>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Gelish Manicure (Express)</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$74</span>
                     </div>
                 </div>
 
-                <!-- Specialist 2 -->
-                <div class="team-card">
-                    <div class="avatar-box">SC</div>
-                    <h3 class="team-name">Sophia Chen</h3>
-                    <p class="team-role">Gel & Toenail Art Artist</p>
-                    <p class="team-desc">Specializes in precision gel pedicure application, intricate toe nail artwork, and long-lasting chrome finishes.</p>
-                    <div class="specialty-list">
-                        <span class="badge">Nail Art</span>
-                        <span class="badge">Gel Pedicure</span>
-                        <span class="badge">French Tip</span>
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Gelish Pedicure</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$84</span>
+                    </div>
+                    <span class="pricing-desc">Includes: Shape, Cuticle Care, Massage, Gel polish, foot scrub.</span>
+                </div>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Male / Female Spa Manicure</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$110</span>
+                    </div>
+                    <span class="pricing-desc">Includes: shape, cuticle care, massage, cuticle oil, hand treatment, ( polish quick dry/gelish/puff and shine)</span>
+                </div>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Classic Manicure</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$74</span>
+                    </div>
+                    <span class="pricing-desc">Includes: shape, cuticle care, massage, puff and shine or nail polish (opi colour/halal nail polish)</span>
+                </div>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Remove Nail Extensions + Manicure</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$139</span>
                     </div>
                 </div>
 
-                <!-- Specialist 3 -->
-                <div class="team-card">
-                    <div class="avatar-box">AM</div>
-                    <h3 class="team-name">Aria Montgomery</h3>
-                    <p class="team-role">Organic Spa Therapist</p>
-                    <p class="team-desc">Focuses on 100% non-toxic, eco-friendly pedicure treatments, detoxifying clay wraps, and moisturizing herbal scrubs.</p>
-                    <div class="specialty-list">
-                        <span class="badge">Organic Care</span>
-                        <span class="badge">Detox Soak</span>
-                        <span class="badge">Hydration</span>
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Remove Nail Extensions</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$95</span>
                     </div>
                 </div>
 
-                <!-- Specialist 4 -->
-                <div class="team-card">
-                    <div class="avatar-box">MV</div>
-                    <h3 class="team-name">Marcus Vance</h3>
-                    <p class="team-role">Restorative Foot Care Specialist</p>
-                    <p class="team-desc">Expert in restorative athletic foot therapy, heel repair treatments, and specialized nail shaping techniques.</p>
-                    <div class="specialty-list">
-                        <span class="badge">Restorative</span>
-                        <span class="badge">Heel Repair</span>
-                        <span class="badge">Nail Shaping</span>
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Male/Female Classic Pedicure</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$86</span>
+                    </div>
+                    <span class="pricing-desc">Includes nail shaping, cuticle care, scab relaxing foot massage and polish application for ladies and buff and shine for men, calluses remove</span>
+                </div>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Gelish Nail Extensions</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$175</span>
+                    </div>
+                    <span class="pricing-desc">Our trained professionals nail extensions with high-quality gel polish that provides a long lasting immaculate finish.</span>
+                </div>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Gelish Manicure & Gelish Pedicure (Premium)</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$128</span>
+                    </div>
+                    <span class="pricing-desc">Our trained professionals meticulously shape, buff, and perfect your nails, both hand and toes, with high-quality gel polish that provides a long lasting immaculate finishing. Indulge in this premium treatment to achieve flawless nails and a refreshed, sophisticated appearance, calluses remove</span>
+                </div>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Spa Manicure & Spa Pedicure</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$180</span>
+                    </div>
+                    <span class="pricing-desc">Includes nail shaping, cuticle care a relaxing hand and foot massage with scrub stem cells of professional care for yourself with removes creaked hard and calloused skin puff and shine, nail polish.</span>
+                </div>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Male/Female Hand & Foot Treatment</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$180</span>
+                    </div>
+                    <span class="pricing-desc">Includes nail shaping, cuticle care a relaxing hand and foot massage with scrub stem cells of professional care for yourself with removes creaked hard and callus skin puff and shine, nail polish.</span>
+                </div>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Pedicure Cracked Heels Treatment</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$149</span>
+                    </div>
+                    <span class="pricing-desc">Male or Female: includes shape, cuticle care, cracked heels care, massage, treatment cracked heel (puff and shine or polish), calluses remove</span>
+                </div>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Remove Ingrown Nail Treatments</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$120</span>
+                    </div>
+                    <span class="pricing-desc">Includes: shape, cuticle care, massage, cuticle oil, polish quick dry or puff and shine (foot soak & scrub, pedi only), calluses remove</span>
+                </div>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Hospital Manicure Pedicure</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$139</span>
+                    </div>
+                </div>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Hotel Pedicure Service</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$130</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hair Salon Category -->
+            <div class="pricing-category">
+                <h3>Hair Salon Home Service</h3>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Man Elderly Haircut</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$55</span>
+                    </div>
+                </div>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Man Elderly Haircut, Wash and Blow</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$55</span>
+                    </div>
+                </div>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Elderly Head Massage & Wash with Blow</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$55</span>
+                    </div>
+                </div>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Elderly Haircut with Head Massage, Wash Blow dry</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$75</span>
+                    </div>
+                </div>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Man Hair Treatment</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$45</span>
+                    </div>
+                </div>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Man Elderly Colour White Hair</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$80</span>
+                    </div>
+                </div>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Hair Touch Up</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$49</span>
+                    </div>
+                    <span class="pricing-desc">Haircut or colour (valid only if your previous haircut with us was within 2 weeks)</span>
+                </div>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Kids and Student Haircut</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$45</span>
+                    </div>
+                    <span class="pricing-desc">Haircut or colour (valid only if your previous haircut with us was within 2 weeks)</span>
+                </div>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Hairstyling</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$160</span>
+                    </div>
+                </div>
+
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Wash and Blow</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$73</span>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+
+    <!-- ==================== CONTACT TAB ==================== -->
+    <div id="contactTab" class="tab-content">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-box">
+            <p>Ready for a pampering session at home? Call or WhatsApp us today to book an appointment.</p>
+            <a href="tel:+6598377306" class="contact-number" style="text-decoration: none;">+65 9837 7306</a>
+
+            <div class="social-links">
+                <!-- WhatsApp Icon -->
+                <a href="https://wa.me/6598377306" target="_blank" aria-label="WhatsApp">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                    </svg>
+                </a>
+                <!-- Instagram Icon -->
+                <a href="https://www.instagram.com/mobilenailspahair" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Heartfelt Home. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function openTab(tabName, elmnt) {
+            // Hide all tabs
+            let tabs = document.getElementsByClassName("tab-content");
+            for (let i = 0; i < tabs.length; i++) {
+                tabs[i].style.display = "none";
+            }
+
+            // Remove 'active' class from all nav links, only if an element was clicked
+            if (elmnt && elmnt.classList) {
+                let navLinks = document.querySelectorAll(".nav-links li");
+                navLinks.forEach(link => link.classList.remove("active"));
+                elmnt.classList.add("active");
+            }
+
+            // Show the selected tab
+            document.getElementById(tabName).style.display = "block";
+
+            // Scroll back to top whenever a new tab opens
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Open the Home tab automatically when the page loads
+        window.onload = function() {
+            let defaultTabLink = document.querySelector(".nav-links li.active") || document.querySelector(".nav-links li");
+            openTab('homeTab', defaultTabLink);
+        };
+
+        // Slider Script with Manual Controls
+        const slides = document.querySelectorAll('#beforeAfterSlider .slide');
+        let currentSlide = 0;
+        let slideInterval;
+
+        function showSlide(index) {
+            if (slides.length === 0) return;
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (index + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        function manualSlide(direction) {
+            showSlide(currentSlide + direction);
+            resetInterval();
+        }
+
+        function autoSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function resetInterval() {
+            clearInterval(slideInterval);
+            slideInterval = setInterval(autoSlide, 2000);
+        }
+
+        slideInterval = setInterval(autoSlide, 2000);
+    </script>
 
 </body>
 </html>

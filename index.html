@@ -48,10 +48,7 @@
             z-index: 1;
             mix-blend-mode: screen;
         }
-        h1,
-        h2,
-        h3,
-        h4 {
+        h1, h2, h3, h4 {
             font-family: 'Playfair Display', serif;
         }
         nav {
@@ -93,8 +90,7 @@
             border-radius: 25px;
             transition: all 0.3s ease;
         }
-        .nav-links li:hover,
-        .nav-links li.active {
+        .nav-links li:hover, .nav-links li.active {
             color: var(--text-light);
             background: var(--gradient-main);
             box-shadow: 0 4px 15px rgba(255, 64, 129, 0.3);
@@ -227,12 +223,8 @@
             transform: translateY(-50%) scale(1.1);
             box-shadow: 0 6px 15px rgba(255, 64, 129, 0.4);
         }
-        .slider-btn.prev {
-            left: 15px;
-        }
-        .slider-btn.next {
-            right: 15px;
-        }
+        .slider-btn.prev { left: 15px; }
+        .slider-btn.next { right: 15px; }
         .ba-container {
             display: flex;
             align-items: center;
@@ -344,15 +336,8 @@
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
             z-index: 2;
         }
-        .badge-rating .stars {
-            color: #ff9800;
-            letter-spacing: -1px;
-        }
-        .badge-rating .count {
-            color: #64748b;
-            font-size: 0.8rem;
-            margin-left: 2px;
-        }
+        .badge-rating .stars { color: #ff9800; letter-spacing: -1px; }
+        .badge-rating .count { color: #64748b; font-size: 0.8rem; margin-left: 2px; }
         .card-image-dots {
             position: absolute;
             bottom: 10px;
@@ -406,10 +391,7 @@
             color: #94a3b8;
             text-decoration: line-through;
         }
-        .price-discount-tag {
-            color: #10b981;
-            font-size: 0.85rem;
-        }
+        .price-discount-tag { color: #10b981; font-size: 0.85rem; }
         .price-current {
             font-size: 1.4rem;
             font-weight: 800;
@@ -440,61 +422,6 @@
             width: 100%;
             height: auto;
             display: block;
-        }
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 25px;
-            margin-bottom: 50px;
-        }
-        .gallery-item {
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-            aspect-ratio: 1 / 1;
-        }
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-        .gallery-placeholder {
-            background-color: #fff;
-            border: 3px dashed #d1c4e9;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            aspect-ratio: 1 / 1;
-            color: #9575cd;
-            font-weight: 600;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        .gallery-placeholder:hover {
-            background-color: #f3e5f5;
-            border-color: var(--primary-color);
-            color: var(--primary-color);
-        }
-        .card-image-wrap.collage {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2px;
-            background: #1a1a1a;
-        }
-        .card-image-wrap.collage img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .card-image-wrap.collage.two-photo {
-            grid-template-columns: repeat(2, 1fr);
         }
         .section-subtitle-center {
             text-align: center;
@@ -597,9 +524,6 @@
             border-left: 4px solid var(--secondary-color);
             box-shadow: 0 4px 15px rgba(255, 64, 129, 0.08);
         }
-        .pricing-item:last-child {
-            margin-bottom: 0;
-        }
         .pricing-title-row {
             display: flex;
             align-items: baseline;
@@ -661,9 +585,7 @@
             font-family: 'Playfair Display', serif;
             transition: transform 0.3s;
         }
-        .contact-number:hover {
-            transform: scale(1.05);
-        }
+        .contact-number:hover { transform: scale(1.05); }
         .social-links {
             display: flex;
             justify-content: center;
@@ -707,75 +629,25 @@
             z-index: 2;
         }
         @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                padding: 15px 20px;
-            }
-            .logo {
-                font-size: 2.2rem;
-                margin-bottom: 15px;
-            }
-            .nav-links {
-                gap: 15px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            .nav-links li {
-                padding: 5px 10px;
-                font-size: 0.9rem;
-            }
-            .tab-content {
-                padding: 160px 15px 40px;
-            }
-            .hero {
-                padding: 50px 20px;
-            }
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            .section-title {
-                font-size: 2.2rem;
-            }
-            .slider-container {
-                height: 350px;
-            }
-            .slider-btn {
-                width: 35px;
-                height: 35px;
-                font-size: 1rem;
-            }
-            .ba-container {
-                flex-direction: column;
-                gap: 8px;
-                padding: 10px;
-            }
-            .ba-half {
-                height: 45%;
-                width: 100%;
-                flex: none;
-            }
-            .ba-arrow {
-                font-size: 1.5rem;
-            }
-            .pricing-category {
-                padding: 30px 20px;
-            }
-            .pricing-title-row {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .leader {
-                display: none;
-            }
-            .pricing-cost {
-                margin-top: 5px;
-            }
-            .pricing-desc {
-                max-width: 100%;
-            }
-            .contact-number {
-                font-size: 1.8rem;
-            }
+            nav { flex-direction: column; padding: 15px 20px; }
+            .logo { font-size: 2.2rem; margin-bottom: 15px; }
+            .nav-links { gap: 15px; flex-wrap: wrap; justify-content: center; }
+            .nav-links li { padding: 5px 10px; font-size: 0.9rem; }
+            .tab-content { padding: 160px 15px 40px; }
+            .hero { padding: 50px 20px; }
+            .hero h1 { font-size: 2.2rem; }
+            .section-title { font-size: 2.2rem; }
+            .slider-container { height: 500px; } /* Increased from 350px */
+            .slider-btn { width: 35px; height: 35px; font-size: 1rem; }
+            .ba-container { flex-direction: column; gap: 8px; padding: 10px; }
+            .ba-half { height: 100%; width: 100%; flex: 1; } /* Changed from 45% and flex:none */
+            .ba-arrow { font-size: 1.5rem; }
+            .pricing-category { padding: 30px 20px; }
+            .pricing-title-row { flex-direction: column; align-items: flex-start; }
+            .leader { display: none; }
+            .pricing-cost { margin-top: 5px; }
+            .pricing-desc { max-width: 100%; }
+            .contact-number { font-size: 1.8rem; }
         }
     </style>
 </head>
@@ -809,9 +681,16 @@
                 <div class="slide"><img src="istockphoto-1438421875-612x612.jpg" alt="Styling Before and After" /></div>
                 <div class="slide">
                     <div class="ba-container">
-                        <div class="ba-half"><img src="nails_before.jpg" alt="Before Nail Care" /><span class="ba-label">Before</span></div>
+                        <!-- SWAPPED IMAGES: Before now shows nails_after.jpg, After now shows nails_before.jpg -->
+                        <div class="ba-half">
+                            <img src="nails_after.jpg" alt="Before Nail Care" />
+                            <span class="ba-label">Before</span>
+                        </div>
                         <div class="ba-arrow">➜</div>
-                        <div class="ba-half"><img src="nails_after.jpg" alt="After Nail Care" /><span class="ba-label">After</span></div>
+                        <div class="ba-half">
+                            <img src="nails_before.jpg" alt="After Nail Care" />
+                            <span class="ba-label">After</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -821,7 +700,6 @@
         <h2 class="section-title">Featured Art & Services</h2>
         <div class="price-grid">
 
-            <!-- Card 1: Classic Spa Pedicure -->
             <div class="price-card-modern">
                 <div class="card-image-wrap">
                     <img src="pedicure-side-view.jpg" alt="Classic Spa Pedicure" />
@@ -838,7 +716,6 @@
                 </div>
             </div>
 
-            <!-- Card 2: Premium Gel Design -->
             <div class="price-card-modern">
                 <div class="card-image-wrap">
                     <img src="summer-nails-bright-manicure-vacation-nails-colorful-design-beach-nails-trendy-nails-fun-manicure-seasonal-nails-beauty-style-nail-art-pink-nail-polish-petal-spring-manicure-artificial-nails-nail-care-blossom-floral.jpg" alt="Premium Gel Design" />
@@ -855,7 +732,6 @@
                 </div>
             </div>
 
-            <!-- Card 3: Gelish Manicure (renamed from Gelish Extension Nail Care) -->
             <div class="price-card-modern">
                 <div class="card-image-wrap">
                     <img src="spacehead45-nails-9134036_1920.png" alt="Gelish Manicure" />
@@ -879,7 +755,7 @@
         <p class="section-subtitle-center">Four dedicated pedicure experiences, tailored to your feet and brought straight to your door.</p>
         <div class="price-grid">
 
-            <!-- Floral Pastel Pedicure (NEW - moved to top) -->
+            <!-- Floral Pastel Pedicure -->
             <div class="price-card-modern">
                 <div class="card-image-wrap">
                     <img src="floral-pastel-pedicure.jpg" alt="Floral Pastel Pedicure" />
@@ -891,7 +767,7 @@
                 </div>
             </div>
 
-            <!-- Classic Pedicure (renamed from Tropical Blossom Pedicure) -->
+            <!-- Classic Pedicure -->
             <div class="price-card-modern">
                 <div class="card-image-wrap">
                     <img src="tropical-blossom-pedicure-soak.jpg" alt="Classic Pedicure" />
@@ -903,7 +779,6 @@
                 </div>
             </div>
 
-            <!-- Deluxe Personal Pedicure -->
             <div class="price-card-modern">
                 <div class="card-image-wrap">
                     <img src="pedicure-treatment-application.jpg" alt="Deluxe Personal Pedicure Treatment" />
@@ -915,7 +790,6 @@
                 </div>
             </div>
 
-            <!-- Rose Petal Soak Ritual -->
             <div class="price-card-modern">
                 <div class="card-image-wrap">
                     <img src="rose-petal-soak-ritual.jpg" alt="Rose Petal Spa Soak Ritual" />
@@ -927,7 +801,6 @@
                 </div>
             </div>
 
-            <!-- Senior & Diabetic Foot Care -->
             <div class="price-card-modern">
                 <div class="card-image-wrap">
                     <img src="senior-diabetic-care.jpg" alt="Senior and Diabetic Foot Care" />
@@ -951,7 +824,6 @@
         <p class="section-subtitle-center">A glimpse of the nail art and styling we love creating for our clients.</p>
         <div class="price-grid">
 
-            <!-- Portfolio Card 1 -->
             <div class="price-card-modern">
                 <div class="card-image-wrap collage">
                     <img src="halloween-nails-spooky-nails-themed-manicure-dark-nails-creative-design-festive-nails-seasonal-beauty-nail-art-ideas-party-nails-trendy-manicure-nail-care-nail-polish-manicure-finger-nail-cosmetics-pink-artificial-n.jpg" alt="Halloween Spooky Nails" />
@@ -965,7 +837,6 @@
                 </div>
             </div>
 
-            <!-- Portfolio Card 2 -->
             <div class="price-card-modern">
                 <div class="card-image-wrap collage">
                     <img src="alehandra13-nails-5401834_1920.jpg" alt="Tropical Leaf Art" />
@@ -979,7 +850,6 @@
                 </div>
             </div>
 
-            <!-- Portfolio Card 3 -->
             <div class="price-card-modern">
                 <div class="card-image-wrap collage">
                     <img src="ralph_germany-nails-8388827_1920.jpg" alt="Elegant Nail Set" />
@@ -993,7 +863,6 @@
                 </div>
             </div>
 
-            <!-- Portfolio Card 4 -->
             <div class="price-card-modern">
                 <div class="card-image-wrap collage">
                     <img src="pexels-estoymhrb-20758448.jpg" alt="Fresh Manicure" />
@@ -1097,7 +966,6 @@
         <h2 class="section-title">Complete Pricelist</h2>
         <div class="pricing-container">
 
-            <!-- Nail Salon Category -->
             <div class="pricing-category">
                 <h3>Nail Salon Home Service</h3>
 
@@ -1116,30 +984,24 @@
                     <span class="pricing-desc">Includes: shape, cuticle care, massage, cuticle oil, polish quick dry or puff and shine (foot soak & scrub, pedi only), calluses remove</span>
                 </div>
 
-                <!-- NEW: Elderly Manicure -->
                 <div class="pricing-item">
                     <div class="pricing-title-row"><span class="pricing-title">Elderly Manicure</span><div class="leader"></div><span class="pricing-cost">$75</span></div>
-                    <span class="pricing-desc">Gentle manicure for elderly clients, includes shaping, cuticle care, and polish.</span>
                 </div>
 
                 <div class="pricing-item">
                     <div class="pricing-title-row"><span class="pricing-title">Gelish Manicure Pedicure</span><div class="leader"></div><span class="pricing-cost">$128</span></div>
-                    <span class="pricing-desc">Includes: shape, cuticle care, massage, gelish (foot soak & scrub pedi only)</span>
                 </div>
 
                 <div class="pricing-item">
                     <div class="pricing-title-row"><span class="pricing-title">Male/Female Spa Pedicure</span><div class="leader"></div><span class="pricing-cost">$145</span></div>
-                    <span class="pricing-desc">Includes: shape, cuticle care, massage, foot soak & scrub, remove calluses, remove crack heels , cuticle oil, treatment foot spa (buff & shine/polish opi/gelish)</span>
                 </div>
 
                 <div class="pricing-item">
                     <div class="pricing-title-row"><span class="pricing-title">Pedicure</span><div class="leader"></div><span class="pricing-cost">$85</span></div>
-                    <span class="pricing-desc">Includes: shape, cuticle care, massage, cuticle oil, polish quick dry or puff and shine (foot soak & scrub, pedi only)</span>
                 </div>
 
                 <div class="pricing-item">
                     <div class="pricing-title-row"><span class="pricing-title">Gelish Manicure</span><div class="leader"></div><span class="pricing-cost">$85</span></div>
-                    <span class="pricing-desc">Includes: Shape, Cuticle Care, Massage, Gel polish, Cuticle oil.</span>
                 </div>
 
                 <div class="pricing-item">
@@ -1148,30 +1010,22 @@
 
                 <div class="pricing-item">
                     <div class="pricing-title-row"><span class="pricing-title">Gelish Pedicure</span><div class="leader"></div><span class="pricing-cost">$84</span></div>
-                    <span class="pricing-desc">Includes: Shape, Cuticle Care, Massage, Gel polish, foot scrub.</span>
                 </div>
 
                 <div class="pricing-item">
                     <div class="pricing-title-row"><span class="pricing-title">Male / Female Spa Manicure</span><div class="leader"></div><span class="pricing-cost">$110</span></div>
-                    <span class="pricing-desc">Includes: shape, cuticle care, massage, cuticle oil, hand treatment, ( polish quick dry/gelish/puff and shine)</span>
                 </div>
 
-                <!-- Classic Manicure - price changed to $75 -->
                 <div class="pricing-item">
                     <div class="pricing-title-row"><span class="pricing-title">Classic Manicure</span><div class="leader"></div><span class="pricing-cost">$75</span></div>
-                    <span class="pricing-desc">Includes: shape, cuticle care, massage, puff and shine or nail polish (opi colour/halal nail polish)</span>
                 </div>
 
-                <!-- NEW: Cateye Manicure -->
                 <div class="pricing-item">
                     <div class="pricing-title-row"><span class="pricing-title">Cateye Manicure</span><div class="leader"></div><span class="pricing-cost">$89</span></div>
-                    <span class="pricing-desc">Includes: shape, cuticle care, massage, cateye gel polish, cuticle oil.</span>
                 </div>
 
-                <!-- NEW: Cateye Gelish Manicure -->
                 <div class="pricing-item">
                     <div class="pricing-title-row"><span class="pricing-title">Cateye Gelish Manicure</span><div class="leader"></div><span class="pricing-cost">$89</span></div>
-                    <span class="pricing-desc">Long-lasting cateye gel manicure with a stunning magnetic effect.</span>
                 </div>
 
                 <div class="pricing-item">
@@ -1182,47 +1036,36 @@
                     <div class="pricing-title-row"><span class="pricing-title">Remove Nail Extensions</span><div class="leader"></div><span class="pricing-cost">$95</span></div>
                 </div>
 
-                <!-- NEW: Remove Gelish -->
                 <div class="pricing-item">
                     <div class="pricing-title-row"><span class="pricing-title">Remove Gelish</span><div class="leader"></div><span class="pricing-cost">$75</span></div>
-                    <span class="pricing-desc">Professional gel polish removal and nail care.</span>
                 </div>
 
                 <div class="pricing-item">
                     <div class="pricing-title-row"><span class="pricing-title">Male/Female Classic Pedicure</span><div class="leader"></div><span class="pricing-cost">$86</span></div>
-                    <span class="pricing-desc">Includes nail shaping, cuticle care, scab relaxing foot massage and polish application for ladies and buff and shine for men, calluses remove</span>
                 </div>
 
-                <!-- Gelish Nail Extensions - price changed to $179 -->
                 <div class="pricing-item">
                     <div class="pricing-title-row"><span class="pricing-title">Gelish Nail Extensions</span><div class="leader"></div><span class="pricing-cost">$179</span></div>
-                    <span class="pricing-desc">Our trained professionals nail extensions with high-quality gel polish that provides a long lasting immaculate finish.</span>
                 </div>
 
                 <div class="pricing-item">
                     <div class="pricing-title-row"><span class="pricing-title">Gelish Manicure & Gelish Pedicure (Premium)</span><div class="leader"></div><span class="pricing-cost">$128</span></div>
-                    <span class="pricing-desc">Our trained professionals meticulously shape, buff, and perfect your nails, both hand and toes, with high-quality gel polish that provides a long lasting immaculate finishing. Indulge in this premium treatment to achieve flawless nails and a refreshed, sophisticated appearance, calluses remove</span>
                 </div>
 
                 <div class="pricing-item">
                     <div class="pricing-title-row"><span class="pricing-title">Spa Manicure & Spa Pedicure</span><div class="leader"></div><span class="pricing-cost">$180</span></div>
-                    <span class="pricing-desc">Includes nail shaping, cuticle care a relaxing hand and foot massage with scrub stem cells of professional care for yourself with removes creaked hard and calloused skin puff and shine, nail polish.</span>
                 </div>
 
                 <div class="pricing-item">
                     <div class="pricing-title-row"><span class="pricing-title">Male/Female Hand & Foot Treatment</span><div class="leader"></div><span class="pricing-cost">$180</span></div>
-                    <span class="pricing-desc">Includes nail shaping, cuticle care a relaxing hand and foot massage with scrub stem cells of professional care for yourself with removes creaked hard and callus skin puff and shine, nail polish.</span>
                 </div>
 
-                <!-- Cracked Heel / Calluses / Foot Concerns Treatment (renamed and price changed to $145) -->
                 <div class="pricing-item">
                     <div class="pricing-title-row"><span class="pricing-title">Cracked Heel/ Calluses/ Foot Concerns Treatment</span><div class="leader"></div><span class="pricing-cost">$145</span></div>
-                    <span class="pricing-desc">Male or Female: includes shape, cuticle care, cracked heels care, massage, treatment cracked heel (puff and shine or polish), calluses remove</span>
                 </div>
 
                 <div class="pricing-item">
                     <div class="pricing-title-row"><span class="pricing-title">Remove Ingrown Nail Treatments</span><div class="leader"></div><span class="pricing-cost">$120</span></div>
-                    <span class="pricing-desc">Includes: shape, cuticle care, massage, cuticle oil, polish quick dry or puff and shine (foot soak & scrub, pedi only), calluses remove</span>
                 </div>
 
                 <div class="pricing-item">
@@ -1233,34 +1076,26 @@
                     <div class="pricing-title-row"><span class="pricing-title">Hotel Pedicure Service</span><div class="leader"></div><span class="pricing-cost">$130</span></div>
                 </div>
 
-                <!-- Classic Pedicure (renamed from Tropical Blossom Pedicure) -->
                 <div class="pricing-item">
                     <div class="pricing-title-row"><span class="pricing-title">Classic Pedicure</span><div class="leader"></div><span class="pricing-cost">$85</span></div>
-                    <span class="pricing-desc">Classic foot soak with exfoliation, massage, and polish.</span>
                 </div>
 
-                <!-- NEW: Floral Pastel Pedicure -->
                 <div class="pricing-item">
                     <div class="pricing-title-row"><span class="pricing-title">Floral Pastel Pedicure</span><div class="leader"></div><span class="pricing-cost">$95</span></div>
-                    <span class="pricing-desc">Dreamy pastel flower-infused soak with gentle exfoliation and relaxing massage.</span>
                 </div>
 
                 <div class="pricing-item">
                     <div class="pricing-title-row"><span class="pricing-title">Deluxe Personal Pedicure</span><div class="leader"></div><span class="pricing-cost">$110</span></div>
-                    <span class="pricing-desc">One-on-one treatment with callus care, hydrating mask, and extended massage.</span>
                 </div>
 
                 <div class="pricing-item">
                     <div class="pricing-title-row"><span class="pricing-title">Rose Petal Soak Ritual</span><div class="leader"></div><span class="pricing-cost">$88</span></div>
-                    <span class="pricing-desc">Rose-petal soak with cuticle care and smoothing scrub.</span>
                 </div>
 
                 <div class="pricing-item">
                     <div class="pricing-title-row"><span class="pricing-title">Senior & Diabetic Foot Care</span><div class="leader"></div><span class="pricing-cost">$120</span></div>
-                    <span class="pricing-desc">Gentle, medically-mindful pedicure care for elderly and diabetic clients, extra caution and hygiene.</span>
                 </div>
 
-                <!-- Senior Nail Care Complete -->
                 <div class="pricing-item">
                     <div class="pricing-title-row"><span class="pricing-title">Senior Nail Care Complete - Classic Manicure</span><div class="leader"></div><span class="pricing-cost">$75</span></div>
                 </div>
@@ -1303,7 +1138,6 @@
 
                 <div class="pricing-item">
                     <div class="pricing-title-row"><span class="pricing-title">Hair Touch Up</span><div class="leader"></div><span class="pricing-cost">$49</span></div>
-                    <span class="pricing-desc">Haircut or colour (valid only if your previous haircut with us was within 2 weeks)</span>
                 </div>
 
                 <div class="pricing-item">

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Heartfelt Home - Mobile Salon Services</title>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
@@ -25,15 +25,18 @@
             padding: 0;
             box-sizing: border-box;
         }
+        html, body {
+            width: 100%;
+            overflow-x: hidden;
+        }
         body {
             font-family: 'Poppins', sans-serif;
             
-            /* New Background with soft overlay for readability */
+            /* New Background - Removed fixed attachment for mobile compatibility */
             background-color: #ffd1dc;
             background-image: linear-gradient(rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.55)), url('pink-butterflies.png');
             background-size: cover, cover;
             background-position: center, center;
-            background-attachment: fixed, fixed;
             background-repeat: no-repeat, no-repeat;
 
             min-height: 100vh;
@@ -42,7 +45,6 @@
             display: flex;
             flex-direction: column;
             position: relative;
-            overflow-x: hidden;
         }
         #sparkleCanvas {
             position: fixed;
@@ -167,68 +169,6 @@
             border-radius: 5px;
             box-shadow: 0 2px 10px rgba(255, 64, 129, 0.3);
         }
-        .slider-section {
-            max-width: 1000px;
-            margin: 0 auto 60px;
-        }
-        .slider-container {
-            position: relative;
-            width: 100%;
-            height: 500px;
-            overflow: hidden;
-            border-radius: 25px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-            background: #fff;
-            border: 2px solid rgba(255, 182, 193, 0.4);
-        }
-        .slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transition: opacity 0.8s ease-in-out;
-            display: flex;
-            visibility: hidden;
-        }
-        .slide.active {
-            opacity: 1;
-            visibility: visible;
-        }
-        .slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            margin: auto;
-        }
-        .slider-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(255, 255, 255, 0.9);
-            color: var(--primary-color);
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            font-size: 1.5rem;
-            cursor: pointer;
-            z-index: 10;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .slider-btn:hover {
-            background: var(--gradient-main);
-            color: var(--text-light);
-            transform: translateY(-50%) scale(1.1);
-            box-shadow: 0 6px 15px rgba(255, 64, 129, 0.4);
-        }
-        .slider-btn.prev { left: 15px; }
-        .slider-btn.next { right: 15px; }
         .price-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -596,14 +536,15 @@
             .hero { padding: 50px 20px; }
             .hero h1 { font-size: 2.2rem; }
             .section-title { font-size: 2.2rem; }
-            .slider-container { height: 500px; }
-            .slider-btn { width: 35px; height: 35px; font-size: 1rem; }
+            .price-grid { grid-template-columns: 1fr; gap: 20px; }
             .pricing-category { padding: 30px 20px; }
             .pricing-title-row { flex-direction: column; align-items: flex-start; }
             .leader { display: none; }
             .pricing-cost { margin-top: 5px; }
             .pricing-desc { max-width: 100%; }
             .contact-number { font-size: 1.8rem; }
+            .social-links a { width: 50px; height: 50px; }
+            .social-links svg { width: 24px; height: 24px; }
         }
     </style>
 </head>
@@ -625,17 +566,6 @@
         <div class="hero">
             <h1>Luxury In-Home Services</h1>
             <p>Heartfelt Home provides professional mobile hair and nail services across Singapore, bringing haircuts, styling, colouring, treatments, manicures, and pedicures directly to your home for clean, convenient, and reliable salon care for all ages.</p>
-        </div>
-
-        <div class="slider-section">
-            <h2 class="section-title">Client Transformations</h2>
-            <div class="slider-container" id="beforeAfterSlider">
-                <button class="slider-btn prev" onclick="manualSlide(-1)">&#10094;</button>
-                <button class="slider-btn next" onclick="manualSlide(1)">&#10095;</button>
-                <div class="slide active"><img src="istockphoto-1352080817-612x612.jpg" alt="Haircut Before and After" /></div>
-                <!-- Removed istockphoto-2175425026-612x612 -->
-                <div class="slide"><img src="istockphoto-1438421875-612x612.jpg" alt="Styling" /></div>
-            </div>
         </div>
 
         <!-- Featured Art & Services -->
@@ -1137,27 +1067,6 @@
             openTab('homeTab', defaultTabLink);
             initParticles();
         };
-        const slides = document.querySelectorAll('#beforeAfterSlider .slide');
-        let currentSlide = 0;
-        let slideInterval;
-        function showSlide(index) {
-            if (slides.length === 0) return;
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (index + slides.length) % slides.length;
-            slides[currentSlide].classList.add('active');
-        }
-        function manualSlide(direction) {
-            showSlide(currentSlide + direction);
-            resetInterval();
-        }
-        function autoSlide() {
-            showSlide(currentSlide + 1);
-        }
-        function resetInterval() {
-            clearInterval(slideInterval);
-            slideInterval = setInterval(autoSlide, 3000);
-        }
-        slideInterval = setInterval(autoSlide, 3000);
 
         function initParticles() {
             const canvas = document.getElementById('sparkleCanvas');

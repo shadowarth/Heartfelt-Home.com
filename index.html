@@ -29,8 +29,6 @@
         }
         body {
             font-family: 'Poppins', sans-serif;
-            
-            /* BACKGROUND FIX: Removed the white gradient overlay */
             background-color: #ffd1dc; 
             background-image: url('pink-butterflies.png');
             background-size: cover;
@@ -54,7 +52,7 @@
             pointer-events: none;
             z-index: 1;
             mix-blend-mode: screen;
-            opacity: 0.5; /* Softened sparkles so they don't hide the wallpaper */
+            opacity: 0.5;
         }
         h1, h2, h3, h4 {
             font-family: 'Playfair Display', serif;
@@ -177,10 +175,8 @@
             margin-bottom: 60px;
         }
         .price-card-modern {
-            /* FROSTED GLASS EFFECT */
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(5px);
-            
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
@@ -334,70 +330,13 @@
             font-weight: 500;
             text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);
         }
-        .haircut-section {
-            padding: 40px 0;
-            margin-bottom: 60px;
-        }
-        .haircut-section .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .haircut-section .section-subtitle {
-            font-size: 1.1rem;
-            color: #333;
-            text-align: center;
-            margin-top: -30px;
-            margin-bottom: 40px;
-            font-weight: 500;
-            text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);
-        }
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 30px;
-        }
-        .service-card {
-            background-color: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(5px);
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-            border: 1px solid rgba(255, 182, 193, 0.4);
-        }
-        .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(255, 64, 129, 0.15);
-        }
-        .service-card img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-        }
-        .service-info {
-            padding: 20px;
-            text-align: center;
-        }
-        .service-info h3 {
-            margin: 0 0 10px;
-            font-size: 1.4rem;
-            color: var(--primary-color);
-        }
-        .service-info p {
-            margin: 0;
-            color: #444;
-            line-height: 1.5;
-            font-size: 0.95rem;
-        }
         .pricing-container {
             max-width: 950px;
             margin: 0 auto;
         }
         .pricing-category {
-            /* FROSTED GLASS EFFECT */
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(5px);
-            
             padding: 50px;
             border-radius: 25px;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
@@ -540,7 +479,6 @@
             z-index: 2;
         }
         
-        /* MOBILE SPECIFIC STYLES */
         @media (max-width: 768px) {
             nav { flex-direction: column; padding: 15px 20px; }
             .logo { font-size: 2.2rem; margin-bottom: 15px; }
@@ -559,8 +497,6 @@
             .contact-number { font-size: 1.8rem; }
             .social-links a { width: 50px; height: 50px; }
             .social-links svg { width: 24px; height: 24px; }
-
-            /* SCROLLING BACKGROUND FIX FOR MOBILE */
             body {
                 background-position: right center;
                 background-attachment: scroll;
@@ -581,14 +517,13 @@
         </ul>
     </nav>
 
-    <!-- HOME TAB -->
-    <div id="homeTab" class="tab-content">
+    <!-- HOME TAB (FIXED: Added style="display: block;" so it shows on load) -->
+    <div id="homeTab" class="tab-content" style="display: block;">
         <div class="hero">
             <h1>Luxury In-Home Services</h1>
             <p>Heartfelt Home provides professional mobile hair and nail services across Singapore, bringing haircuts, styling, colouring, treatments, manicures, and pedicures directly to your home for clean, convenient, and reliable salon care for all ages.</p>
         </div>
 
-        <!-- Featured Art & Services -->
         <h2 class="section-title">Featured Art & Services</h2>
         <div class="price-grid">
 
@@ -597,7 +532,6 @@
                     <img src="pedicure-side-view.jpg" alt="Classic Spa Pedicure" />
                     <span class="badge-popular">Popular</span>
                     <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">13,793</span></div>
-                    <div class="card-image-dots"><span class="dot active"></span><span class="dot"></span></div>
                 </div>
                 <div class="card-content">
                     <div class="card-header-row">
@@ -613,7 +547,6 @@
                     <img src="summer-nails-bright-manicure-vacation-nails-colorful-design-beach-nails-trendy-nails-fun-manicure-seasonal-nails-beauty-style-nail-art-pink-nail-polish-petal-spring-manicure-artificial-nails-nail-care-blossom-floral.jpg" alt="Premium Gel Design" />
                     <span class="badge-popular">Popular</span>
                     <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">8,420</span></div>
-                    <div class="card-image-dots"><span class="dot active"></span><span class="dot"></span></div>
                 </div>
                 <div class="card-content">
                     <div class="card-header-row">
@@ -629,7 +562,6 @@
                     <img src="spacehead45-nails-9134036_1920.png" alt="Gelish Manicure" />
                     <span class="badge-popular">Popular</span>
                     <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">5,112</span></div>
-                    <div class="card-image-dots"><span class="dot active"></span><span class="dot"></span></div>
                 </div>
                 <div class="card-content">
                     <div class="card-header-row">
@@ -642,12 +574,10 @@
 
         </div>
 
-        <!-- Personal Pedicure Care -->
         <h2 class="section-title">Personal Pedicure Care</h2>
         <p class="section-subtitle-center">Four dedicated pedicure experiences, tailored to your feet and brought straight to your door.</p>
         <div class="price-grid">
 
-            <!-- Floral Pastel Pedicure -->
             <div class="price-card-modern">
                 <div class="card-image-wrap">
                     <img src="floral-pastel-pedicure.jpg" alt="Floral Pastel Pedicure" />
@@ -659,7 +589,6 @@
                 </div>
             </div>
 
-            <!-- Classic Pedicure -->
             <div class="price-card-modern">
                 <div class="card-image-wrap">
                     <img src="tropical-blossom-pedicure-soak.jpg" alt="Classic Pedicure" />
@@ -706,21 +635,17 @@
 
         </div>
 
-        <!-- PROMO BANNER -->
         <div class="promo-banner">
             <img src="homecall_promo.jpg" alt="Homecall Mani & Padi Services Promo" />
         </div>
 
-        <!-- Our Portfolio -->
         <h2 class="section-title">Our Portfolio</h2>
         <p class="section-subtitle-center">A glimpse of the nail art and styling we love creating for our clients.</p>
         <div class="price-grid">
 
             <div class="price-card-modern">
-                <div class="card-image-wrap collage">
+                <div class="card-image-wrap">
                     <img src="halloween-nails-spooky-nails-themed-manicure-dark-nails-creative-design-festive-nails-seasonal-beauty-nail-art-ideas-party-nails-trendy-manicure-nail-care-nail-polish-manicure-finger-nail-cosmetics-pink-artificial-n.jpg" alt="Halloween Spooky Nails" />
-                    <img src="afsharonatias-nails-3975643_1920.jpg" alt="Soft Pink Manicure" />
-                    <img src="istockphoto-1406565295-612x612-Picsart-AiImageEnhancer.jpg" alt="Enhanced Pink Manicure" />
                     <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">54</span></div>
                 </div>
                 <div class="card-content">
@@ -730,10 +655,8 @@
             </div>
 
             <div class="price-card-modern">
-                <div class="card-image-wrap collage">
+                <div class="card-image-wrap">
                     <img src="alehandra13-nails-5401834_1920.jpg" alt="Tropical Leaf Art" />
-                    <img src="codelighter-manicure-3224637_1920.jpg" alt="Blue Glitter Manicure" />
-                    <img src="ipicture-valentines-day-10035538_1920.jpg" alt="Valentines Nail Art" />
                     <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">39</span></div>
                 </div>
                 <div class="card-content">
@@ -743,10 +666,8 @@
             </div>
 
             <div class="price-card-modern">
-                <div class="card-image-wrap collage">
+                <div class="card-image-wrap">
                     <img src="ralph_germany-nails-8388827_1920.jpg" alt="Elegant Nail Set" />
-                    <img src="neelam279-nail-design-6005598_1920.jpg" alt="Nail Design" />
-                    <img src="pexels-cristina-perez-2163041378-38784151.jpg" alt="Manicure Finish" />
                     <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">47</span></div>
                 </div>
                 <div class="card-content">
@@ -756,10 +677,8 @@
             </div>
 
             <div class="price-card-modern">
-                <div class="card-image-wrap collage">
+                <div class="card-image-wrap">
                     <img src="pexels-estoymhrb-20758448.jpg" alt="Fresh Manicure" />
-                    <img src="afsharonatias-nails-3975643_1920.jpg" alt="Soft Pink Manicure" />
-                    <img src="istockphoto-1406565295-612x612-Picsart-AiImageEnhancer.jpg" alt="Enhanced Pink Manicure" />
                     <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">61</span></div>
                 </div>
                 <div class="card-content">
@@ -769,15 +688,13 @@
             </div>
         </div>
 
-        <!-- Meet the Team -->
         <h2 class="section-title">Meet Our Specialists</h2>
         <p class="section-subtitle-center">The licensed technicians behind every Heartfelt Home appointment.</p>
         <div class="price-grid">
 
             <div class="price-card-modern">
-                <div class="card-image-wrap collage two-photo">
+                <div class="card-image-wrap">
                     <img src="senior-foot-care-closeup.jpg" alt="Mei Ling providing senior foot care" />
-                    <img src="senior-client-chat.jpg" alt="Mei Ling with a senior client" />
                     <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">31</span></div>
                 </div>
                 <div class="card-content">
@@ -787,9 +704,8 @@
             </div>
 
             <div class="price-card-modern">
-                <div class="card-image-wrap collage two-photo">
+                <div class="card-image-wrap">
                     <img src="gloved-pedicure-care-1.jpg" alt="Aisha performing a gloved pedicure" />
-                    <img src="gloved-pedicure-care-2.jpg" alt="Aisha at work on a pedicure" />
                     <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">24</span></div>
                 </div>
                 <div class="card-content">
@@ -799,9 +715,8 @@
             </div>
 
             <div class="price-card-modern">
-                <div class="card-image-wrap collage two-photo">
+                <div class="card-image-wrap">
                     <img src="pedicure-side-view.jpg" alt="Farah performing a pedicure" />
-                    <img src="toe-nail-care-closeup.jpg" alt="Farah providing nail care" />
                     <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">18</span></div>
                 </div>
                 <div class="card-content">
@@ -811,9 +726,8 @@
             </div>
 
             <div class="price-card-modern">
-                <div class="card-image-wrap collage two-photo">
+                <div class="card-image-wrap">
                     <img src="gloved-pedicure-care-3.jpg" alt="Priya at work on a pedicure" />
-                    <img src="nail-polish-application.jpg" alt="Priya applying nail polish" />
                     <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">15</span></div>
                 </div>
                 <div class="card-content">
@@ -958,7 +872,6 @@
     </footer>
 
     <script>
-        // Tab switching logic
         function openTab(tabName, element) {
             let tabs = document.getElementsByClassName("tab-content");
             for (let i = 0; i < tabs.length; i++) {
@@ -975,7 +888,6 @@
             window.scrollTo(0, 0);
         }
 
-        // --- Canvas Sparkle Effect ---
         const canvas = document.getElementById('sparkleCanvas');
         const ctx = canvas.getContext('2d');
         
@@ -1010,7 +922,6 @@
                 this.y += this.speedY;
                 this.life--;
                 
-                // Fade in and out based on life
                 if (this.maxLife - this.life < 20) {
                     this.alpha += 0.05;
                 } else if (this.life < 20) {

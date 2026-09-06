@@ -36,9 +36,12 @@
             background-color: #ffd1dc; /* Fallback pink color */
             background-image: linear-gradient(rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.55)), url('pink-butterflies.png');
             background-size: cover, cover;
+            
+            /* Center for desktop */
             background-position: center, center;
+            
             background-repeat: no-repeat, no-repeat;
-            background-attachment: fixed, fixed; /* This makes the background stay fixed when scrolling */
+            background-attachment: fixed, fixed; 
 
             min-height: 100vh;
             color: var(--text-dark);
@@ -528,6 +531,8 @@
             position: relative;
             z-index: 2;
         }
+        
+        /* MOBILE SPECIFIC STYLES */
         @media (max-width: 768px) {
             nav { flex-direction: column; padding: 15px 20px; }
             .logo { font-size: 2.2rem; margin-bottom: 15px; }
@@ -546,6 +551,11 @@
             .contact-number { font-size: 1.8rem; }
             .social-links a { width: 50px; height: 50px; }
             .social-links svg { width: 24px; height: 24px; }
+
+            /* MAKE BACKGROUND SHOW ON THE RIGHT SIDE ON MOBILE */
+            body {
+                background-position: center, right center;
+            }
         }
     </style>
 </head>

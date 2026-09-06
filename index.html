@@ -27,9 +27,15 @@
         }
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg,
-                    #ffd1dc 0%, #ffb6c1 20%, #ff9eb5 40%, #ff8fab 60%, #ff9eb5 80%, #ffd1dc 100%);
-            background-attachment: fixed;
+            
+            /* New Background with soft overlay for readability */
+            background-color: #ffd1dc;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.55)), url('pink-butterflies.png');
+            background-size: cover, cover;
+            background-position: center, center;
+            background-attachment: fixed, fixed;
+            background-repeat: no-repeat, no-repeat;
+
             min-height: 100vh;
             color: var(--text-dark);
             line-height: 1.6;
@@ -118,9 +124,7 @@
         }
         .hero {
             text-align: center;
-            background-image: linear-gradient(rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.95)), url('vecteezy_woman-hands-receiving-a-manicure_12649597.jpg');
-            background-size: cover;
-            background-position: center;
+            background: rgba(255, 255, 255, 0.85); /* Made slightly transparent to let butterflies show */
             border-radius: 25px;
             padding: 100px 40px;
             box-shadow: 0 20px 50px rgba(255, 64, 129, 0.15);
@@ -151,7 +155,7 @@
             color: var(--primary-color);
             font-weight: 700;
             position: relative;
-            text-shadow: 0 2px 8px rgba(255, 64, 129, 0.1);
+            text-shadow: 0 2px 8px rgba(255, 255, 255, 0.8); /* Added shadow for readability */
         }
         .section-title::after {
             content: '';
@@ -173,7 +177,7 @@
             height: 500px;
             overflow: hidden;
             border-radius: 25px;
-            box-shadow: 0 15px 35px rgba(255, 64, 129, 0.15);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
             background: #fff;
             border: 2px solid rgba(255, 182, 193, 0.4);
         }
@@ -235,15 +239,15 @@
             background: #ffffff;
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-            border: 1px solid #eef0f4;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(255, 182, 193, 0.3);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
         }
         .price-card-modern:hover {
             transform: translateY(-8px);
-            box-shadow: 0 16px 35px rgba(255, 64, 129, 0.12);
+            box-shadow: 0 16px 35px rgba(255, 64, 129, 0.15);
             border-color: rgba(255, 64, 129, 0.25);
         }
         .card-image-wrap {
@@ -361,7 +365,7 @@
             margin: 0 auto 60px;
             border-radius: 25px;
             overflow: hidden;
-            box-shadow: 0 15px 35px rgba(255, 64, 129, 0.12);
+            box-shadow: 0 15px 35px rgba(255, 64, 129, 0.15);
             border: 3px solid rgba(255, 182, 193, 0.4);
             position: relative;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -380,8 +384,9 @@
             text-align: center;
             max-width: 700px;
             margin: -35px auto 45px;
-            color: #666;
+            color: #555;
             font-size: 1.05rem;
+            text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
         }
         .haircut-section {
             padding: 40px 0;
@@ -393,10 +398,11 @@
         }
         .haircut-section .section-subtitle {
             font-size: 1.1rem;
-            color: #666;
+            color: #555;
             text-align: center;
             margin-top: -30px;
             margin-bottom: 40px;
+            text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
         }
         .services-grid {
             display: grid;
@@ -407,13 +413,13 @@
             background-color: #fff;
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
             transition: transform 0.4s ease, box-shadow 0.4s ease;
-            border: 1px solid var(--border-light);
+            border: 1px solid rgba(255, 182, 193, 0.2);
         }
         .service-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(255, 64, 129, 0.12);
+            box-shadow: 0 15px 30px rgba(255, 64, 129, 0.15);
         }
         .service-card img {
             width: 100%;
@@ -511,7 +517,7 @@
             font-style: italic;
         }
         .contact-box {
-            background: #fff;
+            background: rgba(255, 255, 255, 0.9);
             padding: 60px 40px;
             border-radius: 25px;
             max-width: 650px;

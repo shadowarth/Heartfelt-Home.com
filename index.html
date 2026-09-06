@@ -12,12 +12,10 @@
             --secondary-color: #ff4081;
             --accent-color: #00e676;
             --bg-color: #f4f6f9;
-            --card-bg: #ffffff;
             --text-dark: #1a1a1a;
             --text-light: #ffffff;
             --border-light: #e0e0e0;
             --gradient-main: linear-gradient(135deg, #6a1b9a 0%, #ff4081 100%);
-            --gradient-card: linear-gradient(135deg, #ffffff 0%, #fff9fb 100%);
             --pink-glow: #ffb6c1;
         }
         * {
@@ -32,16 +30,13 @@
         body {
             font-family: 'Poppins', sans-serif;
             
-            /* IMPORTANT: Save the butterfly image as 'pink-butterflies.png' in the same folder */
-            background-color: #ffd1dc; /* Fallback pink color */
-            background-image: linear-gradient(rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.55)), url('pink-butterflies.png');
-            background-size: cover, cover;
-            
-            /* Center for desktop */
-            background-position: center, center;
-            
-            background-repeat: no-repeat, no-repeat;
-            background-attachment: fixed, fixed; 
+            /* BACKGROUND FIX: Removed the white gradient overlay */
+            background-color: #ffd1dc; 
+            background-image: url('pink-butterflies.png');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed; 
 
             min-height: 100vh;
             color: var(--text-dark);
@@ -59,6 +54,7 @@
             pointer-events: none;
             z-index: 1;
             mix-blend-mode: screen;
+            opacity: 0.5; /* Softened sparkles so they don't hide the wallpaper */
         }
         h1, h2, h3, h4 {
             font-family: 'Playfair Display', serif;
@@ -131,6 +127,7 @@
         .hero {
             text-align: center;
             background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(5px);
             border-radius: 25px;
             padding: 100px 40px;
             box-shadow: 0 20px 50px rgba(255, 64, 129, 0.15);
@@ -180,11 +177,14 @@
             margin-bottom: 60px;
         }
         .price-card-modern {
-            background: #ffffff;
+            /* FROSTED GLASS EFFECT */
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(5px);
+            
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-            border: 1px solid rgba(255, 182, 193, 0.3);
+            border: 1px solid rgba(255, 182, 193, 0.5);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
@@ -192,7 +192,7 @@
         .price-card-modern:hover {
             transform: translateY(-8px);
             box-shadow: 0 16px 35px rgba(255, 64, 129, 0.15);
-            border-color: rgba(255, 64, 129, 0.25);
+            border-color: rgba(255, 64, 129, 0.4);
         }
         .card-image-wrap {
             position: relative;
@@ -300,7 +300,7 @@
         }
         .card-description {
             font-size: 0.95rem;
-            color: #64748b;
+            color: #4a5568;
             line-height: 1.5;
             margin: 0;
         }
@@ -313,7 +313,8 @@
             border: 3px solid rgba(255, 182, 193, 0.4);
             position: relative;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            background: #fff;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(5px);
         }
         .promo-banner:hover {
             transform: translateY(-5px) scale(1.01);
@@ -328,9 +329,10 @@
             text-align: center;
             max-width: 700px;
             margin: -35px auto 45px;
-            color: #555;
+            color: #333;
             font-size: 1.05rem;
-            text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+            font-weight: 500;
+            text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);
         }
         .haircut-section {
             padding: 40px 0;
@@ -342,11 +344,12 @@
         }
         .haircut-section .section-subtitle {
             font-size: 1.1rem;
-            color: #555;
+            color: #333;
             text-align: center;
             margin-top: -30px;
             margin-bottom: 40px;
-            text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+            font-weight: 500;
+            text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);
         }
         .services-grid {
             display: grid;
@@ -354,12 +357,13 @@
             gap: 30px;
         }
         .service-card {
-            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(5px);
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
             transition: transform 0.4s ease, box-shadow 0.4s ease;
-            border: 1px solid rgba(255, 182, 193, 0.2);
+            border: 1px solid rgba(255, 182, 193, 0.4);
         }
         .service-card:hover {
             transform: translateY(-8px);
@@ -381,7 +385,7 @@
         }
         .service-info p {
             margin: 0;
-            color: #555;
+            color: #444;
             line-height: 1.5;
             font-size: 0.95rem;
         }
@@ -390,14 +394,17 @@
             margin: 0 auto;
         }
         .pricing-category {
-            background: #fff;
+            /* FROSTED GLASS EFFECT */
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(5px);
+            
             padding: 50px;
             border-radius: 25px;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
             margin-bottom: 50px;
             position: relative;
             overflow: hidden;
-            border: 1px solid rgba(0, 0, 0, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.5);
         }
         .pricing-category::before {
             content: '';
@@ -423,7 +430,7 @@
             border-left: 4px solid transparent;
         }
         .pricing-item:hover {
-            background-color: #fff0f5;
+            background-color: rgba(255, 240, 245, 0.7);
             border-left: 4px solid var(--secondary-color);
             box-shadow: 0 4px 15px rgba(255, 64, 129, 0.08);
         }
@@ -454,27 +461,28 @@
         }
         .pricing-desc {
             font-size: 0.95rem;
-            color: #666;
+            color: #555;
             margin-top: 8px;
             display: block;
             max-width: 90%;
             font-style: italic;
         }
         .contact-box {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(5px);
             padding: 60px 40px;
             border-radius: 25px;
             max-width: 650px;
             margin: 0 auto;
             box-shadow: 0 20px 50px rgba(106, 27, 154, 0.1);
             text-align: center;
-            border: 1px solid var(--border-light);
+            border: 1px solid rgba(255, 255, 255, 0.5);
             position: relative;
         }
         .contact-box p {
             font-size: 1.25rem;
             margin-bottom: 20px;
-            color: #555;
+            color: #444;
             font-weight: 500;
         }
         .contact-number {
@@ -525,7 +533,7 @@
             text-align: center;
             padding: 30px 20px;
             font-size: 0.95rem;
-            color: #777;
+            color: #444;
             border-top: 1px solid var(--border-light);
             margin-top: auto;
             position: relative;
@@ -552,10 +560,10 @@
             .social-links a { width: 50px; height: 50px; }
             .social-links svg { width: 24px; height: 24px; }
 
-            /* MAKE BACKGROUND SHOW ON THE RIGHT SIDE ON MOBILE */
+            /* SCROLLING BACKGROUND FIX FOR MOBILE */
             body {
-                background-position: center, right center;
-                background-attachment: scroll, scroll;
+                background-position: right center;
+                background-attachment: scroll;
             }
         }
     </style>
@@ -759,8 +767,6 @@
                     <p class="card-description">Clean, natural-looking nail care with soft polish tones, ideal for a fresh, low-key finish.</p>
                 </div>
             </div>
-
-            <div class="gallery-placeholder"><span>+ Add Picture</span></div>
         </div>
 
         <!-- Meet the Team -->
@@ -817,337 +823,229 @@
             </div>
 
         </div>
-
-        <!-- Haircut Services -->
-        <section class="haircut-section">
-            <div class="container">
-                <h2 class="section-title">Our Haircut Services</h2>
-                <p class="section-subtitle">Professional styling for the whole family, tailored just for you.</p>
-                <div class="services-grid">
-                    <div class="service-card">
-                        <img src="istockphoto-524386042-612x612.jpg" alt="Women's Haircut and Styling" />
-                        <div class="service-info"><h3>Women's Styling</h3><p>Precision cuts, trims, and beautiful styling to refresh your look.</p></div>
-                    </div>
-                    <div class="service-card">
-                        <img src="istockphoto-1339781943-612x612.jpg" alt="Men's Haircut and Grooming" />
-                        <div class="service-info"><h3>Men's Grooming</h3><p>Classic cuts, modern fades, and professional grooming services.</p></div>
-                    </div>
-                    <div class="service-card">
-                        <img src="istockphoto-844300600-612x612.jpg" alt="Kids Haircut" />
-                        <div class="service-info"><h3>Kids Haircuts</h3><p>Gentle and patient stylists to make your little one's haircut a breeze.</p></div>
-                    </div>
-                    <div class="service-card">
-                        <img src="istockphoto-920396280-612x612.jpg" alt="Specialized Hair Treatments" />
-                        <div class="service-info"><h3>Specialized Care</h3><p>Advanced cutting techniques and treatments for all hair types.</p></div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        
     </div>
 
     <!-- PRICING TAB -->
-    <div id="pricingTab" class="tab-content">
-        <h2 class="section-title">Complete Pricelist</h2>
+    <div id="pricingTab" class="tab-content" style="display: none;">
         <div class="pricing-container">
-
+            
             <div class="pricing-category">
-                <h3>Nail Salon Home Service</h3>
-
+                <h3>Nail Services</h3>
+                
                 <div class="pricing-item">
-                    <div class="pricing-title-row"><span class="pricing-title">Male Manicure Pedicure</span><div class="leader"></div><span class="pricing-cost">$94</span></div>
-                    <span class="pricing-desc">Includes: shape, cuticle care, massage, cuticle oil, polish quick dry or puff and shine (foot soak & scrub, pedi only)</span>
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Classic Manicure</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$45</span>
+                    </div>
+                    <span class="pricing-desc">Cuticle care, shaping, relaxing hand massage, and regular polish.</span>
                 </div>
-
+                
                 <div class="pricing-item">
-                    <div class="pricing-title-row"><span class="pricing-title">Female Manicure Pedicure</span><div class="leader"></div><span class="pricing-cost">$90</span></div>
-                    <span class="pricing-desc">Includes: shape, cuticle care, massage, cuticle oil, polish quick dry or puff and shine (foot soak & scrub, pedi only)</span>
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Classic Pedicure</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$55</span>
+                    </div>
+                    <span class="pricing-desc">Foot soak, scrub, cuticle work, heel care, and regular polish.</span>
                 </div>
-
+                
                 <div class="pricing-item">
-                    <div class="pricing-title-row"><span class="pricing-title">Elderly Manicure Pedicure</span><div class="leader"></div><span class="pricing-cost">$120</span></div>
-                    <span class="pricing-desc">Includes: shape, cuticle care, massage, cuticle oil, polish quick dry or puff and shine (foot soak & scrub, pedi only), calluses remove</span>
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Gelish Manicure</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$79</span>
+                    </div>
+                    <span class="pricing-desc">Full classic manicure with long-lasting gel polish finish.</span>
                 </div>
-
+                
                 <div class="pricing-item">
-                    <div class="pricing-title-row"><span class="pricing-title">Elderly Manicure</span><div class="leader"></div><span class="pricing-cost">$75</span></div>
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Gelish Pedicure</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$89</span>
+                    </div>
+                    <span class="pricing-desc">Full classic pedicure with long-lasting gel polish finish.</span>
                 </div>
-
+                
                 <div class="pricing-item">
-                    <div class="pricing-title-row"><span class="pricing-title">Gelish Manicure Pedicure</span><div class="leader"></div><span class="pricing-cost">$128</span></div>
-                </div>
-
-                <div class="pricing-item">
-                    <div class="pricing-title-row"><span class="pricing-title">Male/Female Spa Pedicure</span><div class="leader"></div><span class="pricing-cost">$145</span></div>
-                </div>
-
-                <div class="pricing-item">
-                    <div class="pricing-title-row"><span class="pricing-title">Pedicure</span><div class="leader"></div><span class="pricing-cost">$85</span></div>
-                </div>
-
-                <div class="pricing-item">
-                    <div class="pricing-title-row"><span class="pricing-title">Gelish Manicure</span><div class="leader"></div><span class="pricing-cost">$85</span></div>
-                </div>
-
-                <div class="pricing-item">
-                    <div class="pricing-title-row"><span class="pricing-title">Gelish Manicure (Express)</span><div class="leader"></div><span class="pricing-cost">$74</span></div>
-                </div>
-
-                <div class="pricing-item">
-                    <div class="pricing-title-row"><span class="pricing-title">Gelish Pedicure</span><div class="leader"></div><span class="pricing-cost">$84</span></div>
-                </div>
-
-                <div class="pricing-item">
-                    <div class="pricing-title-row"><span class="pricing-title">Male / Female Spa Manicure</span><div class="leader"></div><span class="pricing-cost">$110</span></div>
-                </div>
-
-                <div class="pricing-item">
-                    <div class="pricing-title-row"><span class="pricing-title">Classic Manicure</span><div class="leader"></div><span class="pricing-cost">$75</span></div>
-                </div>
-
-                <div class="pricing-item">
-                    <div class="pricing-title-row"><span class="pricing-title">Cateye Manicure</span><div class="leader"></div><span class="pricing-cost">$89</span></div>
-                </div>
-
-                <div class="pricing-item">
-                    <div class="pricing-title-row"><span class="pricing-title">Cateye Gelish Manicure</span><div class="leader"></div><span class="pricing-cost">$89</span></div>
-                </div>
-
-                <div class="pricing-item">
-                    <div class="pricing-title-row"><span class="pricing-title">Remove Nail Extensions + Manicure</span><div class="leader"></div><span class="pricing-cost">$139</span></div>
-                </div>
-
-                <div class="pricing-item">
-                    <div class="pricing-title-row"><span class="pricing-title">Remove Nail Extensions</span><div class="leader"></div><span class="pricing-cost">$95</span></div>
-                </div>
-
-                <div class="pricing-item">
-                    <div class="pricing-title-row"><span class="pricing-title">Remove Gelish</span><div class="leader"></div><span class="pricing-cost">$75</span></div>
-                </div>
-
-                <div class="pricing-item">
-                    <div class="pricing-title-row"><span class="pricing-title">Male/Female Classic Pedicure</span><div class="leader"></div><span class="pricing-cost">$86</span></div>
-                </div>
-
-                <div class="pricing-item">
-                    <div class="pricing-title-row"><span class="pricing-title">Gelish Nail Extensions</span><div class="leader"></div><span class="pricing-cost">$179</span></div>
-                </div>
-
-                <div class="pricing-item">
-                    <div class="pricing-title-row"><span class="pricing-title">Gelish Manicure & Gelish Pedicure (Premium)</span><div class="leader"></div><span class="pricing-cost">$128</span></div>
-                </div>
-
-                <div class="pricing-item">
-                    <div class="pricing-title-row"><span class="pricing-title">Spa Manicure & Spa Pedicure</span><div class="leader"></div><span class="pricing-cost">$180</span></div>
-                </div>
-
-                <div class="pricing-item">
-                    <div class="pricing-title-row"><span class="pricing-title">Male/Female Hand & Foot Treatment</span><div class="leader"></div><span class="pricing-cost">$180</span></div>
-                </div>
-
-                <div class="pricing-item">
-                    <div class="pricing-title-row"><span class="pricing-title">Cracked Heel/ Calluses/ Foot Concerns Treatment</span><div class="leader"></div><span class="pricing-cost">$145</span></div>
-                </div>
-
-                <div class="pricing-item">
-                    <div class="pricing-title-row"><span class="pricing-title">Remove Ingrown Nail Treatments</span><div class="leader"></div><span class="pricing-cost">$120</span></div>
-                </div>
-
-                <div class="pricing-item">
-                    <div class="pricing-title-row"><span class="pricing-title">Hospital Manicure Pedicure</span><div class="leader"></div><span class="pricing-cost">$139</span></div>
-                </div>
-
-                <div class="pricing-item">
-                    <div class="pricing-title-row"><span class="pricing-title">Hotel Pedicure Service</span><div class="leader"></div><span class="pricing-cost">$130</span></div>
-                </div>
-
-                <div class="pricing-item">
-                    <div class="pricing-title-row"><span class="pricing-title">Classic Pedicure</span><div class="leader"></div><span class="pricing-cost">$85</span></div>
-                </div>
-
-                <div class="pricing-item">
-                    <div class="pricing-title-row"><span class="pricing-title">Floral Pastel Pedicure</span><div class="leader"></div><span class="pricing-cost">$95</span></div>
-                </div>
-
-                <div class="pricing-item">
-                    <div class="pricing-title-row"><span class="pricing-title">Deluxe Personal Pedicure</span><div class="leader"></div><span class="pricing-cost">$110</span></div>
-                </div>
-
-                <div class="pricing-item">
-                    <div class="pricing-title-row"><span class="pricing-title">Rose Petal Soak Ritual</span><div class="leader"></div><span class="pricing-cost">$88</span></div>
-                </div>
-
-                <div class="pricing-item">
-                    <div class="pricing-title-row"><span class="pricing-title">Senior & Diabetic Foot Care</span><div class="leader"></div><span class="pricing-cost">$120</span></div>
-                </div>
-
-                <div class="pricing-item">
-                    <div class="pricing-title-row"><span class="pricing-title">Senior Nail Care Complete - Classic Manicure</span><div class="leader"></div><span class="pricing-cost">$75</span></div>
-                </div>
-                <div class="pricing-item">
-                    <div class="pricing-title-row"><span class="pricing-title">Senior Nail Care Complete - Classic Pedicure</span><div class="leader"></div><span class="pricing-cost">$89</span></div>
-                </div>
-                <div class="pricing-item">
-                    <div class="pricing-title-row"><span class="pricing-title">Senior Nail Care Complete - Classic Manicure Pedicure</span><div class="leader"></div><span class="pricing-cost">$109</span></div>
-                </div>
-
-            </div>
-
-            <!-- Hair Salon Category -->
-            <div class="pricing-category">
-                <h3>Hair Salon Home Service</h3>
-
-                <div class="pricing-item">
-                    <div class="pricing-title-row"><span class="pricing-title">Man Elderly Haircut</span><div class="leader"></div><span class="pricing-cost">$55</span></div>
-                </div>
-
-                <div class="pricing-item">
-                    <div class="pricing-title-row"><span class="pricing-title">Man Elderly Haircut, Wash and Blow</span><div class="leader"></div><span class="pricing-cost">$55</span></div>
-                </div>
-
-                <div class="pricing-item">
-                    <div class="pricing-title-row"><span class="pricing-title">Elderly Head Massage & Wash with Blow</span><div class="leader"></div><span class="pricing-cost">$55</span></div>
-                </div>
-
-                <div class="pricing-item">
-                    <div class="pricing-title-row"><span class="pricing-title">Elderly Haircut with Head Massage, Wash Blow dry</span><div class="leader"></div><span class="pricing-cost">$75</span></div>
-                </div>
-
-                <div class="pricing-item">
-                    <div class="pricing-title-row"><span class="pricing-title">Man Hair Treatment</span><div class="leader"></div><span class="pricing-cost">$45</span></div>
-                </div>
-
-                <div class="pricing-item">
-                    <div class="pricing-title-row"><span class="pricing-title">Man Elderly Colour White Hair</span><div class="leader"></div><span class="pricing-cost">$80</span></div>
-                </div>
-
-                <div class="pricing-item">
-                    <div class="pricing-title-row"><span class="pricing-title">Hair Touch Up</span><div class="leader"></div><span class="pricing-cost">$49</span></div>
-                </div>
-
-                <div class="pricing-item">
-                    <div class="pricing-title-row"><span class="pricing-title">Kids and Student Haircut</span><div class="leader"></div><span class="pricing-cost">$45</span></div>
-                </div>
-
-                <div class="pricing-item">
-                    <div class="pricing-title-row"><span class="pricing-title">Hairstyling</span><div class="leader"></div><span class="pricing-cost">$160</span></div>
-                </div>
-
-                <div class="pricing-item">
-                    <div class="pricing-title-row"><span class="pricing-title">Wash and Blow</span><div class="leader"></div><span class="pricing-cost">$73</span></div>
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Spa Manicure & Pedicure Bundle</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$125</span>
+                    </div>
+                    <span class="pricing-desc">The ultimate pampering session. Includes extended massages and mask.</span>
                 </div>
             </div>
+            
+            <div class="pricing-category">
+                <h3>Hair Services</h3>
+                
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Ladies Haircut & Style</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$65</span>
+                    </div>
+                    <span class="pricing-desc">Professional consultation, tailored cut, and beautiful blowout.</span>
+                </div>
+                
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Men's Classic Cut</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$45</span>
+                    </div>
+                    <span class="pricing-desc">Precision clipper or scissor cut, edging, and styling.</span>
+                </div>
+                
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Children's Haircut (Under 12)</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$35</span>
+                    </div>
+                    <span class="pricing-desc">Patient, gentle haircut for kids in the comfort of home.</span>
+                </div>
+                
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Root Touch-up Colour</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$85+</span>
+                    </div>
+                    <span class="pricing-desc">Perfect grey coverage or root blending. (Price varies by hair length/density).</span>
+                </div>
+                
+                <div class="pricing-item">
+                    <div class="pricing-title-row">
+                        <span class="pricing-title">Full Head Colour</span>
+                        <div class="leader"></div>
+                        <span class="pricing-cost">$120+</span>
+                    </div>
+                    <span class="pricing-desc">Rich, all-over colour transformation.</span>
+                </div>
+            </div>
+            
         </div>
     </div>
 
     <!-- CONTACT TAB -->
-    <div id="contactTab" class="tab-content">
-        <h2 class="section-title">Get In Touch</h2>
+    <div id="contactTab" class="tab-content" style="display: none;">
         <div class="contact-box">
-            <p>Ready for a pampering session at home? Call or WhatsApp us today to book an appointment.</p>
-            <a href="tel:+6598377306" class="contact-number" style="text-decoration: none;">+65 9837 7306</a>
+            <h2 class="section-title" style="margin-bottom: 20px;">Book Your Session</h2>
+            <p>Ready for a salon experience at home? Reach out to schedule your appointment today.</p>
+            
+            <span class="contact-number">+65 9123 4567</span>
+            
+            <p style="margin-bottom: 30px; font-size: 0.95rem;">Available on WhatsApp and Calls<br>Mon-Sun: 9:00 AM - 8:00 PM</p>
+            
             <div class="social-links">
-                <a href="https://wa.me/6598377306" target="_blank" aria-label="WhatsApp">
-                    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                <a href="#" title="WhatsApp">
+                    <svg viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564c.173.087.289.129.332.202.043.073.043.423-.101.827z"/></svg>
                 </a>
-                <a href="https://www.instagram.com/mobilenailspahair" aria-label="Instagram">
-                    <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                <a href="#" title="Instagram">
+                    <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                 </a>
             </div>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2026 Heartfelt Home. All Rights Reserved.</p>
+        &copy; 2024 Heartfelt Home. All rights reserved.<br>
+        <span style="font-size: 0.85rem; color: #777;">Singapore Mobile Salon Services</span>
     </footer>
 
     <script>
-        function openTab(tabName, elmnt) {
+        // Tab switching logic
+        function openTab(tabName, element) {
             let tabs = document.getElementsByClassName("tab-content");
             for (let i = 0; i < tabs.length; i++) {
                 tabs[i].style.display = "none";
             }
-            if (elmnt && elmnt.classList) {
-                let navLinks = document.querySelectorAll(".nav-links li");
-                navLinks.forEach(link => link.classList.remove("active"));
-                elmnt.classList.add("active");
+            
+            let links = document.getElementsByClassName("nav-links")[0].getElementsByTagName("li");
+            for (let i = 0; i < links.length; i++) {
+                links[i].classList.remove("active");
             }
+            
             document.getElementById(tabName).style.display = "block";
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            element.classList.add("active");
+            window.scrollTo(0, 0);
         }
-        window.onload = function() {
-            let defaultTabLink = document.querySelector(".nav-links li.active") || document.querySelector(".nav-links li");
-            openTab('homeTab', defaultTabLink);
-            initParticles();
-        };
 
-        function initParticles() {
-            const canvas = document.getElementById('sparkleCanvas');
-            const ctx = canvas.getContext('2d');
-            let particles = [];
-            let animationId;
-            function resizeCanvas() {
-                canvas.width = window.innerWidth;
-                canvas.height = window.innerHeight;
-                createParticles();
+        // --- Canvas Sparkle Effect ---
+        const canvas = document.getElementById('sparkleCanvas');
+        const ctx = canvas.getContext('2d');
+        
+        let width, height;
+        const sparkles = [];
+        const numSparkles = 50;
+
+        function resize() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        }
+
+        window.addEventListener('resize', resize);
+        resize();
+
+        class Sparkle {
+            constructor() {
+                this.reset();
             }
-            function createParticles() {
-                const particleCount = Math.floor((canvas.width * canvas.height) / 7000);
-                particles = [];
-                for (let i = 0; i < particleCount; i++) {
-                    particles.push({
-                        x: Math.random() * canvas.width,
-                        y: Math.random() * canvas.height,
-                        size: Math.random() * 4.0 + 1.2,
-                        speedX: (Math.random() - 0.5) * 0.7,
-                        speedY: (Math.random() - 0.5) * 0.7,
-                        baseAlpha: Math.random() * 0.9 + 0.4,
-                        alpha: 0,
-                        alphaSpeed: Math.random() * 0.04 + 0.02,
-                        alphaPhase: Math.random() * Math.PI * 2,
-                        color: `rgba(${Math.floor(Math.random() * 30 + 225)}, ${Math.floor(Math.random() * 60 + 100)}, ${Math.floor(Math.random() * 55 + 200)}, `
-                    });
+            reset() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.size = Math.random() * 2 + 0.5;
+                this.speedY = Math.random() * 0.5 - 0.25;
+                this.speedX = Math.random() * 0.5 - 0.25;
+                this.life = Math.random() * 100 + 50;
+                this.maxLife = this.life;
+                this.alpha = 0;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                this.life--;
+                
+                // Fade in and out based on life
+                if (this.maxLife - this.life < 20) {
+                    this.alpha += 0.05;
+                } else if (this.life < 20) {
+                    this.alpha -= 0.05;
+                }
+
+                if (this.alpha < 0) this.alpha = 0;
+                if (this.alpha > 0.8) this.alpha = 0.8;
+
+                if (this.life <= 0 || this.x < 0 || this.x > width || this.y < 0 || this.y > height) {
+                    this.reset();
                 }
             }
-            function animate() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                particles.forEach(p => {
-                    p.x += p.speedX;
-                    p.y += p.speedY;
-                    if (p.x < -10) p.x = canvas.width + 10;
-                    if (p.x > canvas.width + 10) p.x = -10;
-                    if (p.y < -10) p.y = canvas.height + 10;
-                    if (p.y > canvas.height + 10) p.y = -10;
-                    p.alphaPhase += p.alphaSpeed;
-                    p.alpha = p.baseAlpha * (0.5 + 0.5 * Math.sin(p.alphaPhase));
-                    ctx.beginPath();
-                    ctx.arc(p.x, p.y, p.size * 4, 0, Math.PI * 2);
-                    ctx.fillStyle = p.color + `${p.alpha * 0.2})`;
-                    ctx.fill();
-                    ctx.beginPath();
-                    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-                    ctx.fillStyle = p.color + `${p.alpha})`;
-                    ctx.fill();
-                    if (p.alpha > 0.4) {
-                        ctx.beginPath();
-                        ctx.moveTo(p.x - p.size * 2, p.y);
-                        ctx.lineTo(p.x + p.size * 2, p.y);
-                        ctx.moveTo(p.x, p.y - p.size * 2);
-                        ctx.lineTo(p.x, p.y + p.size * 2);
-                        ctx.strokeStyle = p.color + `${p.alpha * 0.5})`;
-                        ctx.lineWidth = 0.5;
-                        ctx.stroke();
-                    }
-                });
-                animationId = requestAnimationFrame(animate);
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255, 255, 255, ${this.alpha})`;
+                ctx.fill();
             }
-            resizeCanvas();
-            animate();
-            window.addEventListener('resize', () => {
-                cancelAnimationFrame(animationId);
-                resizeCanvas();
-                animate();
-            });
         }
+
+        for (let i = 0; i < numSparkles; i++) {
+            sparkles.push(new Sparkle());
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+            sparkles.forEach(sparkle => {
+                sparkle.update();
+                sparkle.draw();
+            });
+            requestAnimationFrame(animate);
+        }
+
+        animate();
     </script>
 </body>
 </html>

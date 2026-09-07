@@ -23,15 +23,15 @@
             padding: 0;
             box-sizing: border-box;
         }
-        html, body {
+        html,
+        body {
             width: 100%;
             overflow-x: hidden;
         }
-        
-        /* Updated Body to remove background image (handled by .bg-image instead) */
+
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #ffd1dc; 
+            background-color: #ffd1dc;
             min-height: 100vh;
             color: var(--text-dark);
             line-height: 1.6;
@@ -39,8 +39,7 @@
             flex-direction: column;
             position: relative;
         }
-        
-        /* New dedicated background layer for perfect scaling on mobile and desktop */
+
         .bg-image {
             position: fixed;
             top: 0;
@@ -54,7 +53,6 @@
             z-index: 0;
         }
 
-        /* Updated Canvas to remove mix-blend-mode so background stays clear */
         #sparkleCanvas {
             position: fixed;
             top: 0;
@@ -65,7 +63,10 @@
             z-index: 1;
         }
 
-        h1, h2, h3, h4 {
+        h1,
+        h2,
+        h3,
+        h4 {
             font-family: 'Playfair Display', serif;
         }
         nav {
@@ -107,7 +108,8 @@
             border-radius: 25px;
             transition: all 0.3s ease;
         }
-        .nav-links li:hover, .nav-links li.active {
+        .nav-links li:hover,
+        .nav-links li.active {
             color: var(--text-light);
             background: var(--gradient-main);
             box-shadow: 0 4px 15px rgba(255, 64, 129, 0.3);
@@ -244,28 +246,14 @@
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
             z-index: 2;
         }
-        .badge-rating .stars { color: #ff9800; letter-spacing: -1px; }
-        .badge-rating .count { color: #64748b; font-size: 0.8rem; margin-left: 2px; }
-        .card-image-dots {
-            position: absolute;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            z-index: 2;
+        .badge-rating .stars {
+            color: #ff9800;
+            letter-spacing: -1px;
         }
-        .card-image-dots .dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.6);
-        }
-        .card-image-dots .dot.active {
-            background: #ffffff;
-            width: 8px;
-            height: 8px;
+        .badge-rating .count {
+            color: #64748b;
+            font-size: 0.8rem;
+            margin-left: 2px;
         }
         .card-content {
             padding: 20px;
@@ -299,7 +287,10 @@
             color: #94a3b8;
             text-decoration: line-through;
         }
-        .price-discount-tag { color: #10b981; font-size: 0.85rem; }
+        .price-discount-tag {
+            color: #10b981;
+            font-size: 0.85rem;
+        }
         .price-current {
             font-size: 1.4rem;
             font-weight: 800;
@@ -310,27 +301,6 @@
             color: #4a5568;
             line-height: 1.5;
             margin: 0;
-        }
-        .promo-banner {
-            max-width: 950px;
-            margin: 0 auto 60px;
-            border-radius: 25px;
-            overflow: hidden;
-            box-shadow: 0 15px 35px rgba(255, 64, 129, 0.15);
-            border: 3px solid rgba(255, 182, 193, 0.4);
-            position: relative;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(5px);
-        }
-        .promo-banner:hover {
-            transform: translateY(-5px) scale(1.01);
-            box-shadow: 0 20px 40px rgba(255, 64, 129, 0.18);
-        }
-        .promo-banner img {
-            width: 100%;
-            height: auto;
-            display: block;
         }
         .section-subtitle-center {
             text-align: center;
@@ -446,7 +416,9 @@
             font-family: 'Playfair Display', serif;
             transition: transform 0.3s;
         }
-        .contact-number:hover { transform: scale(1.05); }
+        .contact-number:hover {
+            transform: scale(1.05);
+        }
         .social-links {
             display: flex;
             justify-content: center;
@@ -489,34 +461,75 @@
             position: relative;
             z-index: 2;
         }
-        
+
         @media (max-width: 768px) {
-            nav { flex-direction: column; padding: 15px 20px; }
-            .logo { font-size: 2.2rem; margin-bottom: 15px; }
-            .nav-links { gap: 15px; flex-wrap: wrap; justify-content: center; }
-            .nav-links li { padding: 5px 10px; font-size: 0.9rem; }
-            .tab-content { padding: 160px 15px 40px; }
-            .hero { padding: 50px 20px; }
-            .hero h1 { font-size: 2.2rem; }
-            .section-title { font-size: 2.2rem; }
-            .price-grid { grid-template-columns: 1fr; gap: 20px; }
-            .pricing-category { padding: 30px 20px; }
-            .pricing-title-row { flex-direction: column; align-items: flex-start; }
-            .leader { display: none; }
-            .pricing-cost { margin-top: 5px; }
-            .pricing-desc { max-width: 100%; }
-            .contact-number { font-size: 1.8rem; }
-            .social-links a { width: 50px; height: 50px; }
-            .social-links svg { width: 24px; height: 24px; }
-            /* Removed body background override, scaling is handled by .bg-image now */
+            nav {
+                flex-direction: column;
+                padding: 15px 20px;
+            }
+            .logo {
+                font-size: 2.2rem;
+                margin-bottom: 15px;
+            }
+            .nav-links {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .nav-links li {
+                padding: 5px 10px;
+                font-size: 0.9rem;
+            }
+            .tab-content {
+                padding: 160px 15px 40px;
+            }
+            .hero {
+                padding: 50px 20px;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .section-title {
+                font-size: 2.2rem;
+            }
+            .price-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .pricing-category {
+                padding: 30px 20px;
+            }
+            .pricing-title-row {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .leader {
+                display: none;
+            }
+            .pricing-cost {
+                margin-top: 5px;
+            }
+            .pricing-desc {
+                max-width: 100%;
+            }
+            .contact-number {
+                font-size: 1.8rem;
+            }
+            .social-links a {
+                width: 50px;
+                height: 50px;
+            }
+            .social-links svg {
+                width: 24px;
+                height: 24px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Dedicated background layer -->
     <div class="bg-image"></div>
-    
+
     <canvas id="sparkleCanvas"></canvas>
 
     <nav>
@@ -644,10 +657,18 @@
                 </div>
             </div>
 
-        </div>
+            <!-- New Blue Glitter Pedicure -->
+            <div class="price-card-modern">
+                <div class="card-image-wrap">
+                    <img src="blue-glitter-pedicure.jpg" alt="Blue Glitter Pedicure" />
+                    <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">45</span></div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Blue Glitter Pedicure</h3>
+                    <p class="card-description">A sparkling blue glitter pedicure that adds a touch of glam to your toes, perfect for special occasions.</p>
+                </div>
+            </div>
 
-        <div class="promo-banner">
-            <img src="homecall_promo.jpg" alt="Homecall Mani & Padi Services Promo" />
         </div>
 
         <h2 class="section-title">Our Portfolio</h2>
@@ -697,6 +718,96 @@
                     <p class="card-description">Clean, natural-looking nail care with soft polish tones, ideal for a fresh, low-key finish.</p>
                 </div>
             </div>
+
+            <!-- New Portfolio Items -->
+            <div class="price-card-modern">
+                <div class="card-image-wrap">
+                    <img src="pink-ombre-gold-ring.jpg" alt="Pink Ombre with Gold Ring" />
+                    <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">52</span></div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Pink Ombre Elegance</h3>
+                    <p class="card-description">Sleek pink ombre nails with a subtle sheen, perfect for a polished everyday look.</p>
+                </div>
+            </div>
+
+            <div class="price-card-modern">
+                <div class="card-image-wrap">
+                    <img src="white-ombre-app-only.jpg" alt="White Ombre App Only" />
+                    <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">38</span></div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">White Ombre Shine</h3>
+                    <p class="card-description">A beautiful white-to-pink ombre gradient with a glossy finish.</p>
+                </div>
+            </div>
+
+            <div class="price-card-modern">
+                <div class="card-image-wrap">
+                    <img src="pink-french-glitter.jpg" alt="Pink French Glitter" />
+                    <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">44</span></div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Pink French Glitter</h3>
+                    <p class="card-description">A modern twist on the French manicure with pink polish and sparkling glitter tips.</p>
+                </div>
+            </div>
+
+            <div class="price-card-modern">
+                <div class="card-image-wrap">
+                    <img src="lavender-ombre-nails.jpg" alt="Lavender Ombre Nails" />
+                    <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">29</span></div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Lavender Ombre Dream</h3>
+                    <p class="card-description">Soft lavender-to-nude ombre nails with a delicate, dreamy appeal.</p>
+                </div>
+            </div>
+
+            <div class="price-card-modern">
+                <div class="card-image-wrap">
+                    <img src="pink-glitter-nails.jpg" alt="Pink Glitter Nails" />
+                    <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">35</span></div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Pink Glitter Accents</h3>
+                    <p class="card-description">Elegant pink nails with sparkling glitter accent designs for a touch of glamour.</p>
+                </div>
+            </div>
+
+            <div class="price-card-modern">
+                <div class="card-image-wrap">
+                    <img src="blue-ombre-app-only.jpg" alt="Blue Ombre App Only" />
+                    <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">27</span></div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Blue Ombre Fantasy</h3>
+                    <p class="card-description">A dreamy pink-to-blue ombre gradient with a hint of shimmer.</p>
+                </div>
+            </div>
+
+            <div class="price-card-modern">
+                <div class="card-image-wrap">
+                    <img src="purple-ombre-nails.jpg" alt="Purple Ombre Nails" />
+                    <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">31</span></div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Purple Ombre Luxe</h3>
+                    <p class="card-description">Stunning purple-to-white ombre nails with a glossy, elegant finish.</p>
+                </div>
+            </div>
+
+            <div class="price-card-modern">
+                <div class="card-image-wrap">
+                    <img src="green-floral-nails.jpg" alt="Green Floral Nails" />
+                    <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">23</span></div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Green Floral Art</h3>
+                    <p class="card-description">Unique green ombre nails with delicate white flower art and pearl accents.</p>
+                </div>
+            </div>
+
         </div>
 
         <h2 class="section-title">Meet Our Specialists</h2>
@@ -748,16 +859,16 @@
             </div>
 
         </div>
-        
+
     </div>
 
     <!-- PRICING TAB -->
     <div id="pricingTab" class="tab-content" style="display: none;">
         <div class="pricing-container">
-            
+
             <div class="pricing-category">
                 <h3>Nail Services</h3>
-                
+
                 <div class="pricing-item">
                     <div class="pricing-title-row">
                         <span class="pricing-title">Classic Manicure</span>
@@ -766,7 +877,7 @@
                     </div>
                     <span class="pricing-desc">Cuticle care, shaping, relaxing hand massage, and regular polish.</span>
                 </div>
-                
+
                 <div class="pricing-item">
                     <div class="pricing-title-row">
                         <span class="pricing-title">Classic Pedicure</span>
@@ -775,7 +886,7 @@
                     </div>
                     <span class="pricing-desc">Foot soak, scrub, cuticle work, heel care, and regular polish.</span>
                 </div>
-                
+
                 <div class="pricing-item">
                     <div class="pricing-title-row">
                         <span class="pricing-title">Gelish Manicure</span>
@@ -784,7 +895,7 @@
                     </div>
                     <span class="pricing-desc">Full classic manicure with long-lasting gel polish finish.</span>
                 </div>
-                
+
                 <div class="pricing-item">
                     <div class="pricing-title-row">
                         <span class="pricing-title">Gelish Pedicure</span>
@@ -793,7 +904,7 @@
                     </div>
                     <span class="pricing-desc">Full classic pedicure with long-lasting gel polish finish.</span>
                 </div>
-                
+
                 <div class="pricing-item">
                     <div class="pricing-title-row">
                         <span class="pricing-title">Spa Manicure & Pedicure Bundle</span>
@@ -803,10 +914,10 @@
                     <span class="pricing-desc">The ultimate pampering session. Includes extended massages and mask.</span>
                 </div>
             </div>
-            
+
             <div class="pricing-category">
                 <h3>Hair Services</h3>
-                
+
                 <div class="pricing-item">
                     <div class="pricing-title-row">
                         <span class="pricing-title">Ladies Haircut & Style</span>
@@ -815,7 +926,7 @@
                     </div>
                     <span class="pricing-desc">Professional consultation, tailored cut, and beautiful blowout.</span>
                 </div>
-                
+
                 <div class="pricing-item">
                     <div class="pricing-title-row">
                         <span class="pricing-title">Men's Classic Cut</span>
@@ -824,7 +935,7 @@
                     </div>
                     <span class="pricing-desc">Precision clipper or scissor cut, edging, and styling.</span>
                 </div>
-                
+
                 <div class="pricing-item">
                     <div class="pricing-title-row">
                         <span class="pricing-title">Children's Haircut (Under 12)</span>
@@ -833,7 +944,7 @@
                     </div>
                     <span class="pricing-desc">Patient, gentle haircut for kids in the comfort of home.</span>
                 </div>
-                
+
                 <div class="pricing-item">
                     <div class="pricing-title-row">
                         <span class="pricing-title">Root Touch-up Colour</span>
@@ -842,7 +953,7 @@
                     </div>
                     <span class="pricing-desc">Perfect grey coverage or root blending. (Price varies by hair length/density).</span>
                 </div>
-                
+
                 <div class="pricing-item">
                     <div class="pricing-title-row">
                         <span class="pricing-title">Full Head Colour</span>
@@ -852,7 +963,7 @@
                     <span class="pricing-desc">Rich, all-over colour transformation.</span>
                 </div>
             </div>
-            
+
         </div>
     </div>
 
@@ -861,11 +972,11 @@
         <div class="contact-box">
             <h2 class="section-title" style="margin-bottom: 20px;">Book Your Session</h2>
             <p>Ready for a salon experience at home? Reach out to schedule your appointment today.</p>
-            
+
             <span class="contact-number">+65 9123 4567</span>
-            
+
             <p style="margin-bottom: 30px; font-size: 0.95rem;">Available on WhatsApp and Calls<br>Mon-Sun: 9:00 AM - 8:00 PM</p>
-            
+
             <div class="social-links">
                 <a href="#" title="WhatsApp">
                     <svg viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564c.173.087.289.129.332.202.043.073.043.423-.101.827z"/></svg>
@@ -888,21 +999,20 @@
             for (let i = 0; i < tabs.length; i++) {
                 tabs[i].style.display = "none";
             }
-            
+
             let links = document.getElementsByClassName("nav-links")[0].getElementsByTagName("li");
             for (let i = 0; i < links.length; i++) {
                 links[i].classList.remove("active");
             }
-            
+
             document.getElementById(tabName).style.display = "block";
             element.classList.add("active");
             window.scrollTo(0, 0);
         }
 
-        // Updated Sparkle logic for responsive platform rendering
         const canvas = document.getElementById('sparkleCanvas');
         const ctx = canvas.getContext('2d');
-        
+
         let width, height;
         const sparkles = [];
 
@@ -924,7 +1034,7 @@
                 this.x += this.speedX;
                 this.y += this.speedY;
                 this.life--;
-                
+
                 if (this.maxLife - this.life < 20) {
                     this.alpha += 0.05;
                 } else if (this.life < 20) {
@@ -949,24 +1059,20 @@
         function resize() {
             width = canvas.width = window.innerWidth;
             height = canvas.height = window.innerHeight;
-            
-            // Dynamically adjust sparkle count based on device platform size
+
             const targetSparkles = window.innerWidth < 768 ? 30 : 75;
-            
+
             if (sparkles.length < targetSparkles) {
-                // Add more sparkles if moving from mobile to desktop (or initializing)
                 while (sparkles.length < targetSparkles) {
                     sparkles.push(new Sparkle());
                 }
             } else if (sparkles.length > targetSparkles) {
-                // Remove sparkles if moving from desktop to mobile to save resources
                 sparkles.splice(targetSparkles);
             }
         }
 
         window.addEventListener('resize', resize);
-        
-        // Initial call correctly placed after class definition to populate the array
+
         resize();
 
         function animate() {

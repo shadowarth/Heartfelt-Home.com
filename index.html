@@ -27,15 +27,11 @@
             width: 100%;
             overflow-x: hidden;
         }
+        
+        /* Updated Body to remove background image (handled by .bg-image instead) */
         body {
             font-family: 'Poppins', sans-serif;
             background-color: #ffd1dc; 
-            background-image: url('pink-butterflies.png');
-            background-size: cover;
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-attachment: fixed; 
-
             min-height: 100vh;
             color: var(--text-dark);
             line-height: 1.6;
@@ -43,6 +39,22 @@
             flex-direction: column;
             position: relative;
         }
+        
+        /* New dedicated background layer for perfect scaling on mobile and desktop */
+        .bg-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: url('pink-butterflies.png');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            z-index: 0;
+        }
+
+        /* Updated Canvas to remove mix-blend-mode so background stays clear */
         #sparkleCanvas {
             position: fixed;
             top: 0;
@@ -51,9 +63,8 @@
             height: 100%;
             pointer-events: none;
             z-index: 1;
-            mix-blend-mode: screen;
-            opacity: 0.5;
         }
+
         h1, h2, h3, h4 {
             font-family: 'Playfair Display', serif;
         }
@@ -497,15 +508,15 @@
             .contact-number { font-size: 1.8rem; }
             .social-links a { width: 50px; height: 50px; }
             .social-links svg { width: 24px; height: 24px; }
-            body {
-                background-position: right center;
-                background-attachment: scroll;
-            }
+            /* Removed body background override, scaling is handled by .bg-image now */
         }
     </style>
 </head>
 <body>
 
+    <!-- Dedicated background layer -->
+    <div class="bg-image"></div>
+    
     <canvas id="sparkleCanvas"></canvas>
 
     <nav>
@@ -517,7 +528,7 @@
         </ul>
     </nav>
 
-    <!-- HOME TAB (FIXED: Added style="display: block;" so it shows on load) -->
+    <!-- HOME TAB -->
     <div id="homeTab" class="tab-content" style="display: block;">
         <div class="hero">
             <h1>Luxury In-Home Services</h1>
@@ -888,20 +899,12 @@
             window.scrollTo(0, 0);
         }
 
+        // Updated Sparkle logic for responsive platform rendering
         const canvas = document.getElementById('sparkleCanvas');
         const ctx = canvas.getContext('2d');
         
         let width, height;
         const sparkles = [];
-        const numSparkles = 50;
-
-        function resize() {
-            width = canvas.width = window.innerWidth;
-            height = canvas.height = window.innerHeight;
-        }
-
-        window.addEventListener('resize', resize);
-        resize();
 
         class Sparkle {
             constructor() {
@@ -943,9 +946,28 @@
             }
         }
 
-        for (let i = 0; i < numSparkles; i++) {
-            sparkles.push(new Sparkle());
+        function resize() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+            
+            // Dynamically adjust sparkle count based on device platform size
+            const targetSparkles = window.innerWidth < 768 ? 30 : 75;
+            
+            if (sparkles.length < targetSparkles) {
+                // Add more sparkles if moving from mobile to desktop (or initializing)
+                while (sparkles.length < targetSparkles) {
+                    sparkles.push(new Sparkle());
+                }
+            } else if (sparkles.length > targetSparkles) {
+                // Remove sparkles if moving from desktop to mobile to save resources
+                sparkles.splice(targetSparkles);
+            }
         }
+
+        window.addEventListener('resize', resize);
+        
+        // Initial call correctly placed after class definition to populate the array
+        resize();
 
         function animate() {
             ctx.clearRect(0, 0, width, height);

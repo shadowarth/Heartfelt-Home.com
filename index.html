@@ -2,22 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
     <title>Heartfelt Home - Mobile Salon Services</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💅</text></svg>" />
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💅</text></svg>" />
+
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
     <style>
-        :root {
-            --primary-color: #6a1b9a;
-            --secondary-color: #ff4081;
-            --accent-color: #00e676;
-            --bg-color: #f4f6f9;
-            --text-dark: #1a1a1a;
-            --text-light: #ffffff;
-            --border-light: #e0e0e0;
-            --gradient-main: linear-gradient(135deg, #6a1b9a 0%, #ff4081 100%);
-            --pink-glow: #ffb6c1;
-        }
+        /* ─── RESET & BASE ─── */
         * {
             margin: 0;
             padding: 0;
@@ -27,19 +22,22 @@
         body {
             width: 100%;
             overflow-x: hidden;
+            -webkit-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
             font-family: 'Poppins', sans-serif;
-            background: rgba(255, 209, 220, 0.15);
+            background: rgba(255, 209, 220, 0.12);
             min-height: 100vh;
-            color: var(--text-dark);
+            color: #1a1a1a;
             line-height: 1.6;
             display: flex;
             flex-direction: column;
             position: relative;
         }
 
+        /* ─── BACKGROUND ─── */
         .bg-image {
             position: fixed;
             top: 0;
@@ -50,10 +48,12 @@
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
-            opacity: 0.3;
+            opacity: 0.35;
             z-index: 0;
+            pointer-events: none;
         }
 
+        /* ─── SPARKLE CANVAS ─── */
         #sparkleCanvas {
             position: fixed;
             top: 0;
@@ -64,225 +64,293 @@
             z-index: 1;
         }
 
+        /* ─── TYPOGRAPHY ─── */
         h1,
         h2,
         h3,
         h4 {
             font-family: 'Playfair Display', serif;
         }
+
+        /* ─── NAV ─── */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
             background-color: rgba(255, 255, 255, 0.92);
             backdrop-filter: blur(12px);
-            padding: 15px 50px;
+            -webkit-backdrop-filter: blur(12px);
+            padding: 15px 30px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
+            flex-wrap: wrap;
+            gap: 10px;
         }
         .logo {
             font-family: 'Dancing Script', cursive;
-            font-size: 2.6rem;
-            background: var(--gradient-main);
+            font-size: 2.2rem;
+            background: linear-gradient(135deg, #6a1b9a 0%, #ff4081 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
             letter-spacing: 1px;
             font-weight: bold;
+            flex-shrink: 0;
         }
         .nav-links {
             list-style: none;
             display: flex;
-            gap: 35px;
+            gap: 12px;
+            flex-wrap: wrap;
         }
         .nav-links li {
             cursor: pointer;
             font-weight: 600;
-            font-size: 1.05rem;
+            font-size: 0.95rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
             color: #555;
-            padding: 8px 15px;
+            padding: 6px 14px;
             border-radius: 25px;
             transition: all 0.3s ease;
+            -webkit-touch-callout: none;
+            user-select: none;
         }
         .nav-links li:hover,
         .nav-links li.active {
-            color: var(--text-light);
-            background: var(--gradient-main);
+            color: #fff;
+            background: linear-gradient(135deg, #6a1b9a 0%, #ff4081 100%);
             box-shadow: 0 4px 15px rgba(255, 64, 129, 0.3);
         }
+        .nav-links li:active {
+            transform: scale(0.95);
+        }
+
+        /* ─── TAB CONTENT ─── */
         .tab-content {
             display: none;
-            padding: 120px 20px 60px;
+            padding: 130px 20px 60px;
             flex-grow: 1;
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            animation: fadeIn 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+            animation: fadeIn 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
             position: relative;
             z-index: 2;
         }
         @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(18px);
             }
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
+
+        /* ─── HERO – FULLY TRANSPARENT ─── */
         .hero {
             text-align: center;
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(5px);
-            border-radius: 25px;
-            padding: 100px 40px;
-            box-shadow: 0 20px 50px rgba(255, 64, 129, 0.15);
-            margin-bottom: 60px;
-            border: 1px solid rgba(255, 182, 193, 0.6);
+            background: transparent;
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+            border-radius: 0;
+            padding: 60px 20px 50px;
+            box-shadow: none;
+            margin-bottom: 50px;
+            border: none;
             position: relative;
         }
         .hero h1 {
-            font-size: 3.8rem;
-            margin-bottom: 25px;
-            background: var(--gradient-main);
+            font-size: 3.4rem;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #6a1b9a 0%, #ff4081 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 2px 10px rgba(255, 64, 129, 0.1);
+            background-clip: text;
+            text-shadow: 0 2px 20px rgba(255, 255, 255, 0.7);
+            letter-spacing: -0.5px;
         }
         .hero p {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             max-width: 800px;
             margin: 0 auto;
-            color: #444;
+            color: #1a1a1a;
             line-height: 1.8;
             font-weight: 500;
+            text-shadow: 0 1px 12px rgba(255, 255, 255, 0.85), 0 0 30px rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.25);
+            padding: 16px 28px;
+            border-radius: 20px;
+            backdrop-filter: blur(2px);
+            -webkit-backdrop-filter: blur(2px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
+
+        /* ─── SECTION TITLES ─── */
         .section-title {
             text-align: center;
-            font-size: 2.8rem;
-            margin-bottom: 50px;
-            color: var(--primary-color);
+            font-size: 2.6rem;
+            margin-bottom: 40px;
+            color: #6a1b9a;
             font-weight: 700;
             position: relative;
-            text-shadow: 0 2px 8px rgba(255, 255, 255, 0.8);
+            text-shadow: 0 2px 12px rgba(255, 255, 255, 0.9);
         }
         .section-title::after {
             content: '';
             display: block;
-            width: 80px;
+            width: 70px;
             height: 4px;
-            background: var(--gradient-main);
-            margin: 15px auto 0;
+            background: linear-gradient(135deg, #6a1b9a 0%, #ff4081 100%);
+            margin: 12px auto 0;
             border-radius: 5px;
             box-shadow: 0 2px 10px rgba(255, 64, 129, 0.3);
         }
+        .section-subtitle-center {
+            text-align: center;
+            max-width: 700px;
+            margin: -28px auto 40px;
+            color: #222;
+            font-size: 1rem;
+            font-weight: 500;
+            text-shadow: 0 1px 10px rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 20px;
+            border-radius: 30px;
+            backdrop-filter: blur(2px);
+            -webkit-backdrop-filter: blur(2px);
+        }
+
+        /* ─── CARD GRID ─── */
         .price-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            margin-bottom: 60px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 50px;
         }
+
+        /* ─── PRICE CARD ─── */
         .price-card-modern {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(5px);
+            background: rgba(255, 255, 255, 0.82);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-            border: 1px solid rgba(255, 182, 193, 0.5);
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.07);
+            border: 1px solid rgba(255, 182, 193, 0.4);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
         }
         .price-card-modern:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 16px 35px rgba(255, 64, 129, 0.15);
-            border-color: rgba(255, 64, 129, 0.4);
+            transform: translateY(-6px);
+            box-shadow: 0 14px 35px rgba(255, 64, 129, 0.13);
+            border-color: rgba(255, 64, 129, 0.3);
         }
+        .price-card-modern:active {
+            transform: scale(0.98);
+        }
+
+        /* ─── CARD IMAGE ─── */
         .card-image-wrap {
             position: relative;
             width: 100%;
-            height: 300px;
+            height: 260px;
             overflow: hidden;
             background: linear-gradient(135deg, #fce4ec, #f8f0f2);
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-shrink: 0;
         }
         .card-image-wrap img {
             width: 100%;
             height: 100%;
             object-fit: contain;
             background: linear-gradient(135deg, #fce4ec, #f8f0f2);
-            transition: transform 0.4s ease;
+            transition: transform 0.5s ease;
+            display: block;
         }
         .price-card-modern:hover .card-image-wrap img {
-            transform: scale(1.02);
+            transform: scale(1.03);
         }
+
+        /* ─── BADGES (bottom corners, never block) ─── */
         .badge-popular {
             position: absolute;
-            bottom: 12px;
-            left: 12px;
-            background: rgba(255, 107, 0, 0.85);
+            bottom: 10px;
+            left: 10px;
+            background: rgba(255, 107, 0, 0.88);
             backdrop-filter: blur(4px);
-            color: #ffffff;
-            font-size: 0.7rem;
+            -webkit-backdrop-filter: blur(4px);
+            color: #fff;
+            font-size: 0.65rem;
             font-weight: 700;
-            padding: 4px 14px;
+            padding: 3px 12px;
             border-radius: 20px;
             letter-spacing: 0.5px;
             box-shadow: 0 2px 12px rgba(255, 107, 0, 0.25);
             z-index: 2;
             text-transform: uppercase;
+            line-height: 1.4;
         }
         .badge-rating {
             position: absolute;
-            bottom: 12px;
-            right: 12px;
-            background: rgba(255, 255, 255, 0.88);
+            bottom: 10px;
+            right: 10px;
+            background: rgba(255, 255, 255, 0.90);
             backdrop-filter: blur(6px);
-            padding: 3px 12px 3px 10px;
+            -webkit-backdrop-filter: blur(6px);
+            padding: 2px 10px 2px 8px;
             border-radius: 20px;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 600;
             color: #2d3748;
             display: flex;
             align-items: center;
-            gap: 4px;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+            gap: 3px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
             z-index: 2;
-            border: 1px solid rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            line-height: 1.3;
         }
         .badge-rating .stars {
             color: #ff9800;
             letter-spacing: -1px;
-            font-size: 0.7rem;
+            font-size: 0.65rem;
         }
         .badge-rating .count {
             color: #64748b;
-            font-size: 0.7rem;
-            margin-left: 2px;
+            font-size: 0.65rem;
+            margin-left: 1px;
         }
+
+        /* ─── CARD CONTENT ─── */
         .card-content {
-            padding: 20px;
+            padding: 16px 18px 18px;
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 6px;
             text-align: left;
+            flex: 1;
         }
         .card-header-row {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            gap: 12px;
+            gap: 10px;
+            flex-wrap: wrap;
         }
         .card-title {
-            font-size: 1.3rem;
+            font-size: 1.15rem;
             font-weight: 700;
             color: #1a202c;
             margin: 0;
@@ -292,52 +360,47 @@
         .card-price-container {
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 5px;
             white-space: nowrap;
+            flex-shrink: 0;
         }
         .price-original {
-            font-size: 0.95rem;
+            font-size: 0.85rem;
             color: #94a3b8;
             text-decoration: line-through;
         }
         .price-discount-tag {
             color: #10b981;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
         }
         .price-current {
-            font-size: 1.4rem;
+            font-size: 1.25rem;
             font-weight: 800;
             color: #0f172a;
         }
         .card-description {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: #4a5568;
             line-height: 1.5;
             margin: 0;
         }
-        .section-subtitle-center {
-            text-align: center;
-            max-width: 700px;
-            margin: -35px auto 45px;
-            color: #333;
-            font-size: 1.05rem;
-            font-weight: 500;
-            text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);
-        }
+
+        /* ─── PRICING TAB ─── */
         .pricing-container {
             max-width: 950px;
             margin: 0 auto;
         }
         .pricing-category {
             background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(5px);
-            padding: 50px;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            padding: 40px 30px;
             border-radius: 25px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
-            margin-bottom: 50px;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.05);
+            margin-bottom: 40px;
             position: relative;
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.4);
         }
         .pricing-category::before {
             content: '';
@@ -345,172 +408,279 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 8px;
-            background: var(--gradient-main);
+            height: 6px;
+            background: linear-gradient(135deg, #6a1b9a 0%, #ff4081 100%);
         }
         .pricing-category h3 {
-            font-size: 2.4rem;
-            color: var(--primary-color);
+            font-size: 2rem;
+            color: #6a1b9a;
             text-align: center;
-            margin-bottom: 40px;
-            letter-spacing: 1px;
+            margin-bottom: 30px;
+            letter-spacing: 0.5px;
         }
         .pricing-item {
-            margin-bottom: 20px;
-            padding: 15px 20px;
+            margin-bottom: 16px;
+            padding: 12px 16px;
             border-radius: 12px;
             transition: all 0.3s;
             border-left: 4px solid transparent;
         }
         .pricing-item:hover {
-            background-color: rgba(255, 240, 245, 0.7);
-            border-left: 4px solid var(--secondary-color);
-            box-shadow: 0 4px 15px rgba(255, 64, 129, 0.08);
+            background-color: rgba(255, 240, 245, 0.6);
+            border-left: 4px solid #ff4081;
+            box-shadow: 0 4px 15px rgba(255, 64, 129, 0.06);
         }
         .pricing-title-row {
             display: flex;
             align-items: baseline;
             width: 100%;
+            flex-wrap: wrap;
+            gap: 4px 0;
         }
         .pricing-title {
-            font-size: 1.15rem;
+            font-size: 1.05rem;
             font-weight: 600;
-            color: var(--text-dark);
-            margin-right: 15px;
+            color: #1a1a1a;
+            margin-right: 12px;
         }
         .leader {
             flex-grow: 1;
             border-bottom: 2px dotted #bdbdbd;
-            margin: 0 15px;
+            margin: 0 12px;
             position: relative;
-            top: -5px;
-            opacity: 0.5;
+            top: -4px;
+            opacity: 0.4;
+            min-width: 20px;
         }
         .pricing-cost {
-            font-size: 1.35rem;
+            font-size: 1.2rem;
             font-weight: 700;
-            color: var(--secondary-color);
+            color: #ff4081;
             white-space: nowrap;
         }
         .pricing-desc {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: #555;
-            margin-top: 8px;
+            margin-top: 6px;
             display: block;
-            max-width: 90%;
+            max-width: 100%;
             font-style: italic;
         }
+
+        /* ─── CONTACT ─── */
         .contact-box {
             background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(5px);
-            padding: 60px 40px;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            padding: 50px 30px;
             border-radius: 25px;
-            max-width: 650px;
+            max-width: 600px;
             margin: 0 auto;
-            box-shadow: 0 20px 50px rgba(106, 27, 154, 0.1);
+            box-shadow: 0 16px 45px rgba(106, 27, 154, 0.08);
             text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.4);
         }
         .contact-box p {
-            font-size: 1.25rem;
-            margin-bottom: 20px;
-            color: #444;
+            font-size: 1.1rem;
+            margin-bottom: 16px;
+            color: #333;
             font-weight: 500;
         }
         .contact-number {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             font-weight: 700;
-            background: var(--gradient-main);
+            background: linear-gradient(135deg, #6a1b9a 0%, #ff4081 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 40px;
+            background-clip: text;
+            margin-bottom: 30px;
             display: block;
             font-family: 'Playfair Display', serif;
             transition: transform 0.3s;
         }
         .contact-number:hover {
-            transform: scale(1.05);
+            transform: scale(1.04);
         }
         .social-links {
             display: flex;
             justify-content: center;
-            gap: 25px;
+            gap: 20px;
+            flex-wrap: wrap;
         }
         .social-links a {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 70px;
-            height: 70px;
+            width: 60px;
+            height: 60px;
             background: #fff;
-            border: 2px solid var(--border-light);
+            border: 2px solid #e0e0e0;
             border-radius: 50%;
-            color: var(--primary-color);
+            color: #6a1b9a;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
         }
         .social-links a:hover {
-            background: var(--gradient-main);
-            color: var(--text-light);
+            background: linear-gradient(135deg, #6a1b9a 0%, #ff4081 100%);
+            color: #fff;
             border-color: transparent;
-            transform: scale(1.15) rotate(8deg);
-            box-shadow: 0 10px 25px rgba(255, 64, 129, 0.4);
+            transform: scale(1.1) rotate(4deg);
+            box-shadow: 0 8px 25px rgba(255, 64, 129, 0.35);
+        }
+        .social-links a:active {
+            transform: scale(0.92);
         }
         .social-links svg {
-            width: 32px;
-            height: 32px;
+            width: 28px;
+            height: 28px;
             fill: currentColor;
         }
+
+        /* ─── FOOTER ─── */
         footer {
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
             text-align: center;
-            padding: 30px 20px;
-            font-size: 0.95rem;
+            padding: 24px 20px;
+            font-size: 0.9rem;
             color: #444;
-            border-top: 1px solid var(--border-light);
+            border-top: 1px solid #e0e0e0;
             margin-top: auto;
             position: relative;
             z-index: 2;
         }
 
+        /* ─── COOKIE BANNER ─── */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(20, 20, 30, 0.92);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            color: #f0f0f0;
+            padding: 16px 24px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            z-index: 9999;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 -6px 30px rgba(0, 0, 0, 0.2);
+            font-size: 0.9rem;
+            transition: transform 0.4s ease;
+        }
+        .cookie-banner.hidden {
+            transform: translateY(100%);
+            pointer-events: none;
+        }
+        .cookie-banner p {
+            flex: 1;
+            min-width: 180px;
+            margin: 0;
+            line-height: 1.5;
+            font-weight: 300;
+            font-size: 0.9rem;
+        }
+        .cookie-banner p a {
+            color: #ff80ab;
+            text-decoration: underline;
+            font-weight: 400;
+        }
+        .cookie-banner .cookie-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            flex-shrink: 0;
+        }
+        .cookie-banner .cookie-btn {
+            padding: 8px 24px;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: 0.3px;
+        }
+        .cookie-banner .cookie-btn-accept {
+            background: linear-gradient(135deg, #6a1b9a, #ff4081);
+            color: #fff;
+            box-shadow: 0 4px 16px rgba(255, 64, 129, 0.3);
+        }
+        .cookie-banner .cookie-btn-accept:hover {
+            transform: scale(1.04);
+            box-shadow: 0 6px 24px rgba(255, 64, 129, 0.4);
+        }
+        .cookie-banner .cookie-btn-accept:active {
+            transform: scale(0.95);
+        }
+        .cookie-banner .cookie-btn-decline {
+            background: rgba(255, 255, 255, 0.10);
+            color: #ccc;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        .cookie-banner .cookie-btn-decline:hover {
+            background: rgba(255, 255, 255, 0.18);
+            color: #fff;
+        }
+
+        /* ─── RESPONSIVE ─── */
         @media (max-width: 768px) {
             nav {
+                padding: 12px 16px;
                 flex-direction: column;
-                padding: 15px 20px;
+                align-items: center;
             }
             .logo {
-                font-size: 2.2rem;
-                margin-bottom: 15px;
+                font-size: 1.9rem;
+                margin-bottom: 4px;
             }
             .nav-links {
-                gap: 15px;
-                flex-wrap: wrap;
+                gap: 8px;
                 justify-content: center;
             }
             .nav-links li {
-                padding: 5px 10px;
-                font-size: 0.9rem;
+                font-size: 0.8rem;
+                padding: 5px 12px;
             }
             .tab-content {
-                padding: 160px 15px 40px;
+                padding: 145px 12px 40px;
             }
             .hero {
-                padding: 50px 20px;
+                padding: 30px 12px 30px;
             }
             .hero h1 {
                 font-size: 2.2rem;
             }
+            .hero p {
+                font-size: 0.95rem;
+                padding: 14px 18px;
+            }
             .section-title {
-                font-size: 2.2rem;
+                font-size: 2rem;
+            }
+            .section-subtitle-center {
+                font-size: 0.9rem;
+                padding: 6px 14px;
+                margin: -20px auto 30px;
             }
             .price-grid {
                 grid-template-columns: 1fr;
-                gap: 20px;
+                gap: 18px;
+            }
+            .card-image-wrap {
+                height: 210px;
             }
             .pricing-category {
-                padding: 30px 20px;
+                padding: 28px 16px;
+            }
+            .pricing-category h3 {
+                font-size: 1.6rem;
             }
             .pricing-title-row {
                 flex-direction: column;
@@ -520,70 +690,153 @@
                 display: none;
             }
             .pricing-cost {
-                margin-top: 5px;
+                margin-top: 4px;
             }
             .pricing-desc {
                 max-width: 100%;
+            }
+            .contact-box {
+                padding: 36px 20px;
             }
             .contact-number {
                 font-size: 1.8rem;
             }
             .social-links a {
-                width: 50px;
-                height: 50px;
+                width: 52px;
+                height: 52px;
             }
             .social-links svg {
                 width: 24px;
                 height: 24px;
             }
-            .card-image-wrap {
-                height: 240px;
-            }
             .badge-rating {
-                font-size: 0.65rem;
-                padding: 2px 10px 2px 8px;
+                font-size: 0.6rem;
+                padding: 2px 8px 2px 6px;
                 bottom: 8px;
                 right: 8px;
             }
             .badge-popular {
-                font-size: 0.6rem;
-                padding: 3px 10px;
+                font-size: 0.55rem;
+                padding: 2px 10px;
                 bottom: 8px;
                 left: 8px;
+            }
+            .badge-rating .stars {
+                font-size: 0.55rem;
+            }
+            .badge-rating .count {
+                font-size: 0.55rem;
+            }
+            .cookie-banner {
+                padding: 14px 16px;
+                flex-direction: column;
+                align-items: stretch;
+                text-align: center;
+                font-size: 0.8rem;
+            }
+            .cookie-banner .cookie-actions {
+                justify-content: center;
+            }
+            .cookie-banner .cookie-btn {
+                padding: 6px 18px;
+                font-size: 0.8rem;
             }
         }
 
         @media (max-width: 480px) {
+            .logo {
+                font-size: 1.6rem;
+            }
+            .nav-links li {
+                font-size: 0.7rem;
+                padding: 4px 10px;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .hero p {
+                font-size: 0.85rem;
+                padding: 12px 14px;
+            }
             .card-image-wrap {
-                height: 200px;
+                height: 180px;
+            }
+            .card-title {
+                font-size: 1rem;
+            }
+            .price-current {
+                font-size: 1.1rem;
+            }
+            .section-title {
+                font-size: 1.7rem;
+            }
+            .pricing-category h3 {
+                font-size: 1.3rem;
+            }
+            .contact-number {
+                font-size: 1.5rem;
+            }
+            .social-links a {
+                width: 46px;
+                height: 46px;
+            }
+            .social-links svg {
+                width: 20px;
+                height: 20px;
             }
             .badge-rating {
-                font-size: 0.6rem;
-                padding: 2px 8px 2px 6px;
+                font-size: 0.5rem;
+                padding: 1px 6px 1px 5px;
                 bottom: 6px;
                 right: 6px;
             }
             .badge-popular {
-                font-size: 0.55rem;
-                padding: 2px 8px;
+                font-size: 0.5rem;
+                padding: 1px 8px;
                 bottom: 6px;
                 left: 6px;
             }
             .badge-rating .stars {
-                font-size: 0.6rem;
+                font-size: 0.5rem;
             }
             .badge-rating .count {
-                font-size: 0.6rem;
+                font-size: 0.5rem;
             }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .price-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .card-image-wrap {
+                height: 240px;
+            }
+        }
+
+        /* ─── UTILITY ─── */
+        .hidden {
+            display: none !important;
         }
     </style>
 </head>
 <body>
 
+    <!-- ─── HTTPS ENFORCEMENT ─── -->
+    <script>
+        (function enforceHttps() {
+            if (window.location.protocol === 'http:' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+                window.location.href = 'https://' + window.location.host + window.location.pathname + window.location.search;
+            }
+        })();
+    </script>
+
+    <!-- ─── BACKGROUND ─── -->
     <div class="bg-image"></div>
 
+    <!-- ─── SPARKLE CANVAS ─── -->
     <canvas id="sparkleCanvas"></canvas>
 
+    <!-- ─── NAV ─── -->
     <nav>
         <div class="logo">Heartfelt Home</div>
         <ul class="nav-links">
@@ -593,19 +846,20 @@
         </ul>
     </nav>
 
-    <!-- HOME TAB -->
+    <!-- ─── HOME TAB ─── -->
     <div id="homeTab" class="tab-content" style="display: block;">
+        <!-- HERO – fully transparent -->
         <div class="hero">
             <h1>Luxury In-Home Services</h1>
             <p>Heartfelt Home provides professional mobile hair and nail services across Singapore, bringing haircuts, styling, colouring, treatments, manicures, and pedicures directly to your home for clean, convenient, and reliable salon care for all ages.</p>
         </div>
 
-        <h2 class="section-title">Featured Art & Services</h2>
+        <h2 class="section-title">Featured Art &amp; Services</h2>
         <div class="price-grid">
 
             <div class="price-card-modern">
                 <div class="card-image-wrap">
-                    <img src="pedicure-side-view.jpg" alt="Classic Spa Pedicure" />
+                    <img src="pedicure-side-view.jpg" alt="Classic Spa Pedicure" loading="lazy" />
                     <span class="badge-popular">Popular</span>
                     <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">13,793</span></div>
                 </div>
@@ -620,7 +874,7 @@
 
             <div class="price-card-modern">
                 <div class="card-image-wrap">
-                    <img src="summer-nails-bright-manicure-vacation-nails-colorful-design-beach-nails-trendy-nails-fun-manicure-seasonal-nails-beauty-style-nail-art-pink-nail-polish-petal-spring-manicure-artificial-nails-nail-care-blossom-floral.jpg" alt="Premium Gel Design" />
+                    <img src="summer-nails-bright-manicure-vacation-nails-colorful-design-beach-nails-trendy-nails-fun-manicure-seasonal-nails-beauty-style-nail-art-pink-nail-polish-petal-spring-manicure-artificial-nails-nail-care-blossom-floral.jpg" alt="Premium Gel Design" loading="lazy" />
                     <span class="badge-popular">Popular</span>
                     <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">8,420</span></div>
                 </div>
@@ -635,7 +889,7 @@
 
             <div class="price-card-modern">
                 <div class="card-image-wrap">
-                    <img src="spacehead45-nails-9134036_1920.png" alt="Gelish Manicure" />
+                    <img src="spacehead45-nails-9134036_1920.png" alt="Gelish Manicure" loading="lazy" />
                     <span class="badge-popular">Popular</span>
                     <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">5,112</span></div>
                 </div>
@@ -656,7 +910,7 @@
 
             <div class="price-card-modern">
                 <div class="card-image-wrap">
-                    <img src="floral-pastel-pedicure.jpg" alt="Floral Pastel Pedicure" />
+                    <img src="floral-pastel-pedicure.jpg" alt="Floral Pastel Pedicure" loading="lazy" />
                     <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">156</span></div>
                 </div>
                 <div class="card-content">
@@ -667,7 +921,7 @@
 
             <div class="price-card-modern">
                 <div class="card-image-wrap">
-                    <img src="tropical-blossom-pedicure-soak.jpg" alt="Classic Pedicure" />
+                    <img src="tropical-blossom-pedicure-soak.jpg" alt="Classic Pedicure" loading="lazy" />
                     <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">142</span></div>
                 </div>
                 <div class="card-content">
@@ -678,7 +932,7 @@
 
             <div class="price-card-modern">
                 <div class="card-image-wrap">
-                    <img src="pedicure-treatment-application.jpg" alt="Deluxe Personal Pedicure Treatment" />
+                    <img src="pedicure-treatment-application.jpg" alt="Deluxe Personal Pedicure Treatment" loading="lazy" />
                     <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">98</span></div>
                 </div>
                 <div class="card-content">
@@ -689,7 +943,7 @@
 
             <div class="price-card-modern">
                 <div class="card-image-wrap">
-                    <img src="rose-petal-soak-ritual.jpg" alt="Rose Petal Spa Soak Ritual" />
+                    <img src="rose-petal-soak-ritual.jpg" alt="Rose Petal Spa Soak Ritual" loading="lazy" />
                     <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">76</span></div>
                 </div>
                 <div class="card-content">
@@ -700,18 +954,18 @@
 
             <div class="price-card-modern">
                 <div class="card-image-wrap">
-                    <img src="senior-diabetic-care.jpg" alt="Senior and Diabetic Foot Care" />
+                    <img src="senior-diabetic-care.jpg" alt="Senior and Diabetic Foot Care" loading="lazy" />
                     <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">63</span></div>
                 </div>
                 <div class="card-content">
-                    <h3 class="card-title">Senior & Diabetic Foot Care</h3>
+                    <h3 class="card-title">Senior &amp; Diabetic Foot Care</h3>
                     <p class="card-description">Gentle, medically-mindful pedicure care suited for elderly and diabetic clients, performed with extra caution and hygiene.</p>
                 </div>
             </div>
 
             <div class="price-card-modern">
                 <div class="card-image-wrap">
-                    <img src="Cateye Gelish pedicure $95.jpeg" alt="Cateye Gelish Pedicure" />
+                    <img src="Cateye Gelish pedicure $95.jpeg" alt="Cateye Gelish Pedicure" loading="lazy" />
                     <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">45</span></div>
                 </div>
                 <div class="card-content">
@@ -728,7 +982,7 @@
 
             <div class="price-card-modern">
                 <div class="card-image-wrap">
-                    <img src="halloween-nails-spooky-nails-themed-manicure-dark-nails-creative-design-festive-nails-seasonal-beauty-nail-art-ideas-party-nails-trendy-manicure-nail-care-nail-polish-manicure-finger-nail-cosmetics-pink-artificial-n.jpg" alt="Halloween Spooky Nails" />
+                    <img src="halloween-nails-spooky-nails-themed-manicure-dark-nails-creative-design-festive-nails-seasonal-beauty-nail-art-ideas-party-nails-trendy-manicure-nail-care-nail-polish-manicure-finger-nail-cosmetics-pink-artificial-n.jpg" alt="Halloween Spooky Nails" loading="lazy" />
                     <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">54</span></div>
                 </div>
                 <div class="card-content">
@@ -739,29 +993,29 @@
 
             <div class="price-card-modern">
                 <div class="card-image-wrap">
-                    <img src="alehandra13-nails-5401834_1920.jpg" alt="Tropical Leaf Art" />
+                    <img src="alehandra13-nails-5401834_1920.jpg" alt="Tropical Leaf Art" loading="lazy" />
                     <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">39</span></div>
                 </div>
                 <div class="card-content">
-                    <h3 class="card-title">Seasonal & Themed Art</h3>
+                    <h3 class="card-title">Seasonal &amp; Themed Art</h3>
                     <p class="card-description">Playful themed sets for holidays and seasons, from tropical leaves to festive glitter finishes.</p>
                 </div>
             </div>
 
             <div class="price-card-modern">
                 <div class="card-image-wrap">
-                    <img src="ralph_germany-nails-8388827_1920.jpg" alt="Elegant Nail Set" />
+                    <img src="ralph_germany-nails-8388827_1920.jpg" alt="Elegant Nail Set" loading="lazy" />
                     <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">47</span></div>
                 </div>
                 <div class="card-content">
-                    <h3 class="card-title">Classic & Elegant Sets</h3>
+                    <h3 class="card-title">Classic &amp; Elegant Sets</h3>
                     <p class="card-description">Timeless, polished nail sets perfect for everyday wear or a special occasion at home.</p>
                 </div>
             </div>
 
             <div class="price-card-modern">
                 <div class="card-image-wrap">
-                    <img src="pexels-estoymhrb-20758448.jpg" alt="Fresh Manicure" />
+                    <img src="pexels-estoymhrb-20758448.jpg" alt="Fresh Manicure" loading="lazy" />
                     <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">61</span></div>
                 </div>
                 <div class="card-content">
@@ -772,7 +1026,7 @@
 
             <div class="price-card-modern">
                 <div class="card-image-wrap">
-                    <img src="Ombré manicure nail design.jpeg" alt="Ombré Manicure" />
+                    <img src="Ombré manicure nail design.jpeg" alt="Ombré Manicure" loading="lazy" />
                     <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">52</span></div>
                 </div>
                 <div class="card-content">
@@ -783,7 +1037,7 @@
 
             <div class="price-card-modern">
                 <div class="card-image-wrap">
-                    <img src="Classic manicure $70.jpeg" alt="Classic Manicure" />
+                    <img src="Classic manicure $70.jpeg" alt="Classic Manicure" loading="lazy" />
                     <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">38</span></div>
                 </div>
                 <div class="card-content">
@@ -794,7 +1048,7 @@
 
             <div class="price-card-modern">
                 <div class="card-image-wrap">
-                    <img src="French, Gelish Manicure.jpeg" alt="French Gelish Manicure" />
+                    <img src="French, Gelish Manicure.jpeg" alt="French Gelish Manicure" loading="lazy" />
                     <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">29</span></div>
                 </div>
                 <div class="card-content">
@@ -805,7 +1059,7 @@
 
             <div class="price-card-modern">
                 <div class="card-image-wrap">
-                    <img src="Gelish manicure $75.jpeg" alt="Gelish Manicure" />
+                    <img src="Gelish manicure $75.jpeg" alt="Gelish Manicure" loading="lazy" />
                     <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">34</span></div>
                 </div>
                 <div class="card-content">
@@ -816,7 +1070,7 @@
 
             <div class="price-card-modern">
                 <div class="card-image-wrap">
-                    <img src="Wedding Gelish manicure.jpeg" alt="Wedding Gelish Manicure" />
+                    <img src="Wedding Gelish manicure.jpeg" alt="Wedding Gelish Manicure" loading="lazy" />
                     <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">27</span></div>
                 </div>
                 <div class="card-content">
@@ -827,7 +1081,7 @@
 
             <div class="price-card-modern">
                 <div class="card-image-wrap">
-                    <img src="Gelish manicure with nail art.jpeg" alt="Gelish with Nail Art" />
+                    <img src="Gelish manicure with nail art.jpeg" alt="Gelish with Nail Art" loading="lazy" />
                     <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">21</span></div>
                 </div>
                 <div class="card-content">
@@ -838,7 +1092,7 @@
 
             <div class="price-card-modern">
                 <div class="card-image-wrap">
-                    <img src="Cateye Gelish manicure $85.jpeg" alt="Cateye Gelish Manicure" />
+                    <img src="Cateye Gelish manicure $85.jpeg" alt="Cateye Gelish Manicure" loading="lazy" />
                     <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">33</span></div>
                 </div>
                 <div class="card-content">
@@ -849,7 +1103,7 @@
 
             <div class="price-card-modern">
                 <div class="card-image-wrap">
-                    <img src="Nail art design.jpeg" alt="Nail Art Design" />
+                    <img src="Nail art design.jpeg" alt="Nail Art Design" loading="lazy" />
                     <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">19</span></div>
                 </div>
                 <div class="card-content">
@@ -866,7 +1120,7 @@
 
             <div class="price-card-modern">
                 <div class="card-image-wrap">
-                    <img src="senior-foot-care-closeup.jpg" alt="Mei Ling providing senior foot care" />
+                    <img src="senior-foot-care-closeup.jpg" alt="Mei Ling providing senior foot care" loading="lazy" />
                     <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">31</span></div>
                 </div>
                 <div class="card-content">
@@ -877,7 +1131,7 @@
 
             <div class="price-card-modern">
                 <div class="card-image-wrap">
-                    <img src="gloved-pedicure-care-1.jpg" alt="Aisha performing a gloved pedicure" />
+                    <img src="gloved-pedicure-care-1.jpg" alt="Aisha performing a gloved pedicure" loading="lazy" />
                     <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">24</span></div>
                 </div>
                 <div class="card-content">
@@ -888,7 +1142,7 @@
 
             <div class="price-card-modern">
                 <div class="card-image-wrap">
-                    <img src="pedicure-side-view.jpg" alt="Farah performing a pedicure" />
+                    <img src="pedicure-side-view.jpg" alt="Farah performing a pedicure" loading="lazy" />
                     <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">18</span></div>
                 </div>
                 <div class="card-content">
@@ -899,7 +1153,7 @@
 
             <div class="price-card-modern">
                 <div class="card-image-wrap">
-                    <img src="gloved-pedicure-care-3.jpg" alt="Priya at work on a pedicure" />
+                    <img src="gloved-pedicure-care-3.jpg" alt="Priya at work on a pedicure" loading="lazy" />
                     <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">15</span></div>
                 </div>
                 <div class="card-content">
@@ -912,7 +1166,7 @@
 
     </div>
 
-    <!-- PRICING TAB -->
+    <!-- ─── PRICING TAB ─── -->
     <div id="pricingTab" class="tab-content" style="display: none;">
         <div class="pricing-container">
 
@@ -966,7 +1220,7 @@
 
                 <div class="pricing-item">
                     <div class="pricing-title-row">
-                        <span class="pricing-title">Spa Manicure & Pedicure Bundle</span>
+                        <span class="pricing-title">Spa Manicure &amp; Pedicure Bundle</span>
                         <div class="leader"></div>
                         <span class="pricing-cost">$125</span>
                     </div>
@@ -979,7 +1233,7 @@
 
                 <div class="pricing-item">
                     <div class="pricing-title-row">
-                        <span class="pricing-title">Ladies Haircut & Style</span>
+                        <span class="pricing-title">Ladies Haircut &amp; Style</span>
                         <div class="leader"></div>
                         <span class="pricing-cost">$65</span>
                     </div>
@@ -1026,52 +1280,95 @@
         </div>
     </div>
 
-    <!-- CONTACT TAB -->
+    <!-- ─── CONTACT TAB ─── -->
     <div id="contactTab" class="tab-content" style="display: none;">
         <div class="contact-box">
-            <h2 class="section-title" style="margin-bottom: 20px;">Book Your Session</h2>
+            <h2 class="section-title" style="margin-bottom: 16px;">Book Your Session</h2>
             <p>Ready for a salon experience at home? Reach out to schedule your appointment today.</p>
 
             <span class="contact-number">+65 9123 4567</span>
 
-            <p style="margin-bottom: 30px; font-size: 0.95rem;">Available on WhatsApp and Calls<br>Mon-Sun: 9:00 AM - 8:00 PM</p>
+            <p style="margin-bottom: 24px; font-size: 0.9rem;">Available on WhatsApp and Calls<br />Mon–Sun: 9:00 AM – 8:00 PM</p>
 
             <div class="social-links">
-                <a href="#" title="WhatsApp">
+                <a href="#" title="WhatsApp" aria-label="WhatsApp">
                     <svg viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564c.173.087.289.129.332.202.043.073.043.423-.101.827z"/></svg>
                 </a>
-                <a href="#" title="Instagram">
+                <a href="#" title="Instagram" aria-label="Instagram">
                     <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                 </a>
             </div>
         </div>
     </div>
 
+    <!-- ─── FOOTER ─── -->
     <footer>
-        &copy; 2024 Heartfelt Home. All rights reserved.<br>
-        <span style="font-size: 0.85rem; color: #777;">Singapore Mobile Salon Services</span>
+        &copy; 2024 Heartfelt Home. All rights reserved.<br />
+        <span style="font-size: 0.8rem; color: #777;">Singapore Mobile Salon Services</span>
     </footer>
 
+    <!-- ─── COOKIE CONSENT BANNER ─── -->
+    <div id="cookieBanner" class="cookie-banner">
+        <p>
+            🍪 We use cookies to enhance your experience. By continuing, you agree to our
+            <a href="#" onclick="event.preventDefault(); alert('Privacy Policy: We use only essential cookies for site functionality.')">Privacy Policy</a>.
+        </p>
+        <div class="cookie-actions">
+            <button class="cookie-btn cookie-btn-decline" onclick="declineCookies()">Decline</button>
+            <button class="cookie-btn cookie-btn-accept" onclick="acceptCookies()">Accept All</button>
+        </div>
+    </div>
+
     <script>
-        function openTab(tabName, element) {
-            let tabs = document.getElementsByClassName("tab-content");
-            for (let i = 0; i < tabs.length; i++) {
-                tabs[i].style.display = "none";
-            }
-
-            let links = document.getElementsByClassName("nav-links")[0].getElementsByTagName("li");
-            for (let i = 0; i < links.length; i++) {
-                links[i].classList.remove("active");
-            }
-
-            document.getElementById(tabName).style.display = "block";
-            element.classList.add("active");
-            window.scrollTo(0, 0);
+        // ─── COOKIE CONSENT ───
+        function setCookie(name, value, days) {
+            const expires = new Date(Date.now() + days * 24 * 60 * 60 * 1000).toUTCString();
+            document.cookie = name + '=' + encodeURIComponent(value) + '; expires=' + expires + '; path=/; SameSite=Lax' + (location.protocol === 'https:' ? '; Secure' : '');
         }
 
+        function getCookie(name) {
+            const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+            return match ? decodeURIComponent(match[2]) : null;
+        }
+
+        function acceptCookies() {
+            setCookie('cookie_consent', 'accepted', 365);
+            document.getElementById('cookieBanner').classList.add('hidden');
+        }
+
+        function declineCookies() {
+            setCookie('cookie_consent', 'declined', 30);
+            document.getElementById('cookieBanner').classList.add('hidden');
+        }
+
+        // Check existing consent
+        (function initCookieBanner() {
+            const consent = getCookie('cookie_consent');
+            if (consent) {
+                document.getElementById('cookieBanner').classList.add('hidden');
+            }
+        })();
+
+        // ─── TAB SWITCHING ───
+        function openTab(tabName, element) {
+            const tabs = document.getElementsByClassName('tab-content');
+            for (let i = 0; i < tabs.length; i++) {
+                tabs[i].style.display = 'none';
+            }
+
+            const links = document.querySelectorAll('.nav-links li');
+            for (let i = 0; i < links.length; i++) {
+                links[i].classList.remove('active');
+            }
+
+            document.getElementById(tabName).style.display = 'block';
+            element.classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // ─── SPARKLE CANVAS ───
         const canvas = document.getElementById('sparkleCanvas');
         const ctx = canvas.getContext('2d');
-
         let width, height;
         const sparkles = [];
 
@@ -1110,40 +1407,36 @@
             draw() {
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(255, 255, 255, ${this.alpha})`;
+                ctx.fillStyle = 'rgba(255, 255, 255, ' + this.alpha + ')';
                 ctx.fill();
             }
         }
 
-        function resize() {
+        function resizeCanvas() {
             width = canvas.width = window.innerWidth;
             height = canvas.height = window.innerHeight;
 
-            const targetSparkles = window.innerWidth < 768 ? 30 : 75;
-
-            if (sparkles.length < targetSparkles) {
-                while (sparkles.length < targetSparkles) {
-                    sparkles.push(new Sparkle());
-                }
-            } else if (sparkles.length > targetSparkles) {
-                sparkles.splice(targetSparkles);
+            const target = window.innerWidth < 768 ? 30 : 75;
+            while (sparkles.length < target) {
+                sparkles.push(new Sparkle());
+            }
+            while (sparkles.length > target) {
+                sparkles.pop();
             }
         }
 
-        window.addEventListener('resize', resize);
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
 
-        resize();
-
-        function animate() {
+        function animateSparkles() {
             ctx.clearRect(0, 0, width, height);
-            sparkles.forEach(sparkle => {
-                sparkle.update();
-                sparkle.draw();
-            });
-            requestAnimationFrame(animate);
+            for (let i = 0; i < sparkles.length; i++) {
+                sparkles[i].update();
+                sparkles[i].draw();
+            }
+            requestAnimationFrame(animateSparkles);
         }
-
-        animate();
+        animateSparkles();
     </script>
 </body>
 </html>

@@ -259,11 +259,11 @@
             transform: scale(0.98);
         }
 
-        /* ─── CARD IMAGE WRAPPER (MOBILE & CROSS-BROWSER OPTIMIZED) ─── */
+        /* ─── CARD IMAGE WRAPPER (UPDATED FOR NO CUT-OFFS) ─── */
         .card-image-wrap {
             position: relative;
             width: 100%;
-            aspect-ratio: 4 / 3; /* Fixed frame ratio across all modern browsers */
+            aspect-ratio: 1 / 1; /* Changed to 1:1 Square to fit vertical hand & nail shots */
             overflow: hidden;
             background: #fdf2f5;
             flex-shrink: 0;
@@ -271,10 +271,10 @@
         }
 
         /* Legacy browser engine fallback for iOS Safari < 15 */
-        @supports not (aspect-ratio: 4 / 3) {
+        @supports not (aspect-ratio: 1 / 1) {
             .card-image-wrap {
                 height: 0;
-                padding-top: 75%; /* 4:3 Aspect Ratio (3/4 = 75%) */
+                padding-top: 100%; /* 1:1 Aspect Ratio */
             }
             .card-image-wrap img {
                 position: absolute;
@@ -302,16 +302,24 @@
         .card-image-wrap img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Prevents squishing and fills box uniformly */
-            object-position: center; /* Keeps main focus point centered */
+            object-fit: cover;
+            object-position: center; /* Default center alignment */
             display: block;
             transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), filter 0.6s ease;
             -webkit-touch-callout: none;
             -webkit-user-drag: none;
         }
 
+        /* Focal positioning utility classes */
+        .card-image-wrap img.img-top {
+            object-position: top center !important; /* Prevents top of nails/fingers from getting cut off */
+        }
+        .card-image-wrap img.img-bottom {
+            object-position: bottom center !important;
+        }
+
         .price-card-modern:hover .card-image-wrap img {
-            transform: scale(1.08);
+            transform: scale(1.06);
             filter: brightness(1.03);
         }
 
@@ -878,7 +886,7 @@
 
             <div class="price-card-modern">
                 <div class="card-image-wrap">
-                    <img src="summer-nails-bright-manicure-vacation-nails-colorful-design-beach-nails-trendy-nails-fun-manicure-seasonal-nails-beauty-style-nail-art-pink-nail-polish-petal-spring-manicure-artificial-nails-nail-care-blossom-floral.jpg" alt="Premium Gel Design" loading="lazy" />
+                    <img src="summer-nails-bright-manicure-vacation-nails-colorful-design-beach-nails-trendy-nails-fun-manicure-seasonal-nails-beauty-style-nail-art-pink-nail-polish-petal-spring-manicure-artificial-nails-nail-care-blossom-floral.jpg" alt="Premium Gel Design" class="img-top" loading="lazy" />
                     <span class="badge-popular">Popular</span>
                     <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">8,420</span></div>
                 </div>
@@ -893,7 +901,7 @@
 
             <div class="price-card-modern">
                 <div class="card-image-wrap">
-                    <img src="spacehead45-nails-9134036_1920.png" alt="Gelish Manicure" loading="lazy" />
+                    <img src="spacehead45-nails-9134036_1920.png" alt="Gelish Manicure" class="img-top" loading="lazy" />
                     <span class="badge-popular">Popular</span>
                     <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">5,112</span></div>
                 </div>
@@ -986,7 +994,7 @@
 
             <div class="price-card-modern">
                 <div class="card-image-wrap">
-                    <img src="halloween-nails-spooky-nails-themed-manicure-dark-nails-creative-design-festive-nails-seasonal-beauty-nail-art-ideas-party-nails-trendy-manicure-nail-care-nail-polish-manicure-finger-nail-cosmetics-pink-artificial-n.jpg" alt="Halloween Spooky Nails" loading="lazy" />
+                    <img src="halloween-nails-spooky-nails-themed-manicure-dark-nails-creative-design-festive-nails-seasonal-beauty-nail-art-ideas-party-nails-trendy-manicure-nail-care-nail-polish-manicure-finger-nail-cosmetics-pink-artificial-n.jpg" alt="Halloween Spooky Nails" class="img-top" loading="lazy" />
                     <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">54</span></div>
                 </div>
                 <div class="card-content">
@@ -997,7 +1005,7 @@
 
             <div class="price-card-modern">
                 <div class="card-image-wrap">
-                    <img src="alehandra13-nails-5401834_1920.jpg" alt="Tropical Leaf Art" loading="lazy" />
+                    <img src="alehandra13-nails-5401834_1920.jpg" alt="Tropical Leaf Art" class="img-top" loading="lazy" />
                     <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">39</span></div>
                 </div>
                 <div class="card-content">
@@ -1008,7 +1016,7 @@
 
             <div class="price-card-modern">
                 <div class="card-image-wrap">
-                    <img src="ralph_germany-nails-8388827_1920.jpg" alt="Elegant Nail Set" loading="lazy" />
+                    <img src="ralph_germany-nails-8388827_1920.jpg" alt="Elegant Nail Set" class="img-top" loading="lazy" />
                     <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">47</span></div>
                 </div>
                 <div class="card-content">
@@ -1019,7 +1027,7 @@
 
             <div class="price-card-modern">
                 <div class="card-image-wrap">
-                    <img src="pexels-estoymhrb-20758448.jpg" alt="Fresh Manicure" loading="lazy" />
+                    <img src="pexels-estoymhrb-20758448.jpg" alt="Fresh Manicure" class="img-top" loading="lazy" />
                     <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">61</span></div>
                 </div>
                 <div class="card-content">
@@ -1030,7 +1038,7 @@
 
             <div class="price-card-modern">
                 <div class="card-image-wrap">
-                    <img src="Ombré manicure nail design.jpeg" alt="Ombré Manicure" loading="lazy" />
+                    <img src="Ombré manicure nail design.jpeg" alt="Ombré Manicure" class="img-top" loading="lazy" />
                     <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">52</span></div>
                 </div>
                 <div class="card-content">
@@ -1041,7 +1049,7 @@
 
             <div class="price-card-modern">
                 <div class="card-image-wrap">
-                    <img src="Classic manicure $70.jpeg" alt="Classic Manicure" loading="lazy" />
+                    <img src="Classic manicure $70.jpeg" alt="Classic Manicure" class="img-top" loading="lazy" />
                     <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">38</span></div>
                 </div>
                 <div class="card-content">
@@ -1052,7 +1060,7 @@
 
             <div class="price-card-modern">
                 <div class="card-image-wrap">
-                    <img src="French, Gelish Manicure.jpeg" alt="French Gelish Manicure" loading="lazy" />
+                    <img src="French, Gelish Manicure.jpeg" alt="French Gelish Manicure" class="img-top" loading="lazy" />
                     <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">29</span></div>
                 </div>
                 <div class="card-content">
@@ -1063,7 +1071,7 @@
 
             <div class="price-card-modern">
                 <div class="card-image-wrap">
-                    <img src="Gelish manicure $75.jpeg" alt="Gelish Manicure" loading="lazy" />
+                    <img src="Gelish manicure $75.jpeg" alt="Gelish Manicure" class="img-top" loading="lazy" />
                     <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">34</span></div>
                 </div>
                 <div class="card-content">
@@ -1074,7 +1082,7 @@
 
             <div class="price-card-modern">
                 <div class="card-image-wrap">
-                    <img src="Wedding Gelish manicure.jpeg" alt="Wedding Gelish Manicure" loading="lazy" />
+                    <img src="Wedding Gelish manicure.jpeg" alt="Wedding Gelish Manicure" class="img-top" loading="lazy" />
                     <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">27</span></div>
                 </div>
                 <div class="card-content">
@@ -1085,7 +1093,7 @@
 
             <div class="price-card-modern">
                 <div class="card-image-wrap">
-                    <img src="Gelish manicure with nail art.jpeg" alt="Gelish with Nail Art" loading="lazy" />
+                    <img src="Gelish manicure with nail art.jpeg" alt="Gelish with Nail Art" class="img-top" loading="lazy" />
                     <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">21</span></div>
                 </div>
                 <div class="card-content">
@@ -1096,7 +1104,7 @@
 
             <div class="price-card-modern">
                 <div class="card-image-wrap">
-                    <img src="Cateye Gelish manicure $85.jpeg" alt="Cateye Gelish Manicure" loading="lazy" />
+                    <img src="Cateye Gelish manicure $85.jpeg" alt="Cateye Gelish Manicure" class="img-top" loading="lazy" />
                     <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">33</span></div>
                 </div>
                 <div class="card-content">
@@ -1107,7 +1115,7 @@
 
             <div class="price-card-modern">
                 <div class="card-image-wrap">
-                    <img src="Nail art design.jpeg" alt="Nail Art Design" loading="lazy" />
+                    <img src="Nail art design.jpeg" alt="Nail Art Design" class="img-top" loading="lazy" />
                     <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">19</span></div>
                 </div>
                 <div class="card-content">

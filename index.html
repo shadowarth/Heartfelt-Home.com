@@ -18,8 +18,7 @@
             padding: 0;
             box-sizing: border-box;
         }
-        html,
-        body {
+        html, body {
             width: 100%;
             overflow-x: hidden;
             -webkit-text-size-adjust: 100%;
@@ -65,10 +64,7 @@
         }
 
         /* ─── TYPOGRAPHY ─── */
-        h1,
-        h2,
-        h3,
-        h4 {
+        h1, h2, h3, h4 {
             font-family: 'Playfair Display', serif;
         }
 
@@ -120,8 +116,7 @@
             -webkit-touch-callout: none;
             user-select: none;
         }
-        .nav-links li:hover,
-        .nav-links li.active {
+        .nav-links li:hover, .nav-links li.active {
             color: #fff;
             background: linear-gradient(135deg, #6a1b9a 0%, #ff4081 100%);
             box-shadow: 0 4px 15px rgba(255, 64, 129, 0.3);
@@ -143,27 +138,17 @@
             z-index: 2;
         }
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(18px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(18px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* ─── HERO ─── */
         .hero {
             text-align: center;
             background: transparent;
-            backdrop-filter: none;
-            -webkit-backdrop-filter: none;
             border-radius: 0;
             padding: 60px 20px 50px;
-            box-shadow: none;
-            margin-bottom: 50px;
-            border: none;
+            margin-bottom: 20px;
             position: relative;
         }
         .hero h1 {
@@ -201,6 +186,7 @@
             font-weight: 700;
             position: relative;
             text-shadow: 0 2px 12px rgba(255, 255, 255, 0.9);
+            margin-top: 50px;
         }
         .section-title::after {
             content: '';
@@ -227,207 +213,83 @@
             -webkit-backdrop-filter: blur(2px);
         }
 
-        /* ─── CARD GRID ─── */
-        .price-grid {
+        /* ─── 3D POSTER GALLERY ─── */
+        .poster-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
-            margin-bottom: 50px;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 35px;
+            margin-bottom: 60px;
+            padding: 0 10px;
+            perspective: 1200px; /* Essential for 3D effects to work on the grid */
         }
 
-        /* ─── PRICE CARD ─── */
-        .price-card-modern {
-            background: rgba(255, 255, 255, 0.88);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(106, 27, 154, 0.07);
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease, border-color 0.4s ease;
-            display: flex;
-            flex-direction: column;
-            -webkit-transform: translateZ(0);
-            transform: translateZ(0);
-        }
-        .price-card-modern:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(255, 64, 129, 0.18);
-            border-color: rgba(255, 64, 129, 0.4);
-        }
-        .price-card-modern:active {
-            transform: scale(0.98);
+        .poster-card {
+            perspective: 1000px;
+            width: 100%;
+            border-radius: 24px;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
         }
 
-        /* ─── CARD IMAGE WRAPPER (UPDATED FOR NO CUT-OFFS) ─── */
-        .card-image-wrap {
+        .poster-inner {
             position: relative;
             width: 100%;
-            aspect-ratio: 1 / 1; /* Changed to 1:1 Square to fit vertical hand & nail shots */
+            /* Aspect ratio of the posters (roughly 4:5) */
+            aspect-ratio: 4 / 5;
+            border-radius: 24px;
             overflow: hidden;
-            background: #fdf2f5;
-            flex-shrink: 0;
-            border-bottom: 1px solid rgba(255, 182, 193, 0.3);
+            background: #ffffff;
+            box-shadow: 
+                0 10px 30px rgba(106, 27, 154, 0.08),
+                0 4px 10px rgba(0, 0, 0, 0.04),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.8);
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transform-style: preserve-3d;
+            will-change: transform, box-shadow;
         }
 
-        /* Legacy browser engine fallback for iOS Safari < 15 */
-        @supports not (aspect-ratio: 1 / 1) {
-            .card-image-wrap {
+        /* Fallback for browsers that don't support aspect-ratio */
+        @supports not (aspect-ratio: 4 / 5) {
+            .poster-inner {
                 height: 0;
-                padding-top: 100%; /* 1:1 Aspect Ratio */
+                padding-bottom: 125%; /* 4:5 ratio */
             }
-            .card-image-wrap img {
+            .poster-inner img {
                 position: absolute;
                 top: 0;
                 left: 0;
             }
         }
 
-        /* Gradient overlay for text & badge legibility */
-        .card-image-wrap::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(
-                to top,
-                rgba(0, 0, 0, 0.35) 0%,
-                rgba(0, 0, 0, 0.05) 45%,
-                transparent 100%
-            );
-            pointer-events: none;
-            z-index: 1;
-            transition: opacity 0.3s ease;
+        /* 3D Hover Effect */
+        .poster-card:hover .poster-inner {
+            transform: translateY(-12px) rotateX(6deg) rotateY(-4deg) scale(1.03);
+            box-shadow: 
+                0 30px 60px rgba(106, 27, 154, 0.22),
+                0 15px 25px rgba(255, 64, 129, 0.18),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.9);
         }
 
-        .card-image-wrap img {
+        /* Active/Touch state for Mobile */
+        .poster-card:active .poster-inner {
+            transform: translateY(-6px) rotateX(3deg) rotateY(-2deg) scale(1.01);
+            box-shadow: 
+                0 20px 40px rgba(106, 27, 154, 0.18),
+                0 10px 15px rgba(255, 64, 129, 0.12);
+        }
+
+        .poster-inner img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            object-position: center; /* Default center alignment */
+            object-fit: cover; /* Ensures the poster fills the card beautifully */
             display: block;
-            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), filter 0.6s ease;
+            transition: transform 0.6s ease;
             -webkit-touch-callout: none;
             -webkit-user-drag: none;
         }
 
-        /* Focal positioning utility classes */
-        .card-image-wrap img.img-top {
-            object-position: top center !important; /* Prevents top of nails/fingers from getting cut off */
-        }
-        .card-image-wrap img.img-bottom {
-            object-position: bottom center !important;
-        }
-
-        .price-card-modern:hover .card-image-wrap img {
-            transform: scale(1.06);
-            filter: brightness(1.03);
-        }
-
-        .price-card-modern:hover .card-image-wrap::after {
-            opacity: 0.85;
-        }
-
-        /* ─── BADGES ─── */
-        .badge-popular {
-            position: absolute;
-            bottom: 12px;
-            left: 12px;
-            background: linear-gradient(135deg, #ff4081, #ff6b00);
-            color: #ffffff;
-            font-size: 0.68rem;
-            font-weight: 700;
-            padding: 4px 12px;
-            border-radius: 20px;
-            letter-spacing: 0.6px;
-            box-shadow: 0 4px 12px rgba(255, 64, 129, 0.4);
-            z-index: 2;
-            text-transform: uppercase;
-            line-height: 1.2;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .badge-rating {
-            position: absolute;
-            bottom: 12px;
-            right: 12px;
-            background: rgba(255, 255, 255, 0.90);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 0.72rem;
-            font-weight: 600;
-            color: #1e293b;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-            z-index: 2;
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            line-height: 1.2;
-        }
-        .badge-rating .stars {
-            color: #f59e0b;
-            letter-spacing: -0.5px;
-            font-size: 0.7rem;
-        }
-        .badge-rating .count {
-            color: #64748b;
-            font-size: 0.68rem;
-            margin-left: 1px;
-            font-weight: 500;
-        }
-
-        /* ─── CARD CONTENT ─── */
-        .card-content {
-            padding: 18px 20px 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            text-align: left;
-            flex: 1;
-        }
-        .card-header-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-        .card-title {
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: #1a202c;
-            margin: 0;
-            line-height: 1.3;
-            font-family: 'Poppins', sans-serif;
-        }
-        .card-price-container {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            white-space: nowrap;
-            flex-shrink: 0;
-        }
-        .price-original {
-            font-size: 0.85rem;
-            color: #94a3b8;
-            text-decoration: line-through;
-        }
-        .price-discount-tag {
-            color: #10b981;
-            font-size: 0.8rem;
-        }
-        .price-current {
-            font-size: 1.25rem;
-            font-weight: 800;
-            color: #0f172a;
-        }
-        .card-description {
-            font-size: 0.9rem;
-            color: #4a5568;
-            line-height: 1.5;
-            margin: 0;
+        .poster-card:hover .poster-inner img {
+            transform: scale(1.05); /* Subtle zoom on the image inside the 3D card */
         }
 
         /* ─── PRICING TAB ─── */
@@ -581,6 +443,47 @@
             fill: currentColor;
         }
 
+        /* ─── FLOATING WHATSAPP BUTTON ─── */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 25px;
+            right: 25px;
+            background: #25D366; /* WhatsApp Green */
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 10000; /* Ensure it's above everything */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            animation: pulse-green 2s infinite;
+        }
+        .whatsapp-float:hover {
+            background: #128C7E;
+            transform: scale(1.1) translateY(-5px);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
+            color: #FFF;
+        }
+        .whatsapp-float:active {
+            transform: scale(0.95);
+        }
+        .whatsapp-float svg {
+            width: 35px;
+            height: 35px;
+            fill: currentColor;
+        }
+        @keyframes pulse-green {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
         /* ─── FOOTER ─── */
         footer {
             background: rgba(255, 255, 255, 0.85);
@@ -708,15 +611,17 @@
             }
             .section-title {
                 font-size: 2rem;
+                margin-top: 40px;
             }
             .section-subtitle-center {
                 font-size: 0.9rem;
                 padding: 6px 14px;
                 margin: -20px auto 30px;
             }
-            .price-grid {
+            .poster-grid {
                 grid-template-columns: 1fr;
-                gap: 20px;
+                gap: 25px;
+                padding: 0 5px;
             }
             .pricing-category {
                 padding: 28px 16px;
@@ -751,18 +656,6 @@
                 width: 24px;
                 height: 24px;
             }
-            .badge-rating {
-                font-size: 0.65rem;
-                padding: 3px 8px;
-                bottom: 10px;
-                right: 10px;
-            }
-            .badge-popular {
-                font-size: 0.6rem;
-                padding: 3px 10px;
-                bottom: 10px;
-                left: 10px;
-            }
             .cookie-banner {
                 padding: 14px 16px;
                 flex-direction: column;
@@ -776,6 +669,16 @@
             .cookie-banner .cookie-btn {
                 padding: 6px 18px;
                 font-size: 0.8rem;
+            }
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+            }
+            .whatsapp-float svg {
+                width: 28px;
+                height: 28px;
             }
         }
 
@@ -793,12 +696,6 @@
             .hero p {
                 font-size: 0.85rem;
                 padding: 12px 14px;
-            }
-            .card-title {
-                font-size: 1rem;
-            }
-            .price-current {
-                font-size: 1.1rem;
             }
             .section-title {
                 font-size: 1.7rem;
@@ -820,7 +717,7 @@
         }
 
         @media (min-width: 769px) and (max-width: 1024px) {
-            .price-grid {
+            .poster-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
@@ -866,360 +763,142 @@
             <p>Heartfelt Home provides professional mobile hair and nail services across Singapore, bringing haircuts, styling, colouring, treatments, manicures, and pedicures directly to your home for clean, convenient, and reliable salon care for all ages.</p>
         </div>
 
-        <h2 class="section-title">Featured Art &amp; Services</h2>
-        <div class="price-grid">
-
-            <div class="price-card-modern">
-                <div class="card-image-wrap">
-                    <img src="user_img_15.jpg" alt="Classic Spa Pedicure" loading="lazy" />
-                    <span class="badge-popular">Popular</span>
-                    <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">13,793</span></div>
-                </div>
-                <div class="card-content">
-                    <div class="card-header-row">
-                        <h3 class="card-title">Classic Spa Pedicure</h3>
-                        <div class="card-price-container"><span class="price-original">$98.00</span><span class="price-discount-tag">🏷️</span><span class="price-current">$86</span></div>
-                    </div>
-                    <p class="card-description">Relaxing foot soak, cuticle care, and flawless polish application provided by experienced mobile nail technicians.</p>
+        <!-- SECTION 1: SIGNATURE MANICURE & PEDICURE -->
+        <h2 class="section-title">Signature Manicure & Pedicure</h2>
+        <p class="section-subtitle-center">Classic elegance and trendy gelish designs brought straight to your doorstep.</p>
+        <div class="poster-grid">
+            <div class="poster-card">
+                <div class="poster-inner">
+                    <img src="poster_1.jpg" alt="French Manicure" loading="lazy" />
                 </div>
             </div>
-
-            <div class="price-card-modern">
-                <div class="card-image-wrap">
-                    <img src="summer-nails-bright-manicure-vacation-nails-colorful-design-beach-nails-trendy-nails-fun-manicure-seasonal-nails-beauty-style-nail-art-pink-nail-polish-petal-spring-manicure-artificial-nails-nail-care-blossom-floral.jpg" alt="Premium Gel Design" class="img-top" loading="lazy" />
-                    <span class="badge-popular">Popular</span>
-                    <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">8,420</span></div>
-                </div>
-                <div class="card-content">
-                    <div class="card-header-row">
-                        <h3 class="card-title">Premium Gel Design</h3>
-                        <div class="card-price-container"><span class="price-original">$145.00</span><span class="price-discount-tag">🏷️</span><span class="price-current">$128</span></div>
-                    </div>
-                    <p class="card-description">Elegant dual-tone gel polish with beautiful metallic accents, customized directly for your home pampering.</p>
+            <div class="poster-card">
+                <div class="poster-inner">
+                    <img src="poster_2.jpg" alt="Classic Manicure & Pedicure $89" loading="lazy" />
                 </div>
             </div>
-
-            <div class="price-card-modern">
-                <div class="card-image-wrap">
-                    <img src="spacehead45-nails-9134036_1920.png" alt="Gelish Manicure" class="img-top" loading="lazy" />
-                    <span class="badge-popular">Popular</span>
-                    <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">5,112</span></div>
-                </div>
-                <div class="card-content">
-                    <div class="card-header-row">
-                        <h3 class="card-title">Gelish Manicure</h3>
-                        <div class="card-price-container"><span class="price-original">$98.00</span><span class="price-discount-tag">🏷️</span><span class="price-current">$79</span></div>
-                    </div>
-                    <p class="card-description">Long-lasting gel polish manicure with a flawless, high-shine finish, brought right to your home.</p>
+            <div class="poster-card">
+                <div class="poster-inner">
+                    <img src="poster_3.jpg" alt="Gelish Pedicure $95" loading="lazy" />
                 </div>
             </div>
-
+            <div class="poster-card">
+                <div class="poster-inner">
+                    <img src="poster_4.jpg" alt="Cateye Gelish Manicure $85" loading="lazy" />
+                </div>
+            </div>
+            <div class="poster-card">
+                <div class="poster-inner">
+                    <img src="poster_5.jpg" alt="Cateye Gelish $129" loading="lazy" />
+                </div>
+            </div>
+            <div class="poster-card">
+                <div class="poster-inner">
+                    <img src="poster_6.jpg" alt="Classic Manicure $70" loading="lazy" />
+                </div>
+            </div>
+            <div class="poster-card">
+                <div class="poster-inner">
+                    <img src="poster_8.jpg" alt="Ombré Gelish's $129" loading="lazy" />
+                </div>
+            </div>
+            <div class="poster-card">
+                <div class="poster-inner">
+                    <img src="poster_16.jpg" alt="Female Manicure $75" loading="lazy" />
+                </div>
+            </div>
+            <div class="poster-card">
+                <div class="poster-inner">
+                    <img src="poster_17.jpg" alt="Female Pedicure $80" loading="lazy" />
+                </div>
+            </div>
         </div>
 
-        <h2 class="section-title">Personal Pedicure Care</h2>
-        <p class="section-subtitle-center">Four dedicated pedicure experiences, tailored to your feet and brought straight to your door.</p>
-        <div class="price-grid">
-
-            <div class="price-card-modern">
-                <div class="card-image-wrap">
-                    <img src="user_img_1.jpg" alt="Deluxe Personal Pedicure Treatment" loading="lazy" />
-                    <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">156</span></div>
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">Deluxe Personal Pedicure</h3>
-                    <p class="card-description">A dreamy pastel flower-infused soak with gentle exfoliation and a relaxing massage for soft, pretty feet.</p>
+        <!-- SECTION 2: MEN'S GROOMING & HOME SERVICES -->
+        <h2 class="section-title">Men's Grooming & Home Services</h2>
+        <p class="section-subtitle-center">Clean, groomed, and confident. Professional nail care designed specifically for men.</p>
+        <div class="poster-grid">
+            <div class="poster-card">
+                <div class="poster-inner">
+                    <img src="poster_9.jpg" alt="Professional Nail Care for Men" loading="lazy" />
                 </div>
             </div>
-
-            <div class="price-card-modern">
-                <div class="card-image-wrap">
-                    <img src="tropical-blossom-pedicure-soak.jpg" alt="Classic Pedicure" loading="lazy" />
-                    <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">142</span></div>
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">Classic Pedicure</h3>
-                    <p class="card-description">A classic, relaxing foot soak followed by exfoliation, massage, and polish, brought to your home.</p>
+            <div class="poster-card">
+                <div class="poster-inner">
+                    <img src="poster_10.jpg" alt="Man Manicure & Pedicure $95" loading="lazy" />
                 </div>
             </div>
-
-            <div class="price-card-modern">
-                <div class="card-image-wrap">
-                    <img src="user_img_2.jpg" alt="Rose Petal Spa Soak Ritual" loading="lazy" />
-                    <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">98</span></div>
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">Rose Petal Soak Ritual</h3>
-                    <p class="card-description">A calming rose-petal soak paired with cuticle care and a smoothing scrub for soft, refreshed feet.</p>
+            <div class="poster-card">
+                <div class="poster-inner">
+                    <img src="poster_11.jpg" alt="Men & Female Pedicure $115" loading="lazy" />
                 </div>
             </div>
-
-            <div class="price-card-modern">
-                <div class="card-image-wrap">
-                    <img src="user_img_3.jpg" alt="Senior and Diabetic Foot Care" loading="lazy" />
-                    <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">76</span></div>
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">Senior &amp; Diabetic Foot Care</h3>
-                    <p class="card-description">Gentle, medically-mindful pedicure care suited for elderly and diabetic clients, performed with extra caution and hygiene.</p>
+            <div class="poster-card">
+                <div class="poster-inner">
+                    <img src="poster_12.jpg" alt="Men's Home Manicure & Pedicure $75" loading="lazy" />
                 </div>
             </div>
-
-            <div class="price-card-modern">
-                <div class="card-image-wrap">
-                    <img src="Cateye Gelish pedicure $95.jpeg" alt="Cateye Gelish Pedicure" loading="lazy" />
-                    <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">45</span></div>
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">Cateye Gelish Pedicure</h3>
-                    <p class="card-description">Mesmerizing cateye effect with rich, magnetic gel polish for a truly unique pedicure.</p>
+            <div class="poster-card">
+                <div class="poster-inner">
+                    <img src="poster_13.jpg" alt="Professional Nail Care for Men $75" loading="lazy" />
                 </div>
             </div>
-
+            <div class="poster-card">
+                <div class="poster-inner">
+                    <img src="poster_14.jpg" alt="Men's Manicure $75" loading="lazy" />
+                </div>
+            </div>
+            <div class="poster-card">
+                <div class="poster-inner">
+                    <img src="poster_15.jpg" alt="Men's Manicure & Pedicure $95" loading="lazy" />
+                </div>
+            </div>
         </div>
 
-        <h2 class="section-title">Our Portfolio</h2>
-        <p class="section-subtitle-center">A glimpse of the nail art and styling we love creating for our clients.</p>
-        <div class="price-grid">
-
-            <div class="price-card-modern">
-                <div class="card-image-wrap">
-                    <img src="halloween-nails-spooky-nails-themed-manicure-dark-nails-creative-design-festive-nails-seasonal-beauty-nail-art-ideas-party-nails-trendy-manicure-nail-care-nail-polish-manicure-finger-nail-cosmetics-pink-artificial-n.jpg" alt="Halloween Spooky Nails" class="img-top" loading="lazy" />
-                    <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">54</span></div>
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">Art for Hands</h3>
-                    <p class="card-description">Includes a manicure and nail art ranging from simple accents to fully personalized designs.</p>
+        <!-- SECTION 3: SPECIALIZED TREATMENTS & ELDERLY CARE -->
+        <h2 class="section-title">Specialized Treatments & Elderly Care</h2>
+        <p class="section-subtitle-center">Gentle, medically-mindful care for ingrown nails, cracked heels, and senior clients.</p>
+        <div class="poster-grid">
+            <div class="poster-card">
+                <div class="poster-inner">
+                    <img src="poster_7.jpg" alt="Elderly Manicure & Pedicure $120" loading="lazy" />
                 </div>
             </div>
-
-            <div class="price-card-modern">
-                <div class="card-image-wrap">
-                    <img src="alehandra13-nails-5401834_1920.jpg" alt="Tropical Leaf Art" class="img-top" loading="lazy" />
-                    <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">39</span></div>
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">Seasonal &amp; Themed Art</h3>
-                    <p class="card-description">Playful themed sets for holidays and seasons, from tropical leaves to festive glitter finishes.</p>
+            <div class="poster-card">
+                <div class="poster-inner">
+                    <img src="poster_18.jpg" alt="Pedicure Cut Ingrown Nail $139" loading="lazy" />
                 </div>
             </div>
-
-            <div class="price-card-modern">
-                <div class="card-image-wrap">
-                    <img src="ralph_germany-nails-8388827_1920.jpg" alt="Elegant Nail Set" class="img-top" loading="lazy" />
-                    <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">47</span></div>
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">Classic &amp; Elegant Sets</h3>
-                    <p class="card-description">Timeless, polished nail sets perfect for everyday wear or a special occasion at home.</p>
+            <div class="poster-card">
+                <div class="poster-inner">
+                    <img src="poster_19.jpg" alt="Men's Ingrown Nail Cut $139" loading="lazy" />
                 </div>
             </div>
-
-            <div class="price-card-modern">
-                <div class="card-image-wrap">
-                    <img src="pexels-estoymhrb-20758448.jpg" alt="Fresh Manicure" class="img-top" loading="lazy" />
-                    <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">61</span></div>
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">Soft Everyday Manicure</h3>
-                    <p class="card-description">Clean, natural-looking nail care with soft polish tones, ideal for a fresh, low-key finish.</p>
+            <div class="poster-card">
+                <div class="poster-inner">
+                    <img src="poster_20.jpg" alt="Men's Cracked Heel $139" loading="lazy" />
                 </div>
             </div>
-
-            <div class="price-card-modern">
-                <div class="card-image-wrap">
-                    <img src="Ombré manicure nail design.jpeg" alt="Ombré Manicure" class="img-top" loading="lazy" />
-                    <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">52</span></div>
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">Ombré Manicure</h3>
-                    <p class="card-description">Seamless ombré gradient with a sophisticated, modern finish.</p>
+            <div class="poster-card">
+                <div class="poster-inner">
+                    <img src="poster_21.jpg" alt="Lady's Ingrown Cut $139" loading="lazy" />
                 </div>
             </div>
-
-            <div class="price-card-modern">
-                <div class="card-image-wrap">
-                    <img src="Classic manicure $70.jpeg" alt="Classic Manicure" class="img-top" loading="lazy" />
-                    <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">38</span></div>
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">Classic Manicure</h3>
-                    <p class="card-description">A timeless, clean classic manicure for an effortlessly polished look.</p>
+            <div class="poster-card">
+                <div class="poster-inner">
+                    <img src="poster_22.jpg" alt="Pedicure Crack Heel $139" loading="lazy" />
                 </div>
             </div>
-
-            <div class="price-card-modern">
-                <div class="card-image-wrap">
-                    <img src="French, Gelish Manicure.jpeg" alt="French Gelish Manicure" class="img-top" loading="lazy" />
-                    <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">29</span></div>
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">French Gelish Manicure</h3>
-                    <p class="card-description">Elegant French tips with a long-lasting Gelish finish.</p>
+            <div class="poster-card">
+                <div class="poster-inner">
+                    <img src="poster_23.jpg" alt="Elderly Men Manicure Pedicure $95" loading="lazy" />
                 </div>
             </div>
-
-            <div class="price-card-modern">
-                <div class="card-image-wrap">
-                    <img src="Gelish manicure $75.jpeg" alt="Gelish Manicure" class="img-top" loading="lazy" />
-                    <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">34</span></div>
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">Gelish Manicure</h3>
-                    <p class="card-description">High-shine, durable Gelish manicure for a flawless, lasting result.</p>
+            <div class="poster-card">
+                <div class="poster-inner">
+                    <img src="poster_24.jpg" alt="Elderly Man Nail Care Services $95" loading="lazy" />
                 </div>
             </div>
-
-            <div class="price-card-modern">
-                <div class="card-image-wrap">
-                    <img src="Wedding Gelish manicure.jpeg" alt="Wedding Gelish Manicure" class="img-top" loading="lazy" />
-                    <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">27</span></div>
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">Wedding Gelish Manicure</h3>
-                    <p class="card-description">Bridal-ready Gelish manicure designed for your special day.</p>
-                </div>
-            </div>
-
-            <div class="price-card-modern">
-                <div class="card-image-wrap">
-                    <img src="Gelish manicure with nail art.jpeg" alt="Gelish with Nail Art" class="img-top" loading="lazy" />
-                    <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">21</span></div>
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">Gelish with Nail Art</h3>
-                    <p class="card-description">Creative nail art layered over a durable Gelish base.</p>
-                </div>
-            </div>
-
-            <div class="price-card-modern">
-                <div class="card-image-wrap">
-                    <img src="Cateye Gelish manicure $85.jpeg" alt="Cateye Gelish Manicure" class="img-top" loading="lazy" />
-                    <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">33</span></div>
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">Cateye Gelish Manicure</h3>
-                    <p class="card-description">Magnetic cateye effect for a dynamic, shimmering look.</p>
-                </div>
-            </div>
-
-            <div class="price-card-modern">
-                <div class="card-image-wrap">
-                    <img src="Nail art design.jpeg" alt="Nail Art Design" class="img-top" loading="lazy" />
-                    <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">19</span></div>
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">Nail Art Design</h3>
-                    <p class="card-description">Custom nail art tailored to your personal style.</p>
-                </div>
-            </div>
-
-            <!-- Additional Uploaded Pictures (8, 9, 10, 11, 12, 13, 14) -->
-            <div class="price-card-modern">
-                <div class="card-image-wrap">
-                    <img src="user_img_8.jpg" class="img-top" loading="lazy" />
-                    <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">0</span></div>
-                </div>
-                <div class="card-content"></div>
-            </div>
-
-            <div class="price-card-modern">
-                <div class="card-image-wrap">
-                    <img src="user_img_9.jpg" class="img-top" loading="lazy" />
-                    <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">0</span></div>
-                </div>
-                <div class="card-content"></div>
-            </div>
-
-            <div class="price-card-modern">
-                <div class="card-image-wrap">
-                    <img src="user_img_10.jpg" class="img-top" loading="lazy" />
-                    <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">0</span></div>
-                </div>
-                <div class="card-content"></div>
-            </div>
-
-            <div class="price-card-modern">
-                <div class="card-image-wrap">
-                    <img src="user_img_11.jpg" class="img-top" loading="lazy" />
-                    <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">0</span></div>
-                </div>
-                <div class="card-content"></div>
-            </div>
-
-            <div class="price-card-modern">
-                <div class="card-image-wrap">
-                    <img src="user_img_12.jpg" class="img-top" loading="lazy" />
-                    <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">0</span></div>
-                </div>
-                <div class="card-content"></div>
-            </div>
-
-            <div class="price-card-modern">
-                <div class="card-image-wrap">
-                    <img src="user_img_13.jpg" class="img-top" loading="lazy" />
-                    <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">0</span></div>
-                </div>
-                <div class="card-content"></div>
-            </div>
-
-            <div class="price-card-modern">
-                <div class="card-image-wrap">
-                    <img src="user_img_14.jpg" class="img-top" loading="lazy" />
-                    <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">0</span></div>
-                </div>
-                <div class="card-content"></div>
-            </div>
-
-        </div>
-
-        <h2 class="section-title">Meet Our Specialists</h2>
-        <p class="section-subtitle-center">The licensed technicians behind every Heartfelt Home appointment.</p>
-        <div class="price-grid">
-
-            <div class="price-card-modern">
-                <div class="card-image-wrap">
-                    <img src="user_img_4.jpg" alt="Mei Ling providing senior foot care" loading="lazy" />
-                    <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">31</span></div>
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">Mei Ling</h3>
-                    <p class="card-description">Licensed nail tech instructor with over two decades of experience, now focused on gentle, diabetic-safe care for senior clients.</p>
-                </div>
-            </div>
-
-            <div class="price-card-modern">
-                <div class="card-image-wrap">
-                    <img src="user_img_5.jpg" alt="Aisha performing a gloved pedicure" loading="lazy" />
-                    <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">24</span></div>
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">Aisha</h3>
-                    <p class="card-description">Licensed medical nail technician specializing in careful, hygienic pedicures for sensitive skin and medical needs.</p>
-                </div>
-            </div>
-
-            <div class="price-card-modern">
-                <div class="card-image-wrap">
-                    <img src="user_img_6.jpg" alt="Farah performing a pedicure" loading="lazy" />
-                    <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">18</span></div>
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">Farah</h3>
-                    <p class="card-description">Wellness-focused technician delivering clean, professional manicures and pedicures with a calming spa touch.</p>
-                </div>
-            </div>
-
-            <div class="price-card-modern">
-                <div class="card-image-wrap">
-                    <img src="user_img_7.jpg" alt="Priya at work on a pedicure" loading="lazy" />
-                    <div class="badge-rating"><span class="stars">★★★★★</span><span class="count">15</span></div>
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">Priya</h3>
-                    <p class="card-description">Mobile styling specialist bringing trend-forward nail art and glam wherever you're most comfortable.</p>
-                </div>
-            </div>
-
         </div>
 
     </div>
@@ -1341,7 +1020,7 @@
     <!-- ─── CONTACT TAB ─── -->
     <div id="contactTab" class="tab-content" style="display: none;">
         <div class="contact-box">
-            <h2 class="section-title" style="margin-bottom: 16px;">Book Your Session</h2>
+            <h2 class="section-title" style="margin-bottom: 16px; margin-top: 0;">Book Your Session</h2>
             <p>Ready for a salon experience at home? Reach out to schedule your appointment today.</p>
 
             <span class="contact-number">+65 9123 4567</span>
@@ -1349,7 +1028,7 @@
             <p style="margin-bottom: 24px; font-size: 0.9rem;">Available on WhatsApp and Calls<br />Mon–Sun: 9:00 AM – 8:00 PM</p>
 
             <div class="social-links">
-                <a href="#" title="WhatsApp" aria-label="WhatsApp">
+                <a href="https://wa.me/6591234567" target="_blank" rel="noopener noreferrer" title="WhatsApp" aria-label="WhatsApp">
                     <svg viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564c.173.087.289.129.332.202.043.073.043.423-.101.827z"/></svg>
                 </a>
                 <a href="#" title="Instagram" aria-label="Instagram">
@@ -1364,6 +1043,13 @@
         &copy; 2024 Heartfelt Home. All rights reserved.<br />
         <span style="font-size: 0.8rem; color: #777;">Singapore Mobile Salon Services</span>
     </footer>
+
+    <!-- ─── FLOATING WHATSAPP BUTTON ─── -->
+    <a href="https://wa.me/6591234567" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+        <svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+            <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+        </svg>
+    </a>
 
     <!-- ─── COOKIE CONSENT BANNER ─── -->
     <div id="cookieBanner" class="cookie-banner">

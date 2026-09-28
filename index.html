@@ -213,30 +213,29 @@
             -webkit-backdrop-filter: blur(2px);
         }
 
-        /* ─── 3D POSTER GALLERY ─── */
+        /* ─── MASONRY POSTER GALLERY (NO CROPPING) ─── */
         .poster-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 35px;
-            margin-bottom: 60px;
+            column-count: 3; /* Creates a masonry layout */
+            column-gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto 60px;
             padding: 0 10px;
-            perspective: 1200px; /* Essential for 3D effects to work on the grid */
         }
 
         .poster-card {
+            break-inside: avoid; /* Prevents posters from breaking across columns */
+            margin-bottom: 25px;
             perspective: 1000px;
-            width: 100%;
-            border-radius: 24px;
+            border-radius: 20px;
             cursor: pointer;
             -webkit-tap-highlight-color: transparent;
+            position: relative;
         }
 
         .poster-inner {
             position: relative;
             width: 100%;
-            /* Aspect ratio of the posters (roughly 4:5) */
-            aspect-ratio: 4 / 5;
-            border-radius: 24px;
+            border-radius: 20px;
             overflow: hidden;
             background: #ffffff;
             box-shadow: 
@@ -246,19 +245,6 @@
             transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             transform-style: preserve-3d;
             will-change: transform, box-shadow;
-        }
-
-        /* Fallback for browsers that don't support aspect-ratio */
-        @supports not (aspect-ratio: 4 / 5) {
-            .poster-inner {
-                height: 0;
-                padding-bottom: 125%; /* 4:5 ratio */
-            }
-            .poster-inner img {
-                position: absolute;
-                top: 0;
-                left: 0;
-            }
         }
 
         /* 3D Hover Effect */
@@ -280,8 +266,7 @@
 
         .poster-inner img {
             width: 100%;
-            height: 100%;
-            object-fit: cover; /* Ensures the poster fills the card beautifully */
+            height: auto; /* Allows the image to display fully without cropping */
             display: block;
             transition: transform 0.6s ease;
             -webkit-touch-callout: none;
@@ -289,7 +274,54 @@
         }
 
         .poster-card:hover .poster-inner img {
-            transform: scale(1.05); /* Subtle zoom on the image inside the 3D card */
+            transform: scale(1.03); /* Subtle zoom on the image inside the 3D card */
+        }
+
+        /* ─── LIGHTBOX (CLICK TO ENLARGE) ─── */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            padding-top: 50px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.88);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+        .lightbox-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 85vh;
+            border-radius: 12px;
+            box-shadow: 0 0 40px rgba(255, 255, 255, 0.15);
+            animation: zoomIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            object-fit: contain;
+        }
+        @keyframes zoomIn {
+            from { transform: scale(0.85); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 15px;
+            right: 30px;
+            color: #ffffff;
+            font-size: 45px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10001;
+            line-height: 1;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+        .lightbox-close:hover {
+            color: #ff4081;
+            transform: scale(1.1) rotate(90deg);
         }
 
         /* ─── PRICING TAB ─── */
@@ -456,7 +488,7 @@
             text-align: center;
             font-size: 30px;
             box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
-            z-index: 10000; /* Ensure it's above everything */
+            z-index: 9999; /* Ensure it's above everything but below lightbox */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -515,7 +547,7 @@
             align-items: center;
             justify-content: space-between;
             gap: 14px;
-            z-index: 9999;
+            z-index: 9998; /* Below WhatsApp and Lightbox */
             border-top: 1px solid rgba(255, 255, 255, 0.08);
             box-shadow: 0 -6px 30px rgba(0, 0, 0, 0.2);
             font-size: 0.9rem;
@@ -578,7 +610,12 @@
         }
 
         /* ─── RESPONSIVE BREAKPOINTS (CHROME, SAFARI, EDGE) ─── */
+        @media (max-width: 1024px) {
+            .poster-grid { column-count: 2; }
+        }
+
         @media (max-width: 768px) {
+            .poster-grid { column-count: 1; }
             nav {
                 padding: 12px 16px;
                 flex-direction: column;
@@ -617,11 +654,6 @@
                 font-size: 0.9rem;
                 padding: 6px 14px;
                 margin: -20px auto 30px;
-            }
-            .poster-grid {
-                grid-template-columns: 1fr;
-                gap: 25px;
-                padding: 0 5px;
             }
             .pricing-category {
                 padding: 28px 16px;
@@ -680,6 +712,11 @@
                 width: 28px;
                 height: 28px;
             }
+            .lightbox-close {
+                top: 15px;
+                right: 20px;
+                font-size: 35px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -713,12 +750,6 @@
             .social-links svg {
                 width: 20px;
                 height: 20px;
-            }
-        }
-
-        @media (min-width: 769px) and (max-width: 1024px) {
-            .poster-grid {
-                grid-template-columns: repeat(2, 1fr);
             }
         }
 
@@ -763,137 +794,150 @@
             <p>Heartfelt Home provides professional mobile hair and nail services across Singapore, bringing haircuts, styling, colouring, treatments, manicures, and pedicures directly to your home for clean, convenient, and reliable salon care for all ages.</p>
         </div>
 
-        <!-- SECTION 1: SIGNATURE MANICURE & PEDICURE -->
-        <h2 class="section-title">Signature Manicure & Pedicure</h2>
-        <p class="section-subtitle-center">Classic elegance and trendy gelish designs brought straight to your doorstep.</p>
+        <!-- UNIFIED SECTION: OUR SERVICE POSTERS -->
+        <h2 class="section-title">Our Service Posters</h2>
+        <p class="section-subtitle-center">Click on any poster to enlarge and view the full details.</p>
+        
         <div class="poster-grid">
+            <!-- Poster 1 -->
             <div class="poster-card">
                 <div class="poster-inner">
                     <img src="poster_1.jpg" alt="French Manicure" loading="lazy" />
                 </div>
             </div>
+            <!-- Poster 2 -->
             <div class="poster-card">
                 <div class="poster-inner">
                     <img src="poster_2.jpg" alt="Classic Manicure & Pedicure $89" loading="lazy" />
                 </div>
             </div>
+            <!-- Poster 3 -->
             <div class="poster-card">
                 <div class="poster-inner">
                     <img src="poster_3.jpg" alt="Gelish Pedicure $95" loading="lazy" />
                 </div>
             </div>
+            <!-- Poster 4 -->
             <div class="poster-card">
                 <div class="poster-inner">
                     <img src="poster_4.jpg" alt="Cateye Gelish Manicure $85" loading="lazy" />
                 </div>
             </div>
+            <!-- Poster 5 -->
             <div class="poster-card">
                 <div class="poster-inner">
                     <img src="poster_5.jpg" alt="Cateye Gelish $129" loading="lazy" />
                 </div>
             </div>
+            <!-- Poster 6 -->
             <div class="poster-card">
                 <div class="poster-inner">
                     <img src="poster_6.jpg" alt="Classic Manicure $70" loading="lazy" />
                 </div>
             </div>
-            <div class="poster-card">
-                <div class="poster-inner">
-                    <img src="poster_8.jpg" alt="Ombré Gelish's $129" loading="lazy" />
-                </div>
-            </div>
-            <div class="poster-card">
-                <div class="poster-inner">
-                    <img src="poster_16.jpg" alt="Female Manicure $75" loading="lazy" />
-                </div>
-            </div>
-            <div class="poster-card">
-                <div class="poster-inner">
-                    <img src="poster_17.jpg" alt="Female Pedicure $80" loading="lazy" />
-                </div>
-            </div>
-        </div>
-
-        <!-- SECTION 2: MEN'S GROOMING & HOME SERVICES -->
-        <h2 class="section-title">Men's Grooming & Home Services</h2>
-        <p class="section-subtitle-center">Clean, groomed, and confident. Professional nail care designed specifically for men.</p>
-        <div class="poster-grid">
-            <div class="poster-card">
-                <div class="poster-inner">
-                    <img src="poster_9.jpg" alt="Professional Nail Care for Men" loading="lazy" />
-                </div>
-            </div>
-            <div class="poster-card">
-                <div class="poster-inner">
-                    <img src="poster_10.jpg" alt="Man Manicure & Pedicure $95" loading="lazy" />
-                </div>
-            </div>
-            <div class="poster-card">
-                <div class="poster-inner">
-                    <img src="poster_11.jpg" alt="Men & Female Pedicure $115" loading="lazy" />
-                </div>
-            </div>
-            <div class="poster-card">
-                <div class="poster-inner">
-                    <img src="poster_12.jpg" alt="Men's Home Manicure & Pedicure $75" loading="lazy" />
-                </div>
-            </div>
-            <div class="poster-card">
-                <div class="poster-inner">
-                    <img src="poster_13.jpg" alt="Professional Nail Care for Men $75" loading="lazy" />
-                </div>
-            </div>
-            <div class="poster-card">
-                <div class="poster-inner">
-                    <img src="poster_14.jpg" alt="Men's Manicure $75" loading="lazy" />
-                </div>
-            </div>
-            <div class="poster-card">
-                <div class="poster-inner">
-                    <img src="poster_15.jpg" alt="Men's Manicure & Pedicure $95" loading="lazy" />
-                </div>
-            </div>
-        </div>
-
-        <!-- SECTION 3: SPECIALIZED TREATMENTS & ELDERLY CARE -->
-        <h2 class="section-title">Specialized Treatments & Elderly Care</h2>
-        <p class="section-subtitle-center">Gentle, medically-mindful care for ingrown nails, cracked heels, and senior clients.</p>
-        <div class="poster-grid">
+            <!-- Poster 7 -->
             <div class="poster-card">
                 <div class="poster-inner">
                     <img src="poster_7.jpg" alt="Elderly Manicure & Pedicure $120" loading="lazy" />
                 </div>
             </div>
+            <!-- Poster 8 -->
+            <div class="poster-card">
+                <div class="poster-inner">
+                    <img src="poster_8.jpg" alt="Ombré Gelish's $129" loading="lazy" />
+                </div>
+            </div>
+            <!-- Poster 9 -->
+            <div class="poster-card">
+                <div class="poster-inner">
+                    <img src="poster_9.jpg" alt="Professional Nail Care for Men" loading="lazy" />
+                </div>
+            </div>
+            <!-- Poster 10 -->
+            <div class="poster-card">
+                <div class="poster-inner">
+                    <img src="poster_10.jpg" alt="Man Manicure & Pedicure $95" loading="lazy" />
+                </div>
+            </div>
+            <!-- Poster 11 -->
+            <div class="poster-card">
+                <div class="poster-inner">
+                    <img src="poster_11.jpg" alt="Men & Female Pedicure $115" loading="lazy" />
+                </div>
+            </div>
+            <!-- Poster 12 -->
+            <div class="poster-card">
+                <div class="poster-inner">
+                    <img src="poster_12.jpg" alt="Men's Home Manicure & Pedicure $75" loading="lazy" />
+                </div>
+            </div>
+            <!-- Poster 13 -->
+            <div class="poster-card">
+                <div class="poster-inner">
+                    <img src="poster_13.jpg" alt="Professional Nail Care for Men $75" loading="lazy" />
+                </div>
+            </div>
+            <!-- Poster 14 -->
+            <div class="poster-card">
+                <div class="poster-inner">
+                    <img src="poster_14.jpg" alt="Men's Manicure $75" loading="lazy" />
+                </div>
+            </div>
+            <!-- Poster 15 -->
+            <div class="poster-card">
+                <div class="poster-inner">
+                    <img src="poster_15.jpg" alt="Men's Manicure & Pedicure $95" loading="lazy" />
+                </div>
+            </div>
+            <!-- Poster 16 -->
+            <div class="poster-card">
+                <div class="poster-inner">
+                    <img src="poster_16.jpg" alt="Female Manicure $75" loading="lazy" />
+                </div>
+            </div>
+            <!-- Poster 17 -->
+            <div class="poster-card">
+                <div class="poster-inner">
+                    <img src="poster_17.jpg" alt="Female Pedicure $80" loading="lazy" />
+                </div>
+            </div>
+            <!-- Poster 18 -->
             <div class="poster-card">
                 <div class="poster-inner">
                     <img src="poster_18.jpg" alt="Pedicure Cut Ingrown Nail $139" loading="lazy" />
                 </div>
             </div>
+            <!-- Poster 19 -->
             <div class="poster-card">
                 <div class="poster-inner">
                     <img src="poster_19.jpg" alt="Men's Ingrown Nail Cut $139" loading="lazy" />
                 </div>
             </div>
+            <!-- Poster 20 -->
             <div class="poster-card">
                 <div class="poster-inner">
                     <img src="poster_20.jpg" alt="Men's Cracked Heel $139" loading="lazy" />
                 </div>
             </div>
+            <!-- Poster 21 -->
             <div class="poster-card">
                 <div class="poster-inner">
                     <img src="poster_21.jpg" alt="Lady's Ingrown Cut $139" loading="lazy" />
                 </div>
             </div>
+            <!-- Poster 22 -->
             <div class="poster-card">
                 <div class="poster-inner">
                     <img src="poster_22.jpg" alt="Pedicure Crack Heel $139" loading="lazy" />
                 </div>
             </div>
+            <!-- Poster 23 -->
             <div class="poster-card">
                 <div class="poster-inner">
                     <img src="poster_23.jpg" alt="Elderly Men Manicure Pedicure $95" loading="lazy" />
                 </div>
             </div>
+            <!-- Poster 24 -->
             <div class="poster-card">
                 <div class="poster-inner">
                     <img src="poster_24.jpg" alt="Elderly Man Nail Care Services $95" loading="lazy" />
@@ -1051,6 +1095,12 @@
         </svg>
     </a>
 
+    <!-- ─── LIGHTBOX MODAL ─── -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img" alt="Enlarged Poster">
+    </div>
+
     <!-- ─── COOKIE CONSENT BANNER ─── -->
     <div id="cookieBanner" class="cookie-banner">
         <p>
@@ -1109,6 +1159,34 @@
             element.classList.add('active');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
+
+        // ─── LIGHTBOX (CLICK TO ENLARGE) ───
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const closeBtn = document.querySelector('.lightbox-close');
+
+        // Add click event to all poster images
+        document.querySelectorAll('.poster-card img').forEach(img => {
+            img.addEventListener('click', function() {
+                lightbox.style.display = 'block';
+                lightboxImg.src = this.src;
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            });
+        });
+
+        // Close lightbox when clicking the X button
+        closeBtn.addEventListener('click', function() {
+            lightbox.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restore background scrolling
+        });
+
+        // Close lightbox when clicking outside the image
+        lightbox.addEventListener('click', function(e) {
+            if (e.target === lightbox) {
+                lightbox.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
 
         // ─── SPARKLE CANVAS ───
         const canvas = document.getElementById('sparkleCanvas');
